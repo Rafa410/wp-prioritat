@@ -15365,6 +15365,111 @@ h1, .h1 {
   box-shadow: 0 5px 5px -2px rgba(45, 68, 25, 0.5);
 }
 
+.homepage-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e5a32c;
+}
+.homepage-hero .bg-image {
+  inset: 0;
+  z-index: -1;
+}
+.homepage-hero .bg-image > img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.homepage-hero .hero-content {
+  width: 85%;
+  margin: 0 auto;
+}
+.homepage-hero .hero-content h1, .homepage-hero .hero-content .h1 {
+  font-size: calc(1.575rem + 3.9vw);
+}
+@media (min-width: 1200px) {
+  .homepage-hero .hero-content h1, .homepage-hero .hero-content .h1 {
+    font-size: 4.5rem;
+  }
+}
+.homepage-hero .hero-content h2, .homepage-hero .hero-content .h2 {
+  font-size: calc(1.425rem + 2.1vw);
+}
+@media (min-width: 1200px) {
+  .homepage-hero .hero-content h2, .homepage-hero .hero-content .h2 {
+    font-size: 3rem;
+  }
+}
+.homepage-hero .hero-content .description {
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.375);
+  max-width: 85%;
+}
+@media (min-width: 768px) {
+  .homepage-hero .hero-content .description {
+    max-width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  .homepage-hero .hero-content .description {
+    max-width: min(40rem, 60%);
+  }
+}
+.homepage-hero .hero-content .btn-animated::before, .homepage-hero .hero-content .btn-animated::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #2d4419;
+}
+.homepage-hero .hero-content .btn-animated > span::before, .homepage-hero .hero-content .btn-animated > span::after {
+  content: "";
+  width: 2px;
+  height: 0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #2d4419;
+}
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus)::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::after {
+  width: 100%;
+}
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
+  height: 100%;
+}
+.homepage-hero .hero-content .btn-animated::before, .homepage-hero .hero-content .btn-animated::after {
+  transition-delay: 0s;
+}
+.homepage-hero .hero-content .btn-animated span::before, .homepage-hero .hero-content .btn-animated span::after {
+  transition-delay: 0.2s;
+}
+.homepage-hero .hero-content .btn-animated::before {
+  right: 0;
+  top: 0;
+}
+.homepage-hero .hero-content .btn-animated::after {
+  left: 0;
+  bottom: 0;
+}
+.homepage-hero .hero-content .btn-animated span::before {
+  left: 0;
+  top: 0;
+}
+.homepage-hero .hero-content .btn-animated span::after {
+  right: 0;
+  bottom: 0;
+}
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus)::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::after {
+  transition-delay: 0.2s;
+}
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
+  transition-delay: 0s;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;

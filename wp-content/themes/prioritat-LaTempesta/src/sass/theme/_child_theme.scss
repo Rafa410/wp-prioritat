@@ -86,3 +86,123 @@ h1 {
     }
 
 }
+
+.homepage-hero {
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 0.5rem;
+        background-color: $secondary;
+    }
+
+    .bg-image {
+        inset: 0;
+        z-index: -1;
+
+        > img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .hero-content {
+        width: 85%;
+        margin: 0 auto;
+
+        h1 {
+            @include font-size(4.5rem);
+        }
+        h2 {
+            @include font-size(3rem);
+        }
+
+        .description {
+            font-weight: 500;
+            background: rgba(black, 0.375);
+            max-width: 85%;
+
+            @include media-breakpoint-up(md) {
+                max-width: 75%;
+            }
+            @include media-breakpoint-up(lg) {
+                max-width: min(40rem, 60%);
+            }
+        }
+        
+        .btn-animated {
+
+            &::before, &::after {
+                content: '';
+                width: 0;
+                height: 2px;
+                position: absolute;
+                transition: all 0.2s linear;
+                background: $primary;
+            }
+
+            > span {
+                &::before, &::after {
+                    content: '';
+                    width: 2px;
+                    height: 0;
+                    position: absolute;
+                    transition: all 0.2s linear;
+                    background: $primary;
+                }
+            }
+
+            &:where(:hover, :focus) {
+                &::before, &::after {
+                    width: 100%;
+                }
+                span::before, span::after {
+                    height: 100%;
+                }
+            }
+
+            &::before, &::after {
+                transition-delay: 0s;
+            }
+    
+            span::before, span::after {
+                transition-delay: 0.2s;
+            }
+    
+            &::before {
+                right: 0;
+                top: 0;
+            }
+            &::after {
+                left: 0;
+                bottom: 0;
+            }
+    
+            span::before {
+                left: 0;
+                top: 0;
+            }
+    
+            span::after {
+                right: 0;
+                bottom: 0;
+            }
+    
+            &:where(:hover, :focus) {
+                &::before, &::after {
+                    transition-delay: 0.2s;
+                }
+    
+                span::before, span::after {
+                    transition-delay: 0s;
+                }
+            }
+
+        }
+        
+    }
+}
