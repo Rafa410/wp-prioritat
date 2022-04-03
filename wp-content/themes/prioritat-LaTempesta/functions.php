@@ -87,3 +87,12 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+
+/**
+ * Remove margin-top from HTML when logged in
+ */
+function prt_remove_admin_bar(){
+	add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
+}
+add_action('after_setup_theme','prt_remove_admin_bar');
