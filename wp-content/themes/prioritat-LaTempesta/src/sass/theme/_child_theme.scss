@@ -3,12 +3,17 @@
     padding-top: $menu-height;
 }
 
-h1 {
+h1, header > h2 {
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-weight: bold; 
 }
 
+header > h2 {
+    @include font-size(2.5rem);
+}
+
 .bg-title {
+    display: inline-block;
     position: relative;
     z-index: 0;
 
@@ -21,6 +26,12 @@ h1 {
         left: 0;
         z-index: -1;
         background-color: $primary;
+    }
+
+    &-tertiary {
+        &::before {
+            background-color: $tertiary;
+        }
     }
 }
 
@@ -257,7 +268,7 @@ a.read-more {
             flex: 1;
             min-width: 13rem;
             max-width: max(50%, 25rem);
-            
+
             display: flex;
             flex-flow: column;
 
@@ -272,4 +283,48 @@ a.read-more {
 
     }
 
+}
+
+
+#agenda {
+    
+    .calendar-monthly-view {
+        width: 95%;
+        min-height: 300px;
+        background-color: #eee;
+    }
+
+    .calendar-list-view {
+        
+        .event-date {
+            @include font-size(1.625rem);
+            font-weight: bold;
+            text-align: center;
+
+            &.bg-primary {
+                color: rgba(white, 0.87);
+            }
+
+            &.bg-secondary {
+                color: $primary;
+            }
+        }
+
+        .event-content {
+            .title {
+                font-size: $font-size-base;
+                font-weight: bold;
+            }
+            .description {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}
+
+
+::selection {
+    background-color: $tertiary;
+    color: white;
 }

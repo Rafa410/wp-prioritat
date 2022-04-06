@@ -15303,12 +15303,22 @@ figure.woocommerce-product-gallery__wrapper {
   padding-top: 3.5rem;
 }
 
-h1, .h1 {
+h1, .h1, header > h2, header > .h2 {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
 }
 
+header > h2, header > .h2 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  header > h2, header > .h2 {
+    font-size: 2.5rem;
+  }
+}
+
 .bg-title {
+  display: inline-block;
   position: relative;
   z-index: 0;
 }
@@ -15321,6 +15331,9 @@ h1, .h1 {
   left: 0;
   z-index: -1;
   background-color: #2d4419;
+}
+.bg-title-tertiary::before {
+  background-color: #96a81e;
 }
 
 a.read-more {
@@ -15522,6 +15535,45 @@ a.read-more:where(:hover, :focus)::after {
   text-transform: uppercase;
   text-align: center;
   color: #2d4419;
+}
+
+#agenda .calendar-monthly-view {
+  width: 95%;
+  min-height: 300px;
+  background-color: #eee;
+}
+#agenda .calendar-list-view .event-date {
+  font-size: calc(1.2875rem + 0.45vw);
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 1200px) {
+  #agenda .calendar-list-view .event-date {
+    font-size: 1.625rem;
+  }
+}
+#agenda .calendar-list-view .event-date.bg-primary {
+  color: rgba(255, 255, 255, 0.87);
+}
+#agenda .calendar-list-view .event-date.bg-secondary {
+  color: #2d4419;
+}
+#agenda .calendar-list-view .event-content .title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+#agenda .calendar-list-view .event-content .description {
+  margin-bottom: 0;
+}
+
+::-moz-selection {
+  background-color: #96a81e;
+  color: white;
+}
+
+::selection {
+  background-color: #96a81e;
+  color: white;
 }
 
 .has-blue-color,
