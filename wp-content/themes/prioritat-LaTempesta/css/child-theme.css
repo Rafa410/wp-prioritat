@@ -15566,6 +15566,44 @@ a.read-more:where(:hover, :focus)::after {
   margin-bottom: 0;
 }
 
+#latest-news .post-list article {
+  flex: 0 0 calc(50% - 2rem);
+}
+@media (max-width: 575.98px) {
+  #latest-news .post-list article {
+    min-width: 100%;
+  }
+}
+#latest-news .post-list .entry-title {
+  font-size: 1.125rem;
+}
+#latest-news .post-list .entry-title a {
+  color: #212529;
+  transition: color 0.3s ease-out;
+}
+#latest-news .post-list .entry-title a:where(:hover, :focus) {
+  color: #96a81e;
+}
+#latest-news .post-list .wp-post-image {
+  width: 100%;
+  aspect-ratio: 7/3;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+#latest-news .noticeboard h3, #latest-news .noticeboard .h3 {
+  color: #2d4419;
+  font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  #latest-news .noticeboard h3, #latest-news .noticeboard .h3 {
+    font-size: 1.5rem;
+  }
+}
+#latest-news .noticeboard .announcements-list {
+  background-color: #FFF8D7;
+  height: 100%;
+}
+
 ::-moz-selection {
   background-color: #96a81e;
   color: white;

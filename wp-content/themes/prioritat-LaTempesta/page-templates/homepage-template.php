@@ -135,6 +135,48 @@ if ( is_front_page() ) {
 
 					</section>
 
+					<section id="latest-news" class="py 5">
+
+						<header>
+							<h2 class="bg-title bg-title-tertiary mb-4">Últimes notícies</h2>
+						</header>
+
+						<div class="row g-0">
+
+							<div class="post-list col-lg-8 d-flex flex-wrap align-items-start justify-content-between py-3 pe-2 pe-md-3">
+
+							<?php
+							$args = array(
+								'post_type' => 'post',
+								'posts_per_page' => 4,
+							);
+							$query = new WP_Query( $args );
+							
+							if ( $query->have_posts() ) {
+								while ( $query->have_posts() ) {
+									$query->the_post();
+									get_template_part( 'loop-templates/content', get_post_type() );
+								}
+							} else {
+								echo '<p>No s\'han trobat notícies recents.</p>';
+							}
+							
+							wp_reset_postdata();
+							?>
+
+							</div>
+
+							<div class="noticeboard col-lg-4 ps-3">
+								<h3>Taulell d'anuncis</h3>
+								<div class="announcements-list p-3">
+
+								</div>
+							</div>
+
+						</div>
+
+					</section>
+
 				</main><!-- #main -->
 
 			</div><!-- #primary -->

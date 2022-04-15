@@ -264,7 +264,7 @@ a.read-more {
     .values-list {
 
         .value {
-            background-color: #FFF8D7;
+            background-color: $light-yellow;
             flex: 1;
             min-width: 13rem;
             max-width: max(50%, 25rem);
@@ -318,6 +318,52 @@ a.read-more {
             .description {
                 margin-bottom: 0;
             }
+        }
+    }
+
+}
+
+
+#latest-news {
+
+    .post-list {
+        article {
+            flex: 0 0 calc(50% - 2rem);
+            
+            @include media-breakpoint-down(sm) {
+                min-width: 100%;
+            }
+        }
+
+        .entry-title {
+            font-size: 1.125rem;
+
+            a {
+                color: $dark;
+                transition: color 0.3s ease-out;
+
+                &:where(:hover, :focus) {
+                    color: $tertiary;
+                }
+            }
+        }
+
+        .wp-post-image {
+            width: 100%;
+            aspect-ratio: 7 / 3;
+            object-fit: cover;
+        }
+    }
+
+    .noticeboard {
+
+        h3 {
+            color: $primary;
+            @include font-size(1.5rem);
+        }
+        .announcements-list {
+            background-color: $light-yellow;
+            height: 100%;
         }
     }
 
