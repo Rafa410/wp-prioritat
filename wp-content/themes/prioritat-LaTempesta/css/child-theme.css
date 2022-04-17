@@ -15605,6 +15605,29 @@ a.read-more:where(:hover, :focus)::after {
   background-color: #FFF8D7;
 }
 
+.forums-list .forum {
+  color: #f8f9fa;
+  background-color: #2d4419;
+  flex: 1;
+  min-width: 10.9rem;
+  max-width: max(50%, 25rem);
+  display: flex;
+  flex-flow: column;
+}
+.forums-list .forum h3, .forums-list .forum .h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFF8D7;
+}
+.forums-list .forum .read-more {
+  color: currentColor;
+}
+.forums-list .forum .read-more:where(:hover, :focus) {
+  color: #e5a32c;
+}
+
 ::-moz-selection {
   background-color: #96a81e;
   color: white;

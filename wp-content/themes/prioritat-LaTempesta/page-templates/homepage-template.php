@@ -177,6 +177,78 @@ if ( is_front_page() ) {
 
 					</section>
 
+					<section id="forums" class="my-5">
+
+						<header>
+							<h2 class="bg-title bg-title-tertiary mb-4">Coneix els fòrums</h2>
+						</header>
+
+						<div class="forums-list d-flex flex-wrap gap-3 justify-content-center">
+
+							<div class="forum p-3" id="agrarian">
+								
+								<header>
+									<h3>Fòrum agrari</h3>
+								</header>
+								<p class="description lh-sm">
+									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
+								<a href="#" class="read-more">Més informació</a>
+
+							</div>
+
+							<div class="forum p-3" id="turism">
+								
+								<header>
+									<h3>Fòrum turisme</h3>
+								</header>
+								<p class="description lh-sm">
+									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
+								<a href="#" class="read-more">Més informació</a>
+
+							</div>
+
+							<div class="forum p-3" id="teaching">
+								
+								<header>
+									<h3>Fòrum ensenyament</h3>
+								</header>
+								<p class="description lh-sm">
+									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
+								<a href="#" class="read-more">Més informació</a>
+
+							</div>
+
+							<div class="forum p-3" id="culture">
+								
+								<header>
+									<h3>Fòrum cultura</h3>
+								</header>
+								<p class="description lh-sm">
+									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
+								<a href="#" class="read-more">Més informació</a>
+
+							</div>
+
+							<div class="forum p-3" id="social">
+								
+								<header>
+									<h3>Fòrum social</h3>
+								</header>
+								<p class="description lh-sm">
+									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
+								</p>
+								<a href="#" class="read-more">Més informació</a>
+
+							</div>
+
+						</div>
+
+					</section>
+
 				</main><!-- #main -->
 
 			</div><!-- #primary -->

@@ -357,6 +357,37 @@ a.read-more {
 }
 
 
+.forums-list {
+
+    .forum {
+        color: $light;
+        background-color: $primary;
+        flex: 1;
+        min-width: 10.9rem;
+        max-width: max(50%, 25rem);
+    
+        display: flex;
+        flex-flow: column;
+    
+        h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            color: $light-yellow;
+        }
+
+        .read-more {
+            color: currentColor;
+            
+            &:where(:hover, :focus) {
+                color: $secondary;
+            }
+
+        }
+    }
+}
+
 
 ::selection {
     background-color: $tertiary;
