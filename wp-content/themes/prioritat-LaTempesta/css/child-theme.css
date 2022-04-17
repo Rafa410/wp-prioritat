@@ -15521,7 +15521,7 @@ a.read-more:where(:hover, :focus)::after {
   transition-delay: 0s;
 }
 
-#values .values-list .value {
+.values-list .value {
   background-color: #FFF8D7;
   flex: 1;
   min-width: 13rem;
@@ -15529,7 +15529,7 @@ a.read-more:where(:hover, :focus)::after {
   display: flex;
   flex-flow: column;
 }
-#values .values-list .value h3, #values .values-list .value .h3 {
+.values-list .value h3, .values-list .value .h3 {
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -15537,71 +15537,72 @@ a.read-more:where(:hover, :focus)::after {
   color: #2d4419;
 }
 
-#agenda .calendar-monthly-view {
+.calendar-monthly-view {
   width: 95%;
   min-height: 300px;
   background-color: #eee;
 }
-#agenda .calendar-list-view .event-date {
+
+.calendar-list-view .event-date {
   font-size: calc(1.2875rem + 0.45vw);
   font-weight: bold;
   text-align: center;
 }
 @media (min-width: 1200px) {
-  #agenda .calendar-list-view .event-date {
+  .calendar-list-view .event-date {
     font-size: 1.625rem;
   }
 }
-#agenda .calendar-list-view .event-date.bg-primary {
+.calendar-list-view .event-date.bg-primary {
   color: rgba(255, 255, 255, 0.87);
 }
-#agenda .calendar-list-view .event-date.bg-secondary {
+.calendar-list-view .event-date.bg-secondary {
   color: #2d4419;
 }
-#agenda .calendar-list-view .event-content .title {
+.calendar-list-view .event-content .title {
   font-size: 1rem;
   font-weight: bold;
 }
-#agenda .calendar-list-view .event-content .description {
+.calendar-list-view .event-content .description {
   margin-bottom: 0;
 }
 
-#latest-news .post-list article {
+.post-list article {
   flex: 0 0 calc(50% - 2rem);
 }
 @media (max-width: 575.98px) {
-  #latest-news .post-list article {
+  .post-list article {
     min-width: 100%;
   }
 }
-#latest-news .post-list .entry-title {
+.post-list .entry-title {
   font-size: 1.125rem;
 }
-#latest-news .post-list .entry-title a {
+.post-list .entry-title a {
   color: #212529;
   transition: color 0.3s ease-out;
 }
-#latest-news .post-list .entry-title a:where(:hover, :focus) {
+.post-list .entry-title a:where(:hover, :focus) {
   color: #96a81e;
 }
-#latest-news .post-list .wp-post-image {
+.post-list .wp-post-image {
   width: 100%;
   aspect-ratio: 7/3;
   -o-object-fit: cover;
   object-fit: cover;
 }
-#latest-news .noticeboard h3, #latest-news .noticeboard .h3 {
+
+.noticeboard h3, .noticeboard .h3 {
   color: #2d4419;
   font-size: calc(1.275rem + 0.3vw);
 }
 @media (min-width: 1200px) {
-  #latest-news .noticeboard h3, #latest-news .noticeboard .h3 {
+  .noticeboard h3, .noticeboard .h3 {
     font-size: 1.5rem;
   }
 }
-#latest-news .noticeboard .announcements-list {
+.noticeboard .announcements-list {
   background-color: #FFF8D7;
-  height: 100%;
 }
 
 ::-moz-selection {

@@ -96,7 +96,7 @@ if ( is_front_page() ) {
 								<div class="calendar-monthly-view"></div>
 							</div>
 
-							<div class="col-md-7 ps-4">
+							<div class="col-md-7 ps-0 ps-sm-4">
 								<div class="calendar-list-view">
 									<div class="calendar-event d-flex my-3">
 										<div class="event-date p-3 bg-primary">
@@ -135,7 +135,7 @@ if ( is_front_page() ) {
 
 					</section>
 
-					<section id="latest-news" class="py 5">
+					<section id="latest-news" class="my-5">
 
 						<header>
 							<h2 class="bg-title bg-title-tertiary mb-4">Últimes notícies</h2>
@@ -145,30 +145,30 @@ if ( is_front_page() ) {
 
 							<div class="post-list col-lg-8 d-flex flex-wrap align-items-start justify-content-between py-3 pe-2 pe-md-3">
 
-							<?php
-							$args = array(
-								'post_type' => 'post',
-								'posts_per_page' => 4,
-							);
-							$query = new WP_Query( $args );
-							
-							if ( $query->have_posts() ) {
-								while ( $query->have_posts() ) {
-									$query->the_post();
-									get_template_part( 'loop-templates/content', get_post_type() );
+								<?php
+								$args = array(
+									'post_type' => 'post',
+									'posts_per_page' => 4,
+								);
+								$query = new WP_Query( $args );
+								
+								if ( $query->have_posts() ) {
+									while ( $query->have_posts() ) {
+										$query->the_post();
+										get_template_part( 'loop-templates/content', get_post_type() );
+									}
+								} else {
+									echo '<p>No s\'han trobat notícies recents.</p>';
 								}
-							} else {
-								echo '<p>No s\'han trobat notícies recents.</p>';
-							}
-							
-							wp_reset_postdata();
-							?>
+								
+								wp_reset_postdata();
+								?>
 
 							</div>
 
-							<div class="noticeboard col-lg-4 ps-3">
+							<div class="noticeboard col-lg-4 d-flex flex-column ps-3">
 								<h3>Taulell d'anuncis</h3>
-								<div class="announcements-list p-3">
+								<div class="announcements-list flex-fill p-3">
 
 								</div>
 							</div>
