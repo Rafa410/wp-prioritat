@@ -15303,7 +15303,9 @@ figure.woocommerce-product-gallery__wrapper {
   padding-top: 3.5rem;
 }
 
-h1, .h1, header > h2, header > .h2 {
+h1, .h1,
+header > h2,
+header > .h2 {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
 }
@@ -15409,11 +15411,18 @@ a.read-more:where(:hover, :focus)::after {
   padding: 0.25rem 0.625rem;
   color: #f8f9fa;
   background-color: #2d4419;
-  transition: 0.3s ease-out;
+  transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 #wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link:where(:hover, :focus, [aria-current="page"]) {
   background-color: #96a81e;
   box-shadow: 0 5px 5px -2px rgba(45, 68, 25, 0.5);
+}
+#wrapper-navbar .navbar-brand {
+  padding-top: 0;
+}
+#wrapper-navbar .navbar-brand img {
+  max-height: 3rem;
+  width: auto;
 }
 
 .homepage-hero::after {
@@ -15489,13 +15498,15 @@ a.read-more:where(:hover, :focus)::after {
 .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::after {
   width: 100%;
 }
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before,
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
   height: 100%;
 }
 .homepage-hero .hero-content .btn-animated::before, .homepage-hero .hero-content .btn-animated::after {
   transition-delay: 0s;
 }
-.homepage-hero .hero-content .btn-animated span::before, .homepage-hero .hero-content .btn-animated span::after {
+.homepage-hero .hero-content .btn-animated span::before,
+.homepage-hero .hero-content .btn-animated span::after {
   transition-delay: 0.2s;
 }
 .homepage-hero .hero-content .btn-animated::before {
@@ -15517,7 +15528,8 @@ a.read-more:where(:hover, :focus)::after {
 .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::after {
   transition-delay: 0.2s;
 }
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before,
+.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
   transition-delay: 0s;
 }
 
@@ -15631,7 +15643,8 @@ a.read-more:where(:hover, :focus)::after {
 .social-icons li {
   flex: 0 0 auto;
 }
-.social-icons .icon, .social-icons .bi {
+.social-icons .icon,
+.social-icons .bi {
   display: block;
 }
 .social-icons .icon {
