@@ -46,6 +46,9 @@ wp-config.php
 # Upgrade
 /wp-content/upgrade/
 
+# Backups
+/wp-content/ai1wm-backups/
+
 # Log files
 *.log
 
