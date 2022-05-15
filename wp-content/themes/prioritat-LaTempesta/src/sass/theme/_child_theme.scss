@@ -350,6 +350,19 @@ a.read-more {
     }
     .announcements-list {
         background-color: $light-yellow;
+
+        &::-webkit-scrollbar-thumb {
+            &:hover {
+                background-color: rgba($tertiary, 0.5);
+            }
+            &:active {
+                background-color: $tertiary;
+            }
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $light-yellow;
+        }
     }
 }
 

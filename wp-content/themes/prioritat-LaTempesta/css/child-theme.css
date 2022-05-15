@@ -15616,6 +15616,15 @@ a.read-more:where(:hover, :focus)::after {
 .noticeboard .announcements-list {
   background-color: #FFF8D7;
 }
+.noticeboard .announcements-list::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(150, 168, 30, 0.5);
+}
+.noticeboard .announcements-list::-webkit-scrollbar-thumb:active {
+  background-color: #96a81e;
+}
+.noticeboard .announcements-list::-webkit-scrollbar-track {
+  background: #FFF8D7;
+}
 
 .forums-list .forum {
   color: #f8f9fa;

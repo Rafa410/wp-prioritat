@@ -168,9 +168,7 @@ if ( is_front_page() ) {
 
 							<div class="noticeboard col-lg-4 d-flex flex-column ps-3">
 								<h3>Taulell d'anuncis</h3>
-								<div class="announcements-list flex-fill p-3">
-
-								</div>
+								<?= do_shortcode( '[latest_announcements]' ) ?>
 							</div>
 
 						</div>
