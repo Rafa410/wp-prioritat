@@ -139,6 +139,8 @@ a.read-more {
 }
 
 .homepage-hero {
+    min-height: calc(100vh - $menu-height);
+
     &::after {
         content: '';
         position: absolute;
@@ -300,6 +302,12 @@ a.read-more {
 
         &.bg-secondary {
             color: $primary;
+        }
+
+        .month {
+            display: inline-block;
+            min-width: fit-content;
+            width: 4rem;
         }
     }
 

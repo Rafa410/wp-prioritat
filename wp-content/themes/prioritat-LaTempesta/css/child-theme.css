@@ -15300,7 +15300,7 @@ figure.woocommerce-product-gallery__wrapper {
 }
 
 .site {
-  padding-top: 3.5rem;
+  padding-top: 4.3125rem;
 }
 
 h1, .h1,
@@ -15381,7 +15381,7 @@ a.read-more:where(:hover, :focus)::after {
   top: 0;
 }
 #wrapper-navbar .navbar-light .navbar-nav .nav-link {
-  color: #1D1D1B;
+  color: #1d1d1b;
   color: #212529;
   font-weight: bold;
   padding: 0.5rem 1rem;
@@ -15425,6 +15425,9 @@ a.read-more:where(:hover, :focus)::after {
   width: auto;
 }
 
+.homepage-hero {
+  min-height: calc(100vh - 4.3125rem);
+}
 .homepage-hero::after {
   content: "";
   position: absolute;
@@ -15534,7 +15537,7 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 .values-list .value {
-  background-color: #FFF8D7;
+  background-color: #fff8d7;
   flex: 1;
   min-width: 13rem;
   max-width: max(50%, 25rem);
@@ -15570,6 +15573,13 @@ a.read-more:where(:hover, :focus)::after {
 }
 .calendar-list-view .event-date.bg-secondary {
   color: #2d4419;
+}
+.calendar-list-view .event-date .month {
+  display: inline-block;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 4rem;
 }
 .calendar-list-view .event-content .title {
   font-size: 1rem;
@@ -15614,7 +15624,7 @@ a.read-more:where(:hover, :focus)::after {
   }
 }
 .noticeboard .announcements-list {
-  background-color: #FFF8D7;
+  background-color: #fff8d7;
 }
 .noticeboard .announcements-list::-webkit-scrollbar-thumb:hover {
   background-color: rgba(150, 168, 30, 0.5);
@@ -15623,7 +15633,7 @@ a.read-more:where(:hover, :focus)::after {
   background-color: #96a81e;
 }
 .noticeboard .announcements-list::-webkit-scrollbar-track {
-  background: #FFF8D7;
+  background: #fff8d7;
 }
 
 .forums-list .forum {
@@ -15640,7 +15650,7 @@ a.read-more:where(:hover, :focus)::after {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  color: #FFF8D7;
+  color: #fff8d7;
 }
 .forums-list .forum .read-more {
   color: currentColor;
