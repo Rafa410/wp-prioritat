@@ -129,3 +129,14 @@ function prt_post_date() {
 	);
 	return $post_date;
 }
+
+
+
+/**
+ * Generates a new menu location for the footer menu
+ * 
+ */
+function prt_register_footer_menu() {
+	register_nav_menu( 'footer-menu', __( 'Footer Menu', 'prioritat' ) );
+}
+add_action( 'after_setup_theme', 'prt_register_footer_menu' );

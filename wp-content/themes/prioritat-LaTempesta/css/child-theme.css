@@ -15319,6 +15319,23 @@ header > h2, header > .h2 {
   }
 }
 
+.btn-tertiary {
+  background-color: #96a81e;
+  color: #212529;
+}
+.btn-tertiary:hover, .btn-tertiary:focus {
+  background-color: #bdd326;
+}
+
+.btn-outline-tertiary {
+  border: 2px solid #96a81e;
+  color: #f8f9fa;
+}
+.btn-outline-tertiary:hover, .btn-outline-tertiary:focus {
+  background-color: #96a81e;
+  color: #212529;
+}
+
 .bg-title {
   display: inline-block;
   position: relative;
@@ -15554,8 +15571,6 @@ a.read-more:where(:hover, :focus)::after {
 
 .calendar-monthly-view {
   width: 95%;
-  min-height: 300px;
-  background-color: #eee;
 }
 
 .calendar-list-view .event-date {
@@ -15673,6 +15688,65 @@ a.read-more:where(:hover, :focus)::after {
 }
 .social-icons .icon:where(:hover, :focus) {
   transform: scale(1.25);
+}
+
+.site-footer .logo-wrapper {
+  text-align: center;
+}
+.site-footer .logo-wrapper > img {
+  max-width: min(15rem, 100%);
+}
+.site-footer .actions-wrapper .btn, .site-footer .actions-wrapper .wpcf7 input[type=submit], .wpcf7 .site-footer .actions-wrapper input[type=submit], .site-footer .actions-wrapper .woocommerce-notices-wrapper .woocommerce-message a.button, .woocommerce-notices-wrapper .woocommerce-message .site-footer .actions-wrapper a.button, .site-footer .actions-wrapper .woocommerce-info a.button, .woocommerce-info .site-footer .actions-wrapper a.button {
+  width: 100%;
+  max-width: min(7rem, 100%);
+}
+.site-footer .menu-wrapper ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+.site-footer .menu-wrapper ul .menu-item > a {
+  display: inline-block;
+  position: relative;
+  padding: 0.375rem 0.5rem;
+  color: #f8f9fa;
+  text-decoration: none;
+  transition: color 0.3s ease-out;
+}
+.site-footer .menu-wrapper ul .menu-item > a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #96a81e;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: center center;
+  transition: transform 0.3s ease-out;
+}
+.site-footer .menu-wrapper ul .menu-item > a:where(:hover, :focus, [aria-current="page"]) {
+  color: #96a81e;
+}
+.site-footer .menu-wrapper ul .menu-item > a:where(:hover, :focus, [aria-current="page"])::before {
+  transform: scaleX(1);
+}
+.site-footer .partners-wrapper .partner {
+  flex: 1;
+  min-width: 8rem;
+  max-width: max(50%, 12rem);
+}
+.site-footer .partners-wrapper .partner > svg {
+  color: #f8f9fa;
+  transition: color 0.3s ease-out;
+}
+.site-footer .partners-wrapper .partner:hover > svg#diputacio-tarragona, .site-footer .partners-wrapper .partner:focus > svg#diputacio-tarragona {
+  color: #17738e;
+}
+.site-footer .partners-wrapper .partner:hover > svg#gencat-cultura, .site-footer .partners-wrapper .partner:focus > svg#gencat-cultura {
+  color: #e40c26;
 }
 
 ::-moz-selection {
