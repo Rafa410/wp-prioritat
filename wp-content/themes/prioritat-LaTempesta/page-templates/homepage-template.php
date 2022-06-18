@@ -18,7 +18,7 @@ if ( is_front_page() ) {
 }
 ?>
 
-<div class="wrapper" id="full-width-page-wrapper">
+<div class="wrapper py-5" id="full-width-page-wrapper">
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content">
 
@@ -87,48 +87,17 @@ if ( is_front_page() ) {
 					<section id="agenda" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary">Agenda</h2>
+							<h2 class="bg-title bg-title-tertiary"><?= __( 'Agenda', 'prioritat' ) ?></h2>
 						</header>
 
 						<div class="row g-0 align-items-center">
 
 							<div class="col-md-5 p-3">
-								<div class="calendar-monthly-view"></div>
+								<?= do_shortcode( '[agenda view="monthly"]' ) ?>
 							</div>
 
 							<div class="col-md-7 ps-0 ps-sm-4">
-								<div class="calendar-list-view">
-									<div class="calendar-event d-flex my-3">
-										<div class="event-date p-3 bg-primary">
-											<span class="day">06</span>
-											<span class="month">abril</span>
-										</div>
-										<div class="event-content p-2">
-											<h3 class="title">Títol de l'activitat, lorem ipsum dolor sit amet, consetetur sadipscing</h3>
-											<p class="description">Informació sobre l'activitat, super breu lorem ipsum dolor sit amet, consetetur sadipscing</p>
-										</div>
-									</div>
-									<div class="calendar-event d-flex my-3">
-										<div class="event-date p-3 bg-primary">
-											<span class="day">15</span>
-											<span class="month">abril</span>
-										</div>
-										<div class="event-content p-2">
-											<h3 class="title">Títol de l'activitat, lorem ipsum dolor sit amet, consetetur sadipscing</h3>
-											<p class="description">Informació sobre l'activitat, super breu lorem ipsum dolor sit amet, consetetur sadipscing</p>
-										</div>
-									</div>
-									<div class="calendar-event d-flex my-3">
-										<div class="event-date p-3 bg-secondary">
-											<span class="day">23</span>
-											<span class="month">abril</span>
-										</div>
-										<div class="event-content p-2">
-											<h3 class="title">Títol de l'activitat, lorem ipsum dolor sit amet, consetetur sadipscing</h3>
-											<p class="description">Informació sobre l'activitat, super breu lorem ipsum dolor sit amet, consetetur sadipscing</p>
-										</div>
-									</div>
-								</div>
+								<?= do_shortcode( '[agenda view="list" limit="3"]' ) ?>
 							</div>
 
 						</div>
@@ -138,7 +107,7 @@ if ( is_front_page() ) {
 					<section id="latest-news" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary mb-4">Últimes notícies</h2>
+							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
 						</header>
 
 						<div class="row g-0">
@@ -149,6 +118,8 @@ if ( is_front_page() ) {
 								$args = array(
 									'post_type' => 'post',
 									'posts_per_page' => 4,
+									'orderby' => 'date',
+									'order' => 'DESC',
 								);
 								$query = new WP_Query( $args );
 								
@@ -158,7 +129,7 @@ if ( is_front_page() ) {
 										get_template_part( 'loop-templates/content', get_post_type() );
 									}
 								} else {
-									echo '<p>No s\'han trobat notícies recents.</p>';
+									echo '<p class="fw-light text-muted fs-5">' . __( 'No s\'han trobat notícies recents.', 'prioritat' ) . '</p>';
 								}
 								
 								wp_reset_postdata();
@@ -167,8 +138,8 @@ if ( is_front_page() ) {
 							</div>
 
 							<div class="noticeboard col-lg-4 d-flex flex-column ps-3">
-								<h3>Taulell d'anuncis</h3>
-								<?= do_shortcode( '[latest_announcements]' ) ?>
+								<h3><?= __( 'Taulell d\'anuncis', 'prioritat' ) ?></h3>
+								<?= do_shortcode( '[latest_announcements source="wp"]' ) ?>
 							</div>
 
 						</div>
@@ -178,7 +149,7 @@ if ( is_front_page() ) {
 					<section id="forums" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary mb-4">Coneix els fòrums</h2>
+							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Coneix els fòrums', 'prioritat' ) ?></h2>
 						</header>
 
 						<div class="forums-list d-flex flex-wrap gap-3 justify-content-center">
