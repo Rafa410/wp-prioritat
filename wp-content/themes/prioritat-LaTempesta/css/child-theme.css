@@ -15360,7 +15360,6 @@ a.read-more {
   text-align: end;
   text-decoration: none;
   font-weight: bold;
-  margin-top: auto;
   position: relative;
   transition: 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
 }
