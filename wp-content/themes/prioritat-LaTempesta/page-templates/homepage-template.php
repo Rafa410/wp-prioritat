@@ -171,67 +171,34 @@ if ( is_front_page() ) {
 							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Coneix els fòrums', 'prioritat' ) ?></h2>
 						</header>
 
+						<div class="section-description mb-4">
+							<?= get_field( 'forums_description' ) ?>
+						</div>
+
 						<div class="forums-list d-flex flex-wrap gap-3 justify-content-center">
 
-							<div class="forum p-3" id="agrarian">
-								
-								<header>
-									<h3>Fòrum agrari</h3>
-								</header>
-								<p class="description lh-sm">
-									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
-								</p>
-								<a href="#" class="read-more">Més informació</a>
+							<?php
 
-							</div>
+							$args = array(
+								'post_type' => 'forums',
+								'posts_per_page' => -1,
+								'orderby' => 'date',
+								'order' => 'ASC'
+							);
 
-							<div class="forum p-3" id="turism">
-								
-								<header>
-									<h3>Fòrum turisme</h3>
-								</header>
-								<p class="description lh-sm">
-									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
-								</p>
-								<a href="#" class="read-more">Més informació</a>
+							$forums = new WP_Query( $args );
 
-							</div>
+							if ( $forums->have_posts() ) {
 
-							<div class="forum p-3" id="teaching">
-								
-								<header>
-									<h3>Fòrum ensenyament</h3>
-								</header>
-								<p class="description lh-sm">
-									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
-								</p>
-								<a href="#" class="read-more">Més informació</a>
+								while ( $forums->have_posts() ) {
+									$forums->the_post();
+									get_template_part( 'loop-templates/content', get_post_type() );
+								}
+							}
 
-							</div>
+							wp_reset_postdata();
 
-							<div class="forum p-3" id="culture">
-								
-								<header>
-									<h3>Fòrum cultura</h3>
-								</header>
-								<p class="description lh-sm">
-									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
-								</p>
-								<a href="#" class="read-more">Més informació</a>
-
-							</div>
-
-							<div class="forum p-3" id="social">
-								
-								<header>
-									<h3>Fòrum social</h3>
-								</header>
-								<p class="description lh-sm">
-									Breu explicació del forum. Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt et labore et dolore magna aliquyam erat, sed diam voluptua.
-								</p>
-								<a href="#" class="read-more">Més informació</a>
-
-							</div>
+							?>
 
 						</div>
 

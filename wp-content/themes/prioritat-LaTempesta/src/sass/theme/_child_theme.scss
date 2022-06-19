@@ -413,12 +413,22 @@ a.read-more {
         display: flex;
         flex-flow: column;
 
-        h3 {
+        .entry-title {
             font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
             text-align: center;
             color: $light-yellow;
+
+            > a {
+                color: $light-yellow;
+                transition: color 0.3s ease-out;
+
+                &:hover,
+                &:focus {
+                    color: $secondary;
+                }
+            }
         }
 
         .read-more {
@@ -429,6 +439,10 @@ a.read-more {
             }
         }
     }
+}
+
+.section-description {
+    font-size: 0.9375rem;
 }
 
 .social-icons {

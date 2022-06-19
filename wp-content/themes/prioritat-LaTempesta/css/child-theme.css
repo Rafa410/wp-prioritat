@@ -15668,18 +15668,29 @@ a.read-more:where(:hover, :focus)::after {
   display: flex;
   flex-flow: column;
 }
-.forums-list .forum h3, .forums-list .forum .h3 {
+.forums-list .forum .entry-title {
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   color: #fff8d7;
 }
+.forums-list .forum .entry-title > a {
+  color: #fff8d7;
+  transition: color 0.3s ease-out;
+}
+.forums-list .forum .entry-title > a:hover, .forums-list .forum .entry-title > a:focus {
+  color: #e5a32c;
+}
 .forums-list .forum .read-more {
   color: currentColor;
 }
 .forums-list .forum .read-more:where(:hover, :focus) {
   color: #e5a32c;
+}
+
+.section-description {
+  font-size: 0.9375rem;
 }
 
 .social-icons li {
