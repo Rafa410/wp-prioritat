@@ -82,8 +82,12 @@ if ( is_front_page() ) {
 					<section id="latest-news" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
+							<h2 class="bg-title bg-title-tertiary mb-3"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
 						</header>
+
+						<div class="section-more">
+							<a href="<?= get_post_type_archive_link( 'post' ) ?>"><?= __( 'Veure totes', 'prioritat' ) ?></a>
+						</div>
 
 						<div class="row g-0">
 

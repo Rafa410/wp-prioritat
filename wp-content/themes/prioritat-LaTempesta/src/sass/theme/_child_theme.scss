@@ -367,6 +367,24 @@ a.read-more {
         aspect-ratio: 7 / 3;
         object-fit: cover;
     }
+
+    &.post-archive {
+        article {
+            flex: 0 1 calc(50% - 0.5rem);
+
+            &:last-child {
+                margin-right: auto;
+            }
+
+            &:nth-last-child(2) {
+                margin-left: 0;
+            }
+
+            @include media-breakpoint-up(lg) {
+                flex: 0 1 calc(33% - 0.5rem);
+            }
+        }
+    }
 }
 
 .noticeboard {
@@ -443,6 +461,34 @@ a.read-more {
 
 .section-description {
     font-size: 0.9375rem;
+}
+
+.section-more {
+    > a {
+        display: inline-block;
+        position: relative;
+        text-transform: uppercase;
+        font-size: $small-font-size;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0.25rem 0.25rem 0.25rem 0;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 55%;
+            height: 0.25rem;
+            background-color: $secondary;
+            transition: width 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+
+        &:hover,
+        &:focus {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .social-icons {

@@ -15627,6 +15627,20 @@ a.read-more:where(:hover, :focus)::after {
   -o-object-fit: cover;
   object-fit: cover;
 }
+.post-list.post-archive article {
+  flex: 0 1 calc(50% - 0.5rem);
+}
+.post-list.post-archive article:last-child {
+  margin-right: auto;
+}
+.post-list.post-archive article:nth-last-child(2) {
+  margin-left: 0;
+}
+@media (min-width: 992px) {
+  .post-list.post-archive article {
+    flex: 0 1 calc(33% - 0.5rem);
+  }
+}
 
 .noticeboard h3, .noticeboard .h3 {
   color: #2d4419;
@@ -15691,6 +15705,27 @@ a.read-more:where(:hover, :focus)::after {
 
 .section-description {
   font-size: 0.9375rem;
+}
+
+.section-more > a {
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.25rem 0.25rem 0.25rem 0;
+}
+.section-more > a::after {
+  content: "";
+  display: block;
+  width: 55%;
+  height: 0.25rem;
+  background-color: #e5a32c;
+  transition: width 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+.section-more > a:hover::after, .section-more > a:focus::after {
+  width: 100%;
 }
 
 .social-icons li {
