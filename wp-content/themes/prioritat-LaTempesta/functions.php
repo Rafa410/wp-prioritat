@@ -49,6 +49,50 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 
 /**
+ * Enqueue libraries
+ *  - Slick
+ */
+function prt_load_libraries() {
+    $slick_style = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';
+    $slick_script = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js';
+
+    // Homepage
+    if ( is_front_page() ) {
+        wp_enqueue_style( 'slick-style', $slick_style );
+        wp_enqueue_script( 'slick-script-async', $slick_script, array( 'jquery' ), null, true );
+    }
+
+
+}
+add_action( 'wp_enqueue_scripts', 'prt_load_libraries' );
+
+
+
+/**
+ * Add async or defer attributes to scripts whose $handle contains 'async' or 'defer'
+ * when registered via wp_register_script or wp_enqueue_script
+ *
+ * @param $tag {string} - The <script> tag for the enqueued script.
+ * @param $handle {string} - The script's registered handle.
+ *
+ * @return mixed
+ */
+function prt_add_async_defer_attributes( $tag, $handle ) {
+	if ( strpos( $handle, "async" ) ) {
+		$tag = str_replace(' src', ' async="async" src', $tag);
+    }
+	
+	if ( strpos( $handle, "defer" ) ) {
+		$tag = str_replace(' src', ' defer="defer" src', $tag);
+    }
+	
+	return $tag;
+}
+add_filter( 'script_loader_tag', 'prt_add_async_defer_attributes', 10, 2 );
+
+
+
+/**
  * Load the child theme's text domain
  */
 function add_child_theme_textdomain() {

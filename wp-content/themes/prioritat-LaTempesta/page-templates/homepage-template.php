@@ -121,6 +121,50 @@ if ( is_front_page() ) {
 
 					</section>
 
+					<section id="projects" class="my-5">
+
+						<header>
+							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Projectes', 'prioritat' ) ?></h2>
+						</header>
+
+						<?php
+						$args = array(
+							'post_type' => 'projectes',
+							'posts_per_page' => -1,
+							'orderby' => 'date',
+							'order' => 'ASC'
+						);
+
+						$projects = new WP_Query( $args );
+						?>
+
+						<?php if ( $projects->have_posts() ) : ?>
+							
+							<?php $list_type = $projects->found_posts > 3 ? 'projects-carousel' : 'projects-list'; ?>
+
+							<div class="<?= $list_type ?> d-flex flex-wrap gap-2 justify-content-center align-items-center">
+								
+								<?php
+								while ( $projects->have_posts() ) {
+									$projects->the_post();
+									get_template_part( 
+										'loop-templates/content',
+										get_post_type(),
+										array(
+											'list_type' => $list_type,
+										),
+									);
+								}
+								?>
+	
+							</div>
+
+						<?php endif; ?>
+
+						<?php wp_reset_postdata(); ?>
+
+					</section>
+
 					<section id="forums" class="my-5">
 
 						<header>
