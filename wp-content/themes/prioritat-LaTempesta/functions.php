@@ -184,3 +184,17 @@ function prt_register_footer_menu() {
 	register_nav_menu( 'footer-menu', __( 'Footer Menu', 'prioritat' ) );
 }
 add_action( 'after_setup_theme', 'prt_register_footer_menu' );
+
+
+
+/**
+ * Given a YouTube URL, returns the ID of the video
+ */
+function get_youtube_id_from_url( $url )  {
+    preg_match( 
+        '/(http(s|):|)\/\/(www\.|)yout(.*?)\/(embed\/|watch.*?v=|)([a-z_A-Z0-9\-]{11})/i', 
+        $url, 
+        $results
+    );
+    return $results[6];
+}
