@@ -15803,6 +15803,159 @@ a.read-more:where(:hover, :focus)::after {
   color: #e40c26;
 }
 
+#contact-page-wrapper .page-header {
+  background-color: #fff8d7;
+}
+
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  background-color: #f2f2f2;
+  max-width: min(20rem, 95%);
+  margin: 0 auto;
+  box-shadow: 0 5px 20px -10px rgba(0, 0, 0, 0.25);
+}
+.contact-block .block-icon {
+  color: #a4a4a4;
+  width: 3rem;
+}
+.contact-block .block-title {
+  font-size: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+.contact-block .block-text {
+  text-decoration: none;
+  transition: 0.1s ease-out;
+}
+.contact-block .block-text:hover, .contact-block .block-text:focus {
+  text-decoration: underline;
+  color: #2d4419;
+}
+
+.wpcf7#wpcf7-f159-o1 {
+  max-width: 100%;
+}
+.wpcf7 .wpcf7-form label {
+  font-weight: 500;
+}
+.wpcf7 input {
+  padding: 0.75rem;
+}
+.wpcf7 input[type=submit] {
+  width: auto;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.mosaic-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  grid-gap: 0.5rem;
+}
+.mosaic-gallery article {
+  position: relative;
+  aspect-ratio: 1/1;
+  width: 100%;
+  min-height: 8rem;
+  margin: 0 auto;
+}
+.mosaic-gallery article .bg-image {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.mosaic-gallery article .bg-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+.mosaic-gallery article .mosaic-icon {
+  color: #212529;
+  font-size: 14px;
+  z-index: 5;
+  padding-left: 0.5rem;
+  align-items: center;
+}
+.mosaic-gallery article .mosaic-icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff8d7;
+  border-radius: 50%;
+  transition: 0.3s ease-out;
+  transform: scaleX(0.285);
+  transform-origin: right;
+  z-index: -1;
+}
+.mosaic-gallery article .mosaic-icon svg {
+  width: 2rem;
+  background: #fff8d7;
+  border-radius: 50%;
+  padding: 4px;
+}
+.mosaic-gallery article .mosaic-icon span {
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+.mosaic-gallery article .article-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #f8f9fa;
+  background-color: rgba(33, 37, 41, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease-out;
+}
+.mosaic-gallery article .article-wrapper .entry-title {
+  font-size: 1rem;
+}
+.mosaic-gallery article .article-wrapper .entry-content {
+  font-size: 0.875em;
+}
+.mosaic-gallery article .button-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.mosaic-gallery article:hover .mosaic-icon > span {
+  opacity: 1;
+}
+.mosaic-gallery article:hover .mosaic-icon::before {
+  border-radius: 2rem;
+  transform: scaleX(1);
+}
+.mosaic-gallery article:hover .article-wrapper {
+  opacity: 1;
+  visibility: visible;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
 ::-moz-selection {
   background-color: #96a81e;
   color: white;
@@ -15954,6 +16107,7 @@ a.read-more:where(:hover, :focus)::after {
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
   transition-delay: 0s;
+  color: #e5a32c;
 }
 .slick-dots li button:before {
   font-size: 3rem;
@@ -15967,13 +16121,13 @@ a.read-more:where(:hover, :focus)::after {
   text-align: center;
   opacity: 0.3;
   color: #2d4419;
-  transition: opacity 0.3s 0.1s;
+  transition: opacity 0.3s ease-out, color 0.2s 0.1s ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .slick-dots li.slick-active button:before {
   opacity: 0.95;
-  color: #2d4419;
+  color: #e5a32c;
 }
 
 /* End dots */

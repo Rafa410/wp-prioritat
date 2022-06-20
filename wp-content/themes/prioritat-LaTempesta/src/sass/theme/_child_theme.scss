@@ -597,6 +597,186 @@ a.read-more {
     }
 }
 
+#contact-page-wrapper {
+    .page-header {
+        background-color: $light-yellow;
+    }
+}
+
+.contact-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    background-color: #f2f2f2;
+    max-width: min(20rem, 95%);
+    margin: 0 auto;
+    box-shadow: 0 5px 20px -10px rgba(black, 0.25);
+
+    .block-icon {
+        color: #a4a4a4;
+        width: 3rem;
+    }
+
+    .block-title {
+        font-size: 1rem;
+        margin: 1rem 0 1.5rem;
+    }
+
+    .block-text {
+        text-decoration: none;
+        transition: 0.1s ease-out;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            color: $primary;
+        }
+    }
+}
+
+.wpcf7 {
+    &#wpcf7-f159-o1 {
+        max-width: 100%;
+    }
+
+    .wpcf7-form label {
+        font-weight: 500;
+    }
+
+    input {
+        padding: 0.75rem;
+    }
+
+    input[type='submit'] {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+    }
+}
+
+.mosaic-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    grid-gap: 0.5rem;
+
+    article {
+        position: relative;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        min-height: 8rem;
+        margin: 0 auto;
+
+        .bg-image {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .mosaic-icon {
+            color: $dark;
+            font-size: 14px;
+            z-index: 5;
+            padding-left: 0.5rem;
+            align-items: center;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background: $light-yellow;
+                border-radius: 50%;
+                transition: 0.3s ease-out;
+                transform: scaleX(0.285);
+                transform-origin: right;
+                z-index: -1;
+            }
+
+            svg {
+                width: 2rem;
+                background: $light-yellow;
+                border-radius: 50%;
+                padding: 4px;
+            }
+
+            span {
+                font-weight: 500;
+                opacity: 0;
+                transition: opacity 0.3s ease-out;
+            }
+        }
+
+        .article-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            color: $light;
+            background-color: rgba($dark, 0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease-out;
+
+            .entry-title {
+                font-size: 1rem;
+            }
+
+            .entry-content {
+                font-size: $small-font-size;
+            }
+        }
+
+        .button-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        &:hover {
+            .mosaic-icon {
+                > span {
+                    opacity: 1;
+                }
+
+                &::before {
+                    border-radius: 2rem;
+                    transform: scaleX(1);
+                }
+            }
+
+            .article-wrapper {
+                opacity: 1;
+                visibility: visible;
+                backdrop-filter: blur(5px);
+            }
+        }
+    }
+}
+
 ::selection {
     background-color: $tertiary;
     color: white;
@@ -759,6 +939,7 @@ a.read-more {
                 &:before {
                     opacity: 1;
                     transition-delay: 0s;
+                    color: $secondary;
                 }
             }
 
@@ -774,7 +955,7 @@ a.read-more {
                 text-align: center;
                 opacity: 0.3;
                 color: $primary;
-                transition: opacity 0.3s 0.1s;
+                transition: opacity 0.3s ease-out, color 0.2s 0.1s ease-out;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
@@ -784,7 +965,7 @@ a.read-more {
             button {
                 &:before {
                     opacity: 0.95;
-                    color: $primary;
+                    color: $secondary;
                 }
             }
         }

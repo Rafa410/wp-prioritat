@@ -208,6 +208,37 @@ if ( is_front_page() ) {
 
 					</section>
 
+					<section id="mosaic" class="my-5">
+
+						<header>
+							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Mosaic', 'prioritat' ) ?></h2>
+						</header>
+
+						<?php
+                            $args = array(
+                                'post_type' => array( 'fotos', 'videos', 'documents' ),
+                                'posts_per_page' => -1,
+                                'orderby' => 'date',
+                            );
+                            $query = new WP_Query( $args );
+                        ?>
+
+						<div class="mosaic-gallery">
+
+							<?php if ( $query->have_posts() ) : ?>
+
+                                <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
+                                    <?php get_template_part( 'loop-templates/content', get_post_type() ); ?>
+
+                                <?php endwhile; ?>
+
+                            <?php endif; ?>
+
+						</div>
+
+					</section>
+
 				</main><!-- #main -->
 
 			</div><!-- #primary -->
