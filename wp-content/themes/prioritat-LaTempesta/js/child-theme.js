@@ -9301,7 +9301,17 @@
 	  const lg = 992;
 
 	  $(function () {
-	    // Initialize Slick projects-carousel
+	    // Pause audio/video/iframe when closing modal/accordion
+	    $('.modal, .accordion-collapse').on('hide.bs.modal hide.bs.collapse', function () {
+	      $(this).find('audio, video, iframe').each(function () {
+	        if (this.tagName == 'IFRAME') {
+	          this.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+	        } else {
+	          this.pause();
+	        }
+	      });
+	    }); // Initialize Slick projects-carousel
+
 	    $('.projects-carousel').slick({
 	      dots: true,
 	      arrows: false,
