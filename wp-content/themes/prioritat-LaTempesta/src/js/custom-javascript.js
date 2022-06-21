@@ -48,5 +48,44 @@
                 },
             ],
         });
+
+        // Zoom images animation
+        $('.zoom').on('click', function (event) {
+            const $this = $(this);
+            const $img = $this.children('img');
+
+            $this.toggleClass('zooming');
+
+            if ($this.hasClass('zooming')) {
+                let scale = $this.data('scale') || 1.75;
+
+                $img.css({
+                    transform: `scale(${scale})`,
+                    transformOrigin: `${event.offsetX}px ${event.offsetY}px`,
+                });
+
+                $this
+                    .on('mouseover', function () {
+                        $img.css({
+                            transform: `scale(${scale})`,
+                        });
+                    })
+                    .on('mouseout', function () {
+                        $img.css({
+                            transform: 'scale(1)',
+                        });
+                    })
+                    .on('mousemove', function (e) {
+                        $img.css({
+                            transformOrigin: `${e.offsetX}px ${e.offsetY}px`,
+                        });
+                    });
+            } else {
+                $img.css({
+                    transform: 'scale(1)',
+                });
+                $this.off('mouseover mouseout mousemove');
+            }
+        });
     }); // End document ready
 })(jQuery);

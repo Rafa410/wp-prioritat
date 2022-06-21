@@ -786,6 +786,19 @@ a.read-more {
     }
 }
 
+.zoom {
+    overflow: hidden;
+    cursor: zoom-in;
+
+    &.zooming {
+        cursor: zoom-out;
+    }
+
+    img {
+        transition: transform 0.5s ease-out;
+    }
+}
+
 .loader {
     position: relative;
 
