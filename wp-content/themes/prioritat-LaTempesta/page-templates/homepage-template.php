@@ -237,6 +237,22 @@ if ( is_front_page() ) {
 
 						</div>
 
+						<?php $query->rewind_posts(); ?>
+
+                        <div class="mosaic-gallery-modal">
+
+                            <?php if ( $query->have_posts() ) : ?>
+
+                                <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
+                                    <?php get_template_part( 'loop-templates/modal', get_post_type() ); ?>
+
+                                <?php endwhile; ?>
+
+                            <?php endif; ?>
+
+                        </section>
+
 					</section>
 
 				</main><!-- #main -->
