@@ -28,7 +28,7 @@ if ( is_front_page() ) {
 
 				<main class="site-main" id="main" role="main">
 
-					<header class="page-header py-4">
+					<header class="page-header py-4 px-4">
 
 						<div class="container">
 							<h1 class="page-title"><?php the_title(); ?></h1>
@@ -106,7 +106,7 @@ if ( is_front_page() ) {
 			
 								</section>
 
-								<section id="contact-form" class="mt-5 pt-5">
+								<section id="contact-form" class="mt-5 pt-5 px-4">
 
 									<header>
 										<h2 class="section-title"><?= __( 'Escriu-nos', 'prioritat' ) ?></h2>
