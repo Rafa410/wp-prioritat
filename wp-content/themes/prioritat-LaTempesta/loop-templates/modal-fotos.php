@@ -1,8 +1,7 @@
 <?php
 /**
- * Single post partial template
+ * CPT 'fotos' modal template
  *
- * @package Understrap
  */
 
 // Exit if accessed directly.

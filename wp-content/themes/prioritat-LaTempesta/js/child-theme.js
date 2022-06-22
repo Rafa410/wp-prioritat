@@ -9337,7 +9337,7 @@
 	      $this.toggleClass('zooming');
 
 	      if ($this.hasClass('zooming')) {
-	        let scale = $this.data('scale') || 1.75;
+	        let scale = $this.data('scale') || 2;
 	        $img.css({
 	          transform: `scale(${scale})`,
 	          transformOrigin: `${event.offsetX}px ${event.offsetY}px`
