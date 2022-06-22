@@ -49,6 +49,9 @@ wp-config.php
 # Backups
 /wp-content/ai1wm-backups/
 
+# Smush WebP images
+/wp-content/smush-webp/
+
 # Log files
 *.log
 
