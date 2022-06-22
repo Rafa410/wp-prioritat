@@ -15329,7 +15329,7 @@ header > h2, header > .h2 {
 
 .btn-outline-tertiary {
   border: 2px solid #96a81e;
-  color: #f8f9fa;
+  color: #96a81e;
 }
 .btn-outline-tertiary:hover, .btn-outline-tertiary:focus {
   background-color: #96a81e;
@@ -15754,6 +15754,12 @@ a.read-more:where(:hover, :focus)::after {
   width: 100%;
   max-width: min(7rem, 100%);
 }
+.site-footer .actions-wrapper .btn-outline-tertiary {
+  color: #f8f9fa;
+}
+.site-footer .actions-wrapper .btn-outline-tertiary:hover, .site-footer .actions-wrapper .btn-outline-tertiary:focus {
+  color: #212529;
+}
 .site-footer .menu-wrapper ul {
   list-style: none;
   padding-left: 0;
@@ -16003,7 +16009,7 @@ a.read-more:where(:hover, :focus)::after {
 
 @media (min-width: 576px) {
   .modal .modal-dialog {
-    max-width: clamp(500px, 75%, 700px);
+    max-width: clamp(500px, 80%, 850px);
   }
 }
 .modal .modal-content {
@@ -16026,6 +16032,7 @@ a.read-more:where(:hover, :focus)::after {
 .modal .modal-content .modal-header .modal-video iframe,
 .modal .modal-content .modal-header .modal-video video {
   width: 100%;
+  min-height: 75vh;
 }
 .modal .modal-content .modal-header .modal-document img {
   min-width: 50%;
@@ -16058,15 +16065,11 @@ a.read-more:where(:hover, :focus)::after {
   opacity: 1;
 }
 .modal::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.25rem;
 }
 .modal::-webkit-scrollbar-thumb {
-  background-color: #2d4419;
-  border: 2px solid transparent;
+  background-color: #96a81e;
   border-radius: 5px;
-}
-.modal::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 .modal-backdrop {

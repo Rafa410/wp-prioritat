@@ -24,7 +24,7 @@ header > h2 {
 
 .btn-outline-tertiary {
     border: 2px solid $tertiary;
-    color: $light;
+    color: $tertiary;
 
     &:hover,
     &:focus {
@@ -526,6 +526,15 @@ a.read-more {
             width: 100%;
             max-width: min(7rem, 100%);
         }
+
+        .btn-outline-tertiary {
+            color: $light;
+
+            &:hover,
+            &:focus {
+                color: $dark;
+            }
+        }
     }
 
     .menu-wrapper {
@@ -829,7 +838,7 @@ a.read-more {
 .modal {
     @include media-breakpoint-up(sm) {
         .modal-dialog {
-            max-width: clamp(500px, 75%, 700px);
+            max-width: clamp(500px, 80%, 850px);
         }
     }
 
@@ -858,6 +867,7 @@ a.read-more {
                 iframe,
                 video {
                     width: 100%;
+                    min-height: 75vh;
                 }
             }
 
@@ -905,17 +915,12 @@ a.read-more {
     }
 
     &::-webkit-scrollbar {
-        width: 0.5rem;
+        width: 0.25rem;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: $primary;
-        border: 2px solid transparent;
+        background-color: $tertiary;
         border-radius: 5px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: transparent;
     }
 }
 
