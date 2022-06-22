@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 <article <?php post_class( 'project p-2' ); ?> id="project-<?php the_ID(); ?>">
 
-	<?= get_the_post_thumbnail( $post->ID, 'medium' ) ?>
+	<?= get_the_post_thumbnail( $post->ID, 'medium', array( 'class' => 'no-lazy' ) ) ?>
 
 	<?php
 	the_title(
