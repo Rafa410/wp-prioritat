@@ -3,14 +3,19 @@
 // Just copy a variable from src/sass/assets/bootstrap5/_variables.scss, paste it here and edit the value.
 
 // Colors
-$primary: #2d4419;
-$secondary: #e5a32c;
-$tertiary: #96a81e;
+$primary: #ff7f61;
+$secondary: #e0cc39;
+$tertiary: #419683;
 $text-strong: #1d1d1b;
 $light-yellow: #fff8d7;
+$light-gray: #b4b4b4;
+$strong-gray: #7e7d7f;
 
 // Options
 $enable-rounded: false;
 
 // Sizing
 $menu-height: 4.3125rem;
+
+// Typography
+$font-family-base: 'Work Sans', sans-serif;

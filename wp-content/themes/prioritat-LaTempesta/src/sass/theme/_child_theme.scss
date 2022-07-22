@@ -4,12 +4,28 @@
 
 h1,
 header > h2 {
-    font-family: Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
 }
 
 header > h2 {
     @include font-size(2.5rem);
+}
+
+.text-light.link-primary {
+    transition: color 0.2s ease-out;
+
+    &:hover,
+    &:focus {
+        color: $primary !important;
+    }
+}
+
+.text-tertiary {
+    color: $tertiary;
+}
+
+.bg-tertiary {
+    background-color: $tertiary;
 }
 
 .btn-tertiary {
@@ -33,24 +49,25 @@ header > h2 {
     }
 }
 
-.bg-title {
+.title-underline {
     display: inline-block;
     position: relative;
-    z-index: 0;
 
-    &::before {
+    &::after {
         content: '';
-        position: absolute;
-        top: 53%;
-        bottom: -0.25rem;
-        right: 0;
-        left: 0;
-        z-index: -1;
-        background-color: $primary;
+        display: block;
+        height: 0.25rem;
+        background-color: $secondary;
+    }
+
+    &-primary {
+        &::after {
+            background-color: $primary;
+        }
     }
 
     &-tertiary {
-        &::before {
+        &::after {
             background-color: $tertiary;
         }
     }
@@ -387,6 +404,18 @@ a.read-more {
     }
 }
 
+#news {
+    .post-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        gap: 2rem;
+
+        article {
+            flex: auto;
+        }
+    }
+}
+
 .noticeboard {
     h3 {
         color: $primary;
@@ -618,29 +647,38 @@ a.read-more {
     align-items: center;
     text-align: center;
     height: 100%;
-    background-color: #f2f2f2;
     max-width: min(20rem, 95%);
     margin: 0 auto;
     box-shadow: 0 5px 20px -10px rgba(black, 0.25);
 
-    .block-icon {
-        color: #a4a4a4;
+    &.bg-primary {
+        box-shadow: 0 5px 20px -5px rgba($primary, 0.75);
+    }
+
+    &.bg-secondary {
+        box-shadow: 0 5px 20px -5px rgba($secondary, 0.75);
+    }
+
+    &.bg-tertiary {
+        box-shadow: 0 5px 20px -5px rgba($tertiary, 0.75);
+    }
+
+    &__icon {
+        color: white;
         width: 3rem;
     }
 
-    .block-title {
+    &__title {
         font-size: 1rem;
         margin: 1rem 0 1.5rem;
     }
 
-    .block-text {
+    &__text {
         text-decoration: none;
-        transition: 0.1s ease-out;
 
         &:hover,
         &:focus {
             text-decoration: underline;
-            color: $primary;
         }
     }
 }

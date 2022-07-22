@@ -62,12 +62,12 @@ if ( is_front_page() ) {
 					<section id="agenda" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary"><?= __( 'Agenda', 'prioritat' ) ?></h2>
+							<h2 class="title-underline"><?= __( 'Agenda', 'prioritat' ) ?></h2>
 						</header>
 
 						<div class="row g-0 align-items-center">
 
-							<div class="col-md-5 p-3">
+							<div class="col-md-5 p-lg-3">
 								<?= do_shortcode( '[agenda view="monthly"]' ) ?>
 							</div>
 
@@ -82,7 +82,7 @@ if ( is_front_page() ) {
 					<section id="latest-news" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary mb-3"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
+							<h2 class="title-underline mb-3"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
 						</header>
 
 						<div class="section-more">
@@ -128,7 +128,7 @@ if ( is_front_page() ) {
 					<section id="projects" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Projectes', 'prioritat' ) ?></h2>
+							<h2 class="title-underline mb-4"><?= __( 'Projectes', 'prioritat' ) ?></h2>
 						</header>
 
 						<?php
@@ -172,7 +172,7 @@ if ( is_front_page() ) {
 					<section id="forums" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Coneix els fòrums', 'prioritat' ) ?></h2>
+							<h2 class="title-underline mb-4"><?= __( 'Coneix els fòrums', 'prioritat' ) ?></h2>
 						</header>
 
 						<div class="section-description mb-4">
@@ -211,7 +211,7 @@ if ( is_front_page() ) {
 					<section id="mosaic" class="my-5">
 
 						<header>
-							<h2 class="bg-title bg-title-tertiary mb-4"><?= __( 'Mosaic', 'prioritat' ) ?></h2>
+							<h2 class="title-underline mb-4"><?= __( 'Mosaic', 'prioritat' ) ?></h2>
 						</header>
 
 						<?php

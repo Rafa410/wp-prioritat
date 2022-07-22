@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 
-			<div class="entry-meta fw-bold text-primary small">
+			<div class="entry-meta fw-bold text-tertiary small">
 				<?= prt_post_date(); ?>
 			</div><!-- .entry-meta -->
 
