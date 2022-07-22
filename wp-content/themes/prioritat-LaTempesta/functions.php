@@ -51,6 +51,17 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 
 
+function prt_load_google_fonts() {
+	?>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+	<?php
+}
+add_action( 'wp_head', 'prt_load_google_fonts' );
+
+
+
 /**
  * Enqueue libraries
  *  - Slick
