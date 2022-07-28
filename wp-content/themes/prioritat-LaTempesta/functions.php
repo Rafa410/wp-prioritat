@@ -55,7 +55,7 @@ function prt_load_google_fonts() {
 	?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
 	<?php
 }
 add_action( 'wp_head', 'prt_load_google_fonts' );
@@ -65,10 +65,18 @@ add_action( 'wp_head', 'prt_load_google_fonts' );
 /**
  * Enqueue libraries
  *  - Slick
+ *  - animate.css
+ *  - wow.js
  */
 function prt_load_libraries() {
     $slick_style = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';
     $slick_script = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js';
+
+	$animate_css = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+	$wow_js = 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js';
+
+	wp_enqueue_style( 'animate-css', $animate_css );
+	wp_enqueue_script( 'wow-js', $wow_js, array(), null, true );
 
     // Homepage
     if ( is_front_page() ) {

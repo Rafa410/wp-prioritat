@@ -15299,10 +15299,6 @@ figure.woocommerce-product-gallery__wrapper {
   display: block;
 }
 
-.site {
-  padding-top: 4.3125rem;
-}
-
 h1, .h1,
 header > h2,
 header > .h2 {
@@ -15348,6 +15344,10 @@ header > h2, header > .h2 {
 .btn-outline-tertiary:hover, .btn-outline-tertiary:focus {
   background-color: #419683;
   color: #212529;
+}
+
+.fw-extrabold {
+  font-weight: 800;
 }
 
 .title-underline {
@@ -15404,9 +15404,14 @@ a.read-more:where(:hover, :focus)::after {
   transform: translateY(-45%) scale(1);
 }
 
+#page-wrapper {
+  padding-top: 5.125rem;
+}
+
 #wrapper-navbar {
   position: absolute;
   top: 0;
+  z-index: 1020;
 }
 #wrapper-navbar .navbar-light .navbar-nav .nav-link {
   color: #1d1d1b;
@@ -15421,7 +15426,7 @@ a.read-more:where(:hover, :focus)::after {
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #ff7f61;
+  background-color: #212529;
   bottom: 0;
   left: 0;
   right: 0;
@@ -15438,130 +15443,186 @@ a.read-more:where(:hover, :focus)::after {
 #wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link {
   padding: 0.25rem 0.625rem;
   color: #f8f9fa;
-  background-color: #ff7f61;
+  background-color: #212529;
   transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 #wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link:where(:hover, :focus, [aria-current="page"]) {
   background-color: #419683;
-  box-shadow: 0 5px 5px -2px rgba(255, 127, 97, 0.5);
-}
-#wrapper-navbar .navbar-brand {
-  padding-top: 0;
+  box-shadow: 0 5px 5px -2px rgba(65, 150, 131, 0.5);
 }
 #wrapper-navbar .navbar-brand img {
-  max-height: 3rem;
+  max-height: 3.5rem;
   width: auto;
 }
 
-.homepage-hero {
-  min-height: calc(100vh - 4.3125rem);
+.page-header {
+  position: relative;
+  min-height: clamp(300px, 50vh, 585px);
 }
-.homepage-hero::after {
-  content: "";
+.page-header > .page-image {
   position: absolute;
+  top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  width: 100%;
-  height: 0.5rem;
-  background-color: #e0cc39;
-}
-.homepage-hero .bg-image {
-  inset: 0;
   z-index: -1;
 }
-.homepage-hero .bg-image > img {
+.page-header > .page-image img {
+  width: 100%;
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
 }
-.homepage-hero .hero-content {
-  width: 85%;
-  margin: 0 auto;
+.page-header > .container {
+  padding-top: 5.125rem;
 }
-.homepage-hero .hero-content h1, .homepage-hero .hero-content .h1 {
-  font-size: calc(1.575rem + 3.9vw);
-}
-@media (min-width: 1200px) {
-  .homepage-hero .hero-content h1, .homepage-hero .hero-content .h1 {
-    font-size: 4.5rem;
-  }
-}
-.homepage-hero .hero-content h2, .homepage-hero .hero-content .h2 {
+.page-header .page-title {
+  color: #f8f9fa;
+  font-weight: 800;
   font-size: calc(1.425rem + 2.1vw);
 }
 @media (min-width: 1200px) {
-  .homepage-hero .hero-content h2, .homepage-hero .hero-content .h2 {
+  .page-header .page-title {
     font-size: 3rem;
   }
 }
-.homepage-hero .hero-content .description {
+
+.dot-pattern {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: -1;
+}
+.dot-pattern svg {
+  height: 100%;
+}
+
+#present-page-wrapper .page-image img {
+  -o-object-position: center 20%;
+  object-position: center 20%;
+}
+
+.homepage-hero {
+  position: relative;
+  padding-top: 5.125rem;
+}
+.homepage-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.homepage-hero__image > img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.homepage-hero__content {
+  margin: 8% auto 0;
+}
+.homepage-hero__content h1, .homepage-hero__content .h1 {
+  font-size: calc(1.575rem + 3.9vw);
+}
+@media (min-width: 1200px) {
+  .homepage-hero__content h1, .homepage-hero__content .h1 {
+    font-size: 4.5rem;
+  }
+}
+.homepage-hero__content h2, .homepage-hero__content .h2 {
+  font-size: calc(1.425rem + 2.1vw);
+}
+@media (min-width: 1200px) {
+  .homepage-hero__content h2, .homepage-hero__content .h2 {
+    font-size: 3rem;
+  }
+}
+.homepage-hero__content .description {
   font-weight: 500;
   background: rgba(0, 0, 0, 0.375);
   max-width: 85%;
 }
 @media (min-width: 768px) {
-  .homepage-hero .hero-content .description {
+  .homepage-hero__content .description {
     max-width: 75%;
   }
 }
 @media (min-width: 992px) {
-  .homepage-hero .hero-content .description {
+  .homepage-hero__content .description {
     max-width: min(40rem, 60%);
   }
 }
-.homepage-hero .hero-content .btn-animated::before, .homepage-hero .hero-content .btn-animated::after {
+.homepage-hero__content .btn-animated {
+  position: relative;
+}
+.homepage-hero__content .btn-animated::before, .homepage-hero__content .btn-animated::after {
   content: "";
   width: 0;
   height: 2px;
   position: absolute;
   transition: all 0.2s linear;
-  background: #ff7f61;
+  background: #212529;
 }
-.homepage-hero .hero-content .btn-animated > span::before, .homepage-hero .hero-content .btn-animated > span::after {
+.homepage-hero__content .btn-animated > span::before, .homepage-hero__content .btn-animated > span::after {
   content: "";
   width: 2px;
   height: 0;
   position: absolute;
   transition: all 0.2s linear;
-  background: #ff7f61;
+  background: #212529;
 }
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus)::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::after {
+.homepage-hero__content .btn-animated:where(:hover, :focus)::before, .homepage-hero__content .btn-animated:where(:hover, :focus)::after {
   width: 100%;
 }
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before,
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
+.homepage-hero__content .btn-animated:where(:hover, :focus) span::before,
+.homepage-hero__content .btn-animated:where(:hover, :focus) span::after {
   height: 100%;
 }
-.homepage-hero .hero-content .btn-animated::before, .homepage-hero .hero-content .btn-animated::after {
+.homepage-hero__content .btn-animated::before, .homepage-hero__content .btn-animated::after {
   transition-delay: 0s;
 }
-.homepage-hero .hero-content .btn-animated span::before,
-.homepage-hero .hero-content .btn-animated span::after {
+.homepage-hero__content .btn-animated span::before,
+.homepage-hero__content .btn-animated span::after {
   transition-delay: 0.2s;
 }
-.homepage-hero .hero-content .btn-animated::before {
+.homepage-hero__content .btn-animated::before {
   right: 0;
   top: 0;
 }
-.homepage-hero .hero-content .btn-animated::after {
+.homepage-hero__content .btn-animated::after {
   left: 0;
   bottom: 0;
 }
-.homepage-hero .hero-content .btn-animated span::before {
+.homepage-hero__content .btn-animated span::before {
   left: 0;
   top: 0;
 }
-.homepage-hero .hero-content .btn-animated span::after {
+.homepage-hero__content .btn-animated span::after {
   right: 0;
   bottom: 0;
 }
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus)::before, .homepage-hero .hero-content .btn-animated:where(:hover, :focus)::after {
+.homepage-hero__content .btn-animated:where(:hover, :focus)::before, .homepage-hero__content .btn-animated:where(:hover, :focus)::after {
   transition-delay: 0.2s;
 }
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::before,
-.homepage-hero .hero-content .btn-animated:where(:hover, :focus) span::after {
+.homepage-hero__content .btn-animated:where(:hover, :focus) span::before,
+.homepage-hero__content .btn-animated:where(:hover, :focus) span::after {
   transition-delay: 0s;
+}
+.homepage-hero__title {
+  max-width: min(750px, 75%);
+}
+.homepage-hero__pattern {
+  max-height: 70%;
+}
+@media (max-width: 767.98px) {
+  .homepage-hero__pattern {
+    display: flex;
+    max-width: 70%;
+  }
+  .homepage-hero__pattern svg {
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+  }
 }
 
 .values-list .value {
