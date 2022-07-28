@@ -28,10 +28,18 @@ if ( is_front_page() ) {
 
 				<main class="site-main" id="main" role="main">
 
-					<header class="page-header py-4 px-4">
+					<header class="page-header py-4 px-4 <?php if ( ! has_post_thumbnail() ): ?>no-img<?php endif; ?>">
+
+						<div class="page-image">
+							<?= get_the_post_thumbnail( $post->ID, 'full' ); ?>
+						</div>
 
 						<div class="container">
 							<h1 class="page-title"><?php the_title(); ?></h1>
+						</div>
+
+						<div class="dot-pattern p-2 pt-5">
+							<img class="inline-svg" src="<?= get_stylesheet_directory_uri() ?>/images/dots.svg">
 						</div>
 
 					</header>
