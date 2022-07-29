@@ -15346,6 +15346,10 @@ header > h2, header > .h2 {
   color: #212529;
 }
 
+.fw-semibold {
+  font-weight: 600;
+}
+
 .fw-extrabold {
   font-weight: 800;
 }
@@ -15368,10 +15372,9 @@ header > h2, header > .h2 {
 }
 
 a.read-more {
-  display: block;
-  text-align: end;
+  display: inline-block;
+  width: auto;
   text-decoration: none;
-  font-weight: bold;
   position: relative;
   transition: 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
 }
@@ -15395,11 +15398,10 @@ a.read-more::after {
   transition: 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
 }
 a.read-more:where(:hover, :focus) {
-  color: #419683;
-  padding-right: 1.25rem;
+  padding-right: 1.5rem;
 }
 a.read-more:where(:hover, :focus)::after {
-  right: 0;
+  right: 0.25rem;
   opacity: 1;
   transform: translateY(-45%) scale(1);
 }
@@ -15626,19 +15628,35 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 .values-list .value {
-  background-color: #fff8d7;
   flex: 1;
   min-width: 13rem;
   max-width: max(50%, 25rem);
   display: flex;
   flex-flow: column;
 }
+.values-list .value .entry-thumbnail {
+  background-color: #e6e6e6;
+  aspect-ratio: 276/163;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.values-list .value .entry-thumbnail img {
+  max-width: 60%;
+  max-height: 80px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
 .values-list .value h3, .values-list .value .h3 {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  color: #ff7f61;
+}
+.values-list .value h3::after, .values-list .value .h3::after {
+  width: 70%;
+  transition: width 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
+}
+.values-list .value h3:where(:hover, :focus-within)::after, .values-list .value .h3:where(:hover, :focus-within)::after {
+  width: 100%;
 }
 
 .calendar-monthly-view {
@@ -15725,7 +15743,6 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 .noticeboard h3, .noticeboard .h3 {
-  color: #ff7f61;
   font-size: calc(1.275rem + 0.3vw);
 }
 @media (min-width: 1200px) {
@@ -15735,12 +15752,6 @@ a.read-more:where(:hover, :focus)::after {
 }
 .noticeboard .announcements-list {
   background-color: #fff8d7;
-}
-.noticeboard .announcements-list::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(65, 150, 131, 0.5);
-}
-.noticeboard .announcements-list::-webkit-scrollbar-thumb:active {
-  background-color: #419683;
 }
 .noticeboard .announcements-list::-webkit-scrollbar-track {
   background: #fff8d7;
@@ -15753,6 +15764,18 @@ a.read-more:where(:hover, :focus)::after {
 }
 .project .wp-post-image {
   width: 100%;
+}
+.project__image {
+  transition: box-shadow 0.3s ease-out;
+}
+.project__link:where(:hover, :focus) .project__image {
+  box-shadow: 3px 5px 10px -5px rgba(0, 0, 0, 0.95);
+}
+
+.fact__title::after {
+  background-color: #212529;
+  width: 25%;
+  margin: 1rem 0;
 }
 
 .forums-list .forum {
@@ -15787,27 +15810,6 @@ a.read-more:where(:hover, :focus)::after {
 
 .section-description {
   font-size: 0.9375rem;
-}
-
-.section-more > a {
-  display: inline-block;
-  position: relative;
-  text-transform: uppercase;
-  font-size: 0.875em;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 0.25rem 0.25rem 0.25rem 0;
-}
-.section-more > a::after {
-  content: "";
-  display: block;
-  width: 55%;
-  height: 0.25rem;
-  background-color: #e0cc39;
-  transition: width 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
-.section-more > a:hover::after, .section-more > a:focus::after {
-  width: 100%;
 }
 
 .social-icons li {
@@ -16131,7 +16133,7 @@ a.read-more:where(:hover, :focus)::after {
 }
 .modal .modal-content .modal-body .entry-title {
   color: #f8f9fa;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.25;
   margin: 0 auto;
@@ -16188,6 +16190,12 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 /** slick-theme-css **/
+.slick-slide img {
+  aspect-ratio: 3/2;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
 /* Arrows */
 .slick-prev,
 .slick-next {
@@ -16341,14 +16349,14 @@ a.read-more:where(:hover, :focus)::after {
   content: "•";
   text-align: center;
   opacity: 0.3;
-  color: #ff7f61;
+  color: #7e7d7f;
   transition: opacity 0.3s ease-out, color 0.2s 0.1s ease-out;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .slick-dots li.slick-active button:before {
   opacity: 0.95;
-  color: #e0cc39;
+  color: #ff7f61;
 }
 
 /* End dots */

@@ -17,23 +17,26 @@ $thumbnail = get_the_post_thumbnail( $ID, 'full' );
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
-            <div class="modal-header">
-                <div class="modal-image zoom loader">
-                    <?php if ( $thumbnail ): ?>
-                        <?= $thumbnail ?>
-                    <?php else: ?>
-                        <img src="https://source.unsplash.com/random/?nature&sig=<?= $ID ?>">
-                    <?php endif; ?>
-                </div>
+            <div class="modal-header p-0">
+                <h3 class="visually-hidden" id="modal-<?= $ID ?>-label">
+                    <?php the_title(); ?>
+                </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
+            
             <div class="modal-body">
-                <div class="d-flex align-items-center mb-2">
-                    <h2 class="entry-title mb-0" id="modal-<?= $ID ?>-label">
-                        <?php the_title(); ?>
-                    </h2>
-                </div>
+                <figure>
+                    <div class="modal-image zoom loader">
+                        <?php if ( $thumbnail ): ?>
+                            <?= $thumbnail ?>
+                        <?php else: ?>
+                            <img src="https://source.unsplash.com/random/?nature&sig=<?= $ID ?>">
+                        <?php endif; ?>
+                    </div>
+                    <figcaption class="entry-title text-center p-3">
+                        <?= get_the_post_thumbnail_caption() ?>
+                    </figcaption>
+                </figure>
             </div>
 
         </div>

@@ -9301,7 +9301,12 @@
 	  const lg = 992;
 
 	  $(function () {
-	    // Pause audio/video/iframe when closing modal/accordion
+	    // Initialize wow.js
+	    const wow = new WOW({
+	      animateClass: 'animate__animated'
+	    });
+	    wow.init(); // Pause audio/video/iframe when closing modal/accordion
+
 	    $('.modal, .accordion-collapse').on('hide.bs.modal hide.bs.collapse', function () {
 	      $(this).find('audio, video, iframe').each(function () {
 	        if (this.tagName == 'IFRAME') {
@@ -9329,6 +9334,15 @@
 	          slidesToShow: 1
 	        }
 	      }]
+	    }); // Initialize Slick facts-carousel
+
+	    $('.facts-carousel').slick({
+	      dots: true,
+	      arrows: false,
+	      infinite: true,
+	      slidesToShow: 1,
+	      slidesToScroll: 1,
+	      fade: true
 	    }); // Zoom images animation
 
 	    $('.zoom').on('click', function (event) {

@@ -11,18 +11,14 @@ defined( 'ABSPATH' ) || exit;
 
 <article <?php post_class( 'project p-2' ); ?> id="project-<?php the_ID(); ?>">
 
-	<?= get_the_post_thumbnail( $post->ID, 'medium', array( 'class' => 'no-lazy' ) ) ?>
+	<a href="<?= esc_url( get_permalink() ) ?>" class="project__link link-dark text-decoration-none">
 
-	<?php
-	the_title(
-		sprintf(
-			'<h3 class="entry-title fw-bold"><a href="%s" class="text-decoration-none">',
-			esc_url( get_permalink() )
-		),
-		'</a></h3>'
-	);
-	?>
+		<?= get_the_post_thumbnail( $post->ID, 'medium', array( 'class' => 'no-lazy project__image' ) ) ?>
+		
+		<?php the_title('<h3 class="project__title entry-title fw-semibold my-2">', '</h3>' ); ?>
 
-	<strong><?= get_field('subtitle') ?></strong>
+		<span class="project__subtitle"><?= get_field('subtitle') ?></span>
+
+	</a>
 
 </article><!-- #post-## -->
