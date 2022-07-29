@@ -7,6 +7,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+$delay = $args['index'] / 8;
 $ID = get_the_ID();
 $slug = $post->post_name . '-' . $ID;
 $thumbnail = get_the_post_thumbnail( $ID, 'medium' );
@@ -15,7 +16,10 @@ $excerpt = get_the_excerpt();
 
 ?>
 
-<article <?php post_class(); ?> id="foto-<?php the_ID(); ?>">
+<article
+    <?php post_class( 'wow animate__animated animate__fadeInUp' ); ?> 
+    id="foto-<?php the_ID(); ?>"
+    data-wow-delay="<?= $delay ?>s">
 
     <a href="#<?= $slug ?>" class="button-overlay" data-bs-toggle="modal" title="<?= sprintf( __( "Veure més detalls sobre %s", 'tmb-latempesta' ), $title ) ?>">
 
@@ -56,12 +60,6 @@ $excerpt = get_the_excerpt();
                 <span><?= $excerpt ?></span>
         
             </div>
-        
-            <footer class="entry-footer">
-        
-                <!-- Here we should add a button to open the image in a modal -->
-        
-            </footer>
 
         </div>
 

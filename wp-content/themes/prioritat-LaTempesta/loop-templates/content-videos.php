@@ -32,7 +32,10 @@ if ( !$thumbnail ) {
 
 ?>
 
-<article <?php post_class(); ?> id="video-<?php the_ID(); ?>">
+<article 
+    <?php post_class( 'wow animate__animated animate__fadeInUp' ); ?> 
+    id="video-<?php the_ID(); ?>"
+    data-wow-delay="<?= $delay ?>s">
 
     <a href="#<?= $slug ?>" class="button-overlay" data-bs-toggle="modal" title="<?= sprintf( __( "Veure més detalls sobre %s", 'tmb-latempesta' ), $title ) ?>">
 
@@ -70,12 +73,6 @@ if ( !$thumbnail ) {
                 <span><?= $excerpt ?></span>
         
             </div>
-        
-            <footer class="entry-footer">
-        
-                <!-- Here we should add a Play Video button -->
-        
-            </footer>
 
         </div>
 

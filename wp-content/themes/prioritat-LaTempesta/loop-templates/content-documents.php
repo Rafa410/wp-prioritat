@@ -31,7 +31,10 @@ if ( $document ) {
 
 ?>
 
-<article <?php post_class(); ?> id="document-<?php the_ID(); ?>">
+<article 
+    <?php post_class( 'wow animate__animated animate__fadeInUp' ); ?> 
+    id="document-<?php the_ID(); ?>"
+    data-wow-delay="<?= $delay ?>s">
 
     <a href="#<?= $slug ?>" class="button-overlay" data-bs-toggle="modal" title="<?= sprintf( __( "Veure més detalls sobre %s", 'tmb-latempesta' ), $title ) ?>">
 
@@ -69,12 +72,6 @@ if ( $document ) {
                 <span><?= $excerpt ?></span>
         
             </div>
-        
-            <footer class="entry-footer">
-        
-                <!-- Here we should add button to preview or download the file -->
-        
-            </footer>
 
         </div>
 
