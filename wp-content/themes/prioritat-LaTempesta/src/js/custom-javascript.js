@@ -10,6 +10,12 @@
 
     // Document ready
     $(function () {
+        // Initialize wow.js
+        const wow = new WOW({
+            animateClass: 'animate__animated',
+        });
+        wow.init();
+
         // Pause audio/video/iframe when closing modal/accordion
         $('.modal, .accordion-collapse').on('hide.bs.modal hide.bs.collapse', function () {
             $(this)
@@ -47,6 +53,16 @@
                     },
                 },
             ],
+        });
+
+        // Initialize Slick facts-carousel
+        $('.facts-carousel').slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: true,
         });
 
         // Zoom images animation
