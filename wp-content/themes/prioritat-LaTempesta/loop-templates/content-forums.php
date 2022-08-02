@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		the_title(
 			sprintf(
-				'<h3 class="entry-title"><a href="%s" class="text-decoration-none">',
+				'<h3 class="entry-title fw-bold w-75"><a href="%s" class="link-dark title-underline title-underline-dark text-decoration-none">',
 				esc_url( get_permalink() )
 			),
 			'</a></h3>'
@@ -34,8 +34,8 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer mt-auto">
 
-		<a href="#" class="read-more">
-			<?= __( 'Més informació', 'prioritat' ) ?>
+		<a href="#" class="read-more btn btn-outline-dark">
+			<?= __( 'Més info', 'prioritat' ) ?>
 		</a>
 
 	</footer><!-- .entry-footer -->
