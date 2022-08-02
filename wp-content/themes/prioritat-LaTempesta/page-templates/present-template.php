@@ -22,7 +22,7 @@ if ( is_front_page() ) {
 
 	<div class="container-fluid p-0" id="content">
 
-		<div class="row g-0">
+		<div class="row g-3">
 
 			<div class="col-md-12 content-area" id="primary">
 
@@ -50,7 +50,7 @@ if ( is_front_page() ) {
 
 							<div class="col-md-12">
 
-								<section id="agenda" class="my-5 px-3">
+								<section id="agenda" class="my-5 py-3">
 
 									<header>
 										<h2 class="title-underline"><?= __( 'Agenda', 'prioritat' ) ?></h2>
@@ -70,7 +70,7 @@ if ( is_front_page() ) {
 
 								</section>
 
-								<section id="news" class="my-5 px-3">
+								<section id="news" class="my-5 py-3">
 
 									<header>
 										<h2 class="title-underline mb-3"><?= __( 'Notícies', 'prioritat' ) ?></h2>
@@ -119,7 +119,7 @@ if ( is_front_page() ) {
 
 					</div>
 
-					<div class="container-fluid">
+					<div class="container-fluid p-0">
 						
 						<section id="newsletter" class="bg-secondary my-5 p-5">
 	
@@ -145,7 +145,7 @@ if ( is_front_page() ) {
 							
 							<div class="col-md-12">
 
-								<section id="prioritat-network" class="my-5 px-3">
+								<section id="prioritat-network" class="my-5 py-3">
 			
 										<header>
 											<h2 class="mb-3"><?= __( 'Prioritat a les xarxes', 'prioritat' ) ?></h2>

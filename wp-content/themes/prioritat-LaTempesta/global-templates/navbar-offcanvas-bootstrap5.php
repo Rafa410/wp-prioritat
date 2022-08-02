@@ -18,7 +18,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 	</h2>
 
 
-	<div class="<?php echo esc_attr( $container ); ?>">
+	<div class="<?php echo esc_attr( $container ); ?> px-3">
 
 		<!-- Your site title as branding in the menu -->
 		<?php if ( ! has_custom_logo() ) { ?>

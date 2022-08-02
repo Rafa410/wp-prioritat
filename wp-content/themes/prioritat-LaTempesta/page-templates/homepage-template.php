@@ -33,7 +33,7 @@ if ( is_front_page() ) {
 						<section id="values">
 
 							<header>
-								<h2 class="title-underline mb-4"><?= __( 'Valors', 'prioritat' ) ?></h2>
+								<h2 class="title-underline fw-extrabold mb-4"><?= __( 'Valors', 'prioritat' ) ?></h2>
 							</header>
 
 							<div class="summary col-lg-11 col-xl-10 lh-sm">
@@ -71,10 +71,10 @@ if ( is_front_page() ) {
 
 						</section>
 
-						<section id="agenda" class="my-5">
+						<section id="agenda" class="my-5 py-3">
 
 							<header>
-								<h2 class="title-underline"><?= __( 'Agenda', 'prioritat' ) ?></h2>
+								<h2 class="title-underline fw-extrabold"><?= __( 'Agenda d\'activitats', 'prioritat' ) ?></h2>
 							</header>
 
 							<div class="row g-0 align-items-center">
@@ -91,10 +91,10 @@ if ( is_front_page() ) {
 
 						</section>
 
-						<section id="latest-news" class="my-5">
+						<section id="latest-news" class="my-5 py-3">
 
 							<header>
-								<h2 class="title-underline mb-3"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
+								<h2 class="title-underline fw-extrabold mb-3"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
 							</header>
 
 							<div class="row g-0">
@@ -138,10 +138,10 @@ if ( is_front_page() ) {
 
 						</section>
 
-						<section id="projects" class="my-5">
+						<section id="projects" class="my-5 py-3">
 
 							<header>
-								<h2 class="title-underline mb-4"><?= __( 'Projectes', 'prioritat' ) ?></h2>
+								<h2 class="title-underline fw-extrabold mb-4"><?= __( 'Projectes', 'prioritat' ) ?></h2>
 							</header>
 
 							<?php
@@ -236,49 +236,10 @@ if ( is_front_page() ) {
 		
 					<div class="col-md-12 content-area">
 
-						<!-- <section id="forums" class="my-5">
+						<section id="mosaic" class="my-5 py-3">
 
 							<header>
-								<h2 class="title-underline mb-4"><?php // __( 'Coneix els fòrums', 'prioritat' ) ?></h2>
-							</header>
-
-							<div class="section-description mb-4">
-								<?php // get_field( 'forums_description' ) ?>
-							</div>
-
-							<div class="forums-list d-flex flex-wrap gap-3 justify-content-center">
-
-								<?php
-
-								// $args = array(
-								// 	'post_type' => 'forums',
-								// 	'posts_per_page' => -1,
-								// 	'orderby' => 'date',
-								// 	'order' => 'ASC'
-								// );
-
-								// $forums = new WP_Query( $args );
-
-								// if ( $forums->have_posts() ) {
-
-								// 	while ( $forums->have_posts() ) {
-								// 		$forums->the_post();
-								// 		get_template_part( 'loop-templates/content', get_post_type() );
-								// 	}
-								// }
-
-								// wp_reset_postdata();
-
-								?>
-
-							</div>
-
-						</section> -->
-
-						<section id="mosaic" class="my-5">
-
-							<header>
-								<h2 class="title-underline mb-4"><?= __( 'Mosaic', 'prioritat' ) ?></h2>
+								<h2 class="title-underline fw-extrabold mb-4"><?= __( 'Mosaic', 'prioritat' ) ?></h2>
 							</header>
 
 							<?php
