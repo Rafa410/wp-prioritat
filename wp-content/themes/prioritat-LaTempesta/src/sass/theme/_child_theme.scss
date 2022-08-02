@@ -7,13 +7,21 @@ header > h2 {
     @include font-size(2.5rem);
 }
 
-.text-light.link-primary {
+:where(.text-light, .text-dark).link-primary {
     transition: color 0.2s ease-out;
 
     &:hover,
     &:focus {
         color: $primary !important;
     }
+}
+
+.bg-gray-200 {
+    background-color: $gray-200;
+}
+
+.bg-gray-400 {
+    background-color: $gray-400;
 }
 
 .text-tertiary {
@@ -60,8 +68,10 @@ header > h2 {
     &::after {
         content: '';
         display: block;
+        width: 9rem;
         height: 0.25rem;
         background-color: $secondary;
+        margin: 0.5rem 0;
     }
 
     &-primary {
@@ -75,6 +85,31 @@ header > h2 {
             background-color: $tertiary;
         }
     }
+
+    &-dark {
+        &::after {
+            background-color: $dark;
+        }
+    }
+}
+
+.entry-title {
+    > .title-underline {
+        &::after {
+            width: 4.75rem;
+            transition: width 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
+        }
+
+        &:where(:hover, :focus) {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+:where(h1, h2).title-underline::after {
+    height: 6px;
 }
 
 a.read-more {
@@ -182,7 +217,11 @@ a.read-more {
 
 .page-header {
     position: relative;
-    min-height: clamp(300px, 50vh, 585px);
+    min-height: clamp(300px, 55vh, 585px);
+
+    &.no-img {
+        background-color: $light-gray;
+    }
 
     > .page-image {
         position: absolute;
@@ -200,7 +239,7 @@ a.read-more {
     }
 
     > .container {
-        padding-top: $menu-height;
+        padding-top: clamp($menu-height, 15vh, $menu-height * 2);
     }
 
     .page-title {
@@ -222,10 +261,39 @@ a.read-more {
     }
 }
 
-#present-page-wrapper {
+.page-template-association-template {
+    #wrapper-navbar::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 150%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(white, 0.8) 40%,
+            rgba(white, 0.3) 75%,
+            transparent
+        );
+    }
+}
+
+.page-template-homepage-template {
+    .page-image img {
+        object-position: top center;
+    }
+}
+
+:where(#present-page-wrapper, .blog) {
     .page-image img {
         object-position: center 20%;
     }
+}
+
+#single-wrapper {
+    padding-top: $menu-height;
 }
 
 .homepage-hero {
@@ -238,6 +306,7 @@ a.read-more {
         z-index: -1;
 
         > img {
+            width: 100%;
             height: 100%;
             object-fit: cover;
         }
@@ -375,7 +444,7 @@ a.read-more {
         flex-flow: column;
 
         .entry-thumbnail {
-            background-color: #e6e6e6;
+            background-color: $gray-200;
             aspect-ratio: 276 / 163;
             display: flex;
             align-items: center;
@@ -391,17 +460,6 @@ a.read-more {
         h3 {
             font-size: 1.25rem;
             font-weight: bold;
-
-            &::after {
-                width: 70%;
-                transition: width 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
-            }
-
-            &:where(:hover, :focus-within) {
-                &::after {
-                    width: 100%;
-                }
-            }
         }
     }
 }
@@ -506,10 +564,10 @@ a.read-more {
         @include font-size(1.5rem);
     }
     .announcements-list {
-        background-color: $light-yellow;
+        background-color: #e6e6e6;
 
         &::-webkit-scrollbar-track {
-            background: $light-yellow;
+            background: #e6e6e6;
         }
     }
 }
@@ -548,40 +606,59 @@ a.read-more {
 
 .forums-list {
     .forum {
-        color: $light;
-        background-color: $primary;
         flex: 1;
         min-width: 10.9rem;
         max-width: max(50%, 25rem);
-
         display: flex;
         flex-flow: column;
+    }
+}
 
-        .entry-title {
-            font-size: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
-            color: $light-yellow;
+.objectives-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 2rem;
 
-            > a {
-                color: $light-yellow;
-                transition: color 0.3s ease-out;
+    .objective {
+        padding: 1rem;
+        background-color: $gray-200;
+        line-height: $line-height-sm;
+        font-weight: 500;
+    }
+}
 
-                &:hover,
-                &:focus {
-                    color: $secondary;
-                }
-            }
+.container section > .row {
+    --bs-gutter-y: 1.5rem;
+}
+
+.strategic-line {
+    height: 100%;
+
+    &__title {
+        display: inline-block;
+        position: relative;
+
+        @include font-size(5rem);
+
+        &::after {
+            content: '';
+            display: block;
+            width: 5rem;
+            height: 0.25rem;
+            background-color: $dark;
         }
+    }
 
-        .read-more {
-            color: currentColor;
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
 
-            &:where(:hover, :focus) {
-                color: $secondary;
-            }
-        }
+.reason {
+    height: 100%;
+
+    p:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -620,12 +697,17 @@ a.read-more {
     }
 
     .icon {
-        padding: 0.375rem;
-        transition: transform 0.3s ease-out;
+        color: $light;
+        background-color: $dark;
+        transition-property: transform, background-color, color;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
         transform-origin: bottom;
 
         &:where(:hover, :focus) {
-            transform: scale(1.25);
+            color: $dark;
+            background-color: $primary;
+            transform: scale(1.15);
         }
     }
 }
@@ -644,30 +726,21 @@ a.read-more {
             width: 100%;
             max-width: min(7rem, 100%);
         }
-
-        .btn-outline-tertiary {
-            color: $light;
-
-            &:hover,
-            &:focus {
-                color: $dark;
-            }
-        }
     }
 
     .menu-wrapper {
         ul {
             list-style: none;
             padding-left: 0;
-            text-align: center;
 
             .menu-item {
                 > a {
                     display: inline-block;
                     position: relative;
                     padding: 0.375rem 0.5rem;
-                    color: $light;
+                    color: $dark;
                     text-decoration: none;
+                    font-weight: 600;
                     transition: color 0.3s ease-out;
 
                     &::before {
@@ -676,18 +749,16 @@ a.read-more {
                         position: absolute;
                         width: 100%;
                         height: 2px;
-                        background-color: $tertiary;
+                        background-color: $dark;
                         bottom: 0;
                         left: 0;
                         right: 0;
                         transform: scaleX(0);
-                        transform-origin: center center;
+                        transform-origin: left;
                         transition: transform 0.3s ease-out;
                     }
 
                     &:where(:hover, :focus, [aria-current='page']) {
-                        color: $tertiary;
-
                         &::before {
                             transform: scaleX(1);
                         }
@@ -704,7 +775,7 @@ a.read-more {
             max-width: max(50%, 12rem);
 
             > svg {
-                color: $light;
+                color: $dark;
                 transition: color 0.3s ease-out;
             }
 
@@ -724,12 +795,6 @@ a.read-more {
     }
 }
 
-#contact-page-wrapper {
-    .page-header {
-        background-color: $light-yellow;
-    }
-}
-
 .contact-block {
     display: flex;
     flex-direction: column;
@@ -738,19 +803,6 @@ a.read-more {
     height: 100%;
     max-width: min(20rem, 95%);
     margin: 0 auto;
-    box-shadow: 0 5px 20px -10px rgba(black, 0.25);
-
-    &.bg-primary {
-        box-shadow: 0 5px 20px -5px rgba($primary, 0.75);
-    }
-
-    &.bg-secondary {
-        box-shadow: 0 5px 20px -5px rgba($secondary, 0.75);
-    }
-
-    &.bg-tertiary {
-        box-shadow: 0 5px 20px -5px rgba($tertiary, 0.75);
-    }
 
     &__icon {
         color: white;
@@ -778,7 +830,7 @@ a.read-more {
     }
 
     .wpcf7-form label {
-        font-weight: 500;
+        font-weight: 600;
     }
 
     input {
@@ -787,8 +839,15 @@ a.read-more {
 
     input[type='submit'] {
         width: auto;
-        padding: 0.5rem 1rem;
-        font-weight: 500;
+        padding: 0.25rem 1rem;
+        font-weight: 600;
+        color: $dark;
+        border-color: $dark;
+
+        &:hover {
+            background-color: $dark;
+            color: $light;
+        }
     }
 }
 
@@ -1079,10 +1138,10 @@ a.read-more {
     }
 }
 
-::selection {
-    background-color: $tertiary;
-    color: white;
-}
+// ::selection {
+//     background-color: $tertiary;
+//     color: white;
+// }
 
 /** slick-theme-css **/
 
