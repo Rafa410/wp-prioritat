@@ -28,12 +28,19 @@ if ( is_front_page() ) {
 
 				<main class="site-main" id="main" role="main">
 
-					<header class="page-header py-4 px-4">
+					<header class="page-header py-4 <?php if ( ! has_post_thumbnail() ): ?>no-img<?php endif; ?>">
+
+						<div class="page-image">
+							<?= get_the_post_thumbnail( $post->ID, 'full' ); ?>
+						</div>
 
 						<div class="container">
 							<h1 class="page-title"><?php the_title(); ?></h1>
 						</div>
-					
+
+						<div class="dot-pattern p-2 pt-5">
+							<img class="inline-svg" src="<?= get_stylesheet_directory_uri() ?>/images/dots.svg">
+						</div>
 
 					</header>
 
@@ -106,14 +113,14 @@ if ( is_front_page() ) {
 			
 								</section>
 
-								<section id="contact-form" class="mt-5 pt-5 px-4">
+								<section id="contact-form" class="mt-5 pt-5">
 
 									<header>
-										<h2 class="section-title"><?= __( 'Escriu-nos', 'prioritat' ) ?></h2>
+										<h2 class="section-title title-underline fw-extrabold"><?= __( 'Escriu-nos', 'prioritat' ) ?></h2>
 									</header>
 
 									<div class="section-description mt-4 mb-5">
-										<p>
+										<p class="fw-semibold">
 											<?= __( 'Si tens qualsevol dubte sobre Prioritat o vols fer-nos algun comentari, no dubtis a escriure-nos.', 'prioritat' ) ?>
 										</p>
 									</div>
