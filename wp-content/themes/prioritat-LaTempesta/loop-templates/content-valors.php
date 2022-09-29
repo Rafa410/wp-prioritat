@@ -45,9 +45,9 @@ $index = $args['index'];
 
 	<footer class="entry-footer">
 
-		<a href="#" class="read-more btn btn-sm btn-outline-dark">
+		<!-- <a href="#" class="read-more btn btn-sm btn-outline-dark">
 			<?= __( 'Més info', 'prioritat' ) ?>
-		</a>
+		</a> -->
 
 	</footer><!-- .entry-footer -->
 

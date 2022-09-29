@@ -11,7 +11,8 @@ defined( 'ABSPATH' ) || exit;
 
 <article <?php post_class( 'project p-2' ); ?> id="project-<?php the_ID(); ?>">
 
-	<a href="<?= esc_url( get_permalink() ) ?>" class="project__link link-dark text-decoration-none">
+	<!-- <a href="<?= esc_url( get_permalink() ) ?>" class="project__link link-dark text-decoration-none"> -->
+	<a class="project__link link-dark text-decoration-none">
 
 		<?= get_the_post_thumbnail( $post->ID, 'medium', array( 'class' => 'no-lazy project__image' ) ) ?>
 		
