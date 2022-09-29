@@ -54,7 +54,7 @@ if ( is_front_page() ) {
 
 									<div class="row">
 
-										<div class="col-lg-10 col-xl-9 lh-sm">
+										<div class="col-12">
 											<?php the_content(); ?>
 										</div>
 
@@ -158,7 +158,7 @@ if ( is_front_page() ) {
 										</div>
 
 										<div class="col-md-5">
-
+											<img src="https://source.unsplash.com/random/500x500?nature" class="img-fluid" alt="">
 										</div>
 
 									</div>
@@ -173,15 +173,51 @@ if ( is_front_page() ) {
 
 					<div class="container-fluid p-0">
 						
-						<section id="timeline" class="bg-gray-200 my-5 p-5">
+						<section id="timeline-wrapper" class="bg-gray-200 my-5 p-5">
 	
-							<header>
-								<h2 class="mb-3">
-									<?= __( 'Cronologia', 'prioritat' ) ?>
-								</h2>
-							</header>
-	
-							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, seed diam voluptua.</p>
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+
+										<header>
+											<h2 class="mb-3">
+												<?= __( 'Cronologia', 'prioritat' ) ?>
+											</h2>
+										</header>
+				
+										<div id="timeline">
+
+											<span id="timeline-tracker"></span>
+
+											<?php
+											$args = array(
+												'post_type' => 'timeline_events',
+												'posts_per_page' => -1,
+												// 'meta_key' => 'event_date',
+												// 'orderby' => 'meta_value',
+												'orderby' => 'date',
+												'order' => 'ASC'
+											);
+											$query = new WP_Query( $args );
+											?>
+
+											<div class="timeline-events">
+
+												<?php 
+													while ( $query->have_posts() ) {
+														$query->the_post();
+														get_template_part( 'loop-templates/content', get_post_type() );
+													}
+													wp_reset_postdata(); 
+												?>
+
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
 	
 						</section>
 

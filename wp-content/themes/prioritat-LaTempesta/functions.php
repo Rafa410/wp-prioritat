@@ -72,6 +72,8 @@ add_action( 'wp_head', 'prt_load_google_fonts' );
  *  - Slick
  *  - animate.css
  *  - wow.js
+ *  - GSAP
+ * 		· ScrollTrigger
  */
 function prt_load_libraries() {
     $slick_style = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';
@@ -79,6 +81,9 @@ function prt_load_libraries() {
 
 	$animate_css = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
 	$wow_js = 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js';
+
+	$gsap = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js';
+    $gsap_scrollTrigger = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js';
 
 	wp_enqueue_style( 'animate-css', $animate_css );
 	wp_enqueue_script( 'wow-js', $wow_js, array(), null, true );
@@ -88,6 +93,12 @@ function prt_load_libraries() {
         wp_enqueue_style( 'slick-style', $slick_style );
         wp_enqueue_script( 'slick-script-async', $slick_script, array( 'jquery' ), null, true );
     }
+
+	// Association page
+	if ( is_page_template( 'page-templates/association-template.php' ) ) {
+		wp_enqueue_script( 'gsap-async', $gsap );
+        wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
+	}
 
 
 }

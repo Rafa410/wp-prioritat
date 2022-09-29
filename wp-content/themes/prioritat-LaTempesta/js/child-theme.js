@@ -9317,33 +9317,39 @@
 	      });
 	    }); // Initialize Slick projects-carousel
 
-	    $('.projects-carousel').slick({
-	      dots: true,
-	      arrows: false,
-	      infinite: true,
-	      slidesToShow: 3,
-	      slidesToScroll: 1,
-	      responsive: [{
-	        breakpoint: lg,
-	        settings: {
-	          slidesToShow: 2
-	        }
-	      }, {
-	        breakpoint: md,
-	        settings: {
-	          slidesToShow: 1
-	        }
-	      }]
-	    }); // Initialize Slick facts-carousel
+	    if ($('.projects-carousel').length) {
+	      $('.projects-carousel').slick({
+	        dots: true,
+	        arrows: false,
+	        infinite: true,
+	        slidesToShow: 3,
+	        slidesToScroll: 1,
+	        responsive: [{
+	          breakpoint: lg,
+	          settings: {
+	            slidesToShow: 2
+	          }
+	        }, {
+	          breakpoint: md,
+	          settings: {
+	            slidesToShow: 1
+	          }
+	        }]
+	      });
+	    } // Initialize Slick facts-carousel
 
-	    $('.facts-carousel').slick({
-	      dots: true,
-	      arrows: false,
-	      infinite: true,
-	      slidesToShow: 1,
-	      slidesToScroll: 1,
-	      fade: true
-	    }); // Zoom images animation
+
+	    if ($('.facts-carousel').length) {
+	      $('.facts-carousel').slick({
+	        dots: true,
+	        arrows: false,
+	        infinite: true,
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+	        fade: true
+	      });
+	    } // Zoom images animation
+
 
 	    $('.zoom').on('click', function (event) {
 	      const $this = $(this);
@@ -9376,6 +9382,34 @@
 	        $this.off('mouseover mouseout mousemove');
 	      }
 	    });
+	    const timelineTracker = document.getElementById('timeline-tracker');
+
+	    if (timelineTracker) {
+	      gsap.registerPlugin(ScrollTrigger); // Track timeline progress
+
+	      ScrollTrigger.create({
+	        trigger: '#timeline',
+	        start: 'top center',
+	        end: 'bottom center',
+	        onUpdate: self => {
+	          gsap.to(timelineTracker, {
+	            height: () => `${self.progress * 100}%`
+	          });
+	        }
+	      });
+	      gsap.utils.toArray('#timeline .event-year').forEach(year => {
+	        ScrollTrigger.create({
+	          trigger: year,
+	          start: 'center center',
+	          onEnter: self => {
+	            year.classList.add('passed');
+	          },
+	          onLeaveBack: self => {
+	            year.classList.remove('passed');
+	          }
+	        });
+	      });
+	    }
 	  }); // End document ready
 	})(jQuery);
 

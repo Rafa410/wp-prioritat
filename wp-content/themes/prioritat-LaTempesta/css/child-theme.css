@@ -15528,7 +15528,12 @@ a.read-more:where(:hover, :focus)::after {
   height: 100%;
 }
 
-.page-template-association-template #wrapper-navbar::before {
+.page-template-association-template #wrapper-navbar::before,
+.page-template-candidature-template #wrapper-navbar::before,
+.page-template-participate-template #wrapper-navbar::before,
+.page-template-present-template #wrapper-navbar::before,
+.page-template-contact-template #wrapper-navbar::before,
+.blog #wrapper-navbar::before {
   content: "";
   display: block;
   width: 100%;
@@ -15537,7 +15542,7 @@ a.read-more:where(:hover, :focus)::after {
   left: 0;
   right: 0;
   top: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.3) 75%, transparent);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0.2) 75%, transparent);
 }
 
 .page-template-homepage-template .page-image img {
@@ -15878,6 +15883,71 @@ a.read-more:where(:hover, :focus)::after {
 
 .section-description {
   font-size: 0.9375rem;
+}
+
+#timeline {
+  position: relative;
+  border-left: 1px solid #b4b4b4;
+  box-shadow: -1px 0px 0px 0px #b4b4b4;
+  margin-left: auto;
+  max-width: 90%;
+}
+@media (min-width: 768px) {
+  #timeline {
+    max-width: 80%;
+  }
+}
+@media (min-width: 992px) {
+  #timeline {
+    max-width: 70%;
+  }
+}
+#timeline #timeline-tracker {
+  width: 3px;
+  height: 0%;
+  position: absolute;
+  top: 0;
+  left: -3px;
+  background: #ff7f61;
+}
+
+.timeline-events {
+  max-width: min(650px, 90%);
+}
+
+.event-item {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.event-year {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+.event-year::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #ff7f61;
+  position: absolute;
+  left: calc(-2rem - 2px);
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  transition: box-shadow 0.3s;
+  z-index: 2;
+}
+.event-year.passed::before {
+  box-shadow: 0 0 0 3px #ff7f61;
+}
+
+.event-description > p:last-child {
+  margin-bottom: 0;
 }
 
 .social-icons li {
