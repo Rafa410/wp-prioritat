@@ -12,7 +12,7 @@
             href="<?= site_url( '/fes-te-soci' ) ?>" 
             class="btn btn-lg btn-secondary btn-animated animate__animated animate__fadeInUp animate__delay-2s py-1 px-2 px-sm-3 fw-bold"
             data-delay="1s">
-            <span><?= __( 'T\'animes a formar-ne part?', 'prioritat' ) ?></span>
+            <span><?= __( 'Vols formar-ne part?', 'prioritat' ) ?></span>
         </a>
     </div>
 
