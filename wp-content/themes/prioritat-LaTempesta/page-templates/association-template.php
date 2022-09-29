@@ -62,7 +62,7 @@ if ( is_front_page() ) {
 
 								</section>
 
-								<section id="objectives" class="my-5 py-3">
+								<section id="goals" class="my-5 py-3">
 
 									<header>
 										<h2 class="title-underline mb-3">
@@ -70,25 +70,17 @@ if ( is_front_page() ) {
 										</h2>
 									</header>
 
+									<?php $goals = get_field( 'goals' ); ?>
+
 									<p><?= __( 'Segons els estatuts fundacionals els objectius de l\'entitat son:', 'prioritat' ) ?></p>
 
-									<div class="objectives-list py-3">
+									<div class="goals-list py-3">
 
-										<div class="objective">
-											<p><?= __( 'Impulsar, coordinar i gestionar les actuacions necessàries per presentar, a la UNESCO, la candidatura de la comarca del Priorat com a paisatge cultural patrimoni de la humanitat.', 'prioritat' ) ?></p>
-										</div>
-
-										<div class="objective">
-											<p><?= __( 'Donar suport a totes les actuacions encaminades al reconeixement del valor patrimonial del paisatge cultural de la comarca del Priorat.', 'prioritat' ) ?></p>
-										</div>
-
-										<div class="objective">
-											<p><?= __( 'Vetllar per la preservació d\'aquest valor patrimonial i per la gestió respectuosa d\'aquest patrimoni. Promoure i donar suport a activitats que ajudin a consolidar un model de desenvolupament que garanteixi aquests valors, en col·laboració amb totes les persones, entitats i institucions d\'àmbit comarcal i d\'altres àmbits.', 'prioritat' ) ?></p>
-										</div>
-
-										<div class="objective">
-											<p><?= __( 'Treballar en col·laboració amb totes les persones, entitats i institucions d\'àmbit comarcal i d\'altres àmbits, per fer possible viure dignament al Priorat mantenint els valors tradicionals que l\'identifiquen: la pagesia, la petita escala, la diversitat, les relacions de proximitat i el paisatge.', 'prioritat' ) ?></p>
-										</div>
+										<?php foreach ( $goals as $goal ): ?>
+											<div class="goal">
+												<?= $goal['goal_description'] ?>
+											</div>
+										<?php endforeach; ?>
 
 									</div>
 
@@ -102,34 +94,18 @@ if ( is_front_page() ) {
 										</h2>
 									</header>
 
-									<div class="strategic-lines row">
+									<?php $strategic_lines = get_field( 'strategic_lines' ); ?>
 
-										<div class="col-md-12 col-lg-4">
-											<div class="strategic-line bg-gray-400 p-4">
-												<p class="strategic-line__title h1 mb-3">1</p>
+									<div class="strategic-lines-list">
+
+										<?php foreach ( $strategic_lines as $index => $strategic_line ): ?>
+											<div class="strategic-line p-4 bg-<?= $strategic_line['color'] ?>">
+												<p class="strategic-line__title h1 mb-3"><?= $index + 1 ?></p>
 												<p>
-													<?= __( 'Aprofundir en el coneixement conscient i dinàmic de la forta identitat territorial, a partir de la identificació, l\'estudi i el reconeixement dels valors i atributs que la configuren.', 'prioritat' ) ?>
+													<?= $strategic_line['description'] ?>
 												</p>
 											</div>
-										</div>
-
-										<div class="col-md-6 col-lg-4">
-											<div class="strategic-line bg-secondary p-4">
-												<p class="strategic-line__title h1 mb-3">2</p>
-												<p>
-													<?= __( 'Fomentar l\'autoorganització, la coordinació i la cooperació per garantir una governança participativa i eficient, tant a l\'àmbit social com en el polític, així com en la seva interrelació.', 'prioritat' ) ?>
-												</p>
-											</div>
-										</div>
-
-										<div class="col-md-6 col-lg-4">
-											<div class="strategic-line bg-primary p-4">
-												<p class="strategic-line__title h1 mb-3">3</p>
-												<p>
-													<?= __( 'Consolidar i implementar un model territorial integral propi i transversal.', 'prioritat' ) ?>
-												</p>
-											</div>
-										</div>
+										<?php endforeach; ?>
 
 									</div>
 
@@ -231,53 +207,112 @@ if ( is_front_page() ) {
 
 								<section id="organization" class="my-5 py-3">
 			
-										<header>
-											<h2 class="mb-3"><?= __( 'Organització', 'prioritat' ) ?></h2>
-										</header>
+									<header>
+										<h2 class="title-underline mb-3"><?= __( 'Organització', 'prioritat' ) ?></h2>
+									</header>
+
+									<?php
+									$args = array(
+										'post_type' => 'organization_items',
+										'posts_per_page' => -1,
+										'orderby' => 'date',
+										'order' => 'ASC'
+									);
+									$query = new WP_Query( $args );
+									?>
+
+									<?php if ( $query->have_posts() ) : ?>
 
 										<div class="accordion accordion-flush" id="accordionOrganization">
 
-											<div class="accordion-item">
-												<h2 class="accordion-header" id="flush-headingOne">
-												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-													Assemblea
-												</button>
-												</h2>
-												<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionOrganization">
-													<div class="accordion-body">
-														Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
-													</div>
-												</div>
-											</div>
-
-											<div class="accordion-item">
-												<h2 class="accordion-header" id="flush-headingTwo">
-												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-													Junta
-												</button>
-												</h2>
-												<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionOrganization">
-													<div class="accordion-body">
-														Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
-													</div>
-												</div>
-											</div>
-
-											<div class="accordion-item">
-												<h2 class="accordion-header" id="flush-headingThree">
-												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-													Comissions de treball
-												</button>
-												</h2>
-												<div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionOrganization">
-													<div class="accordion-body">
-														Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
-													</div>
-												</div>
-											</div>
+											<?php 
+												while ( $query->have_posts() ) {
+													$query->the_post();
+													get_template_part( 
+														'loop-templates/content', 
+														get_post_type(),
+														array(
+															'accordion_id' => 'accordionOrganization',
+														)
+													);
+												}
+												wp_reset_postdata(); 
+											?>
 
 										</div>
-			
+
+									<?php endif; ?>
+
+								</section>
+													
+								<section id="partners-wrapper" class="my-5 py-3">
+
+									<header>
+										<h2 class="title-underline mb-3">
+											<?= __( 'Socis i col·laboradors', 'prioritat' ) ?>
+										</h2>
+									</header>
+
+									<?php
+									$args = array(
+										'post_type' => 'socis',
+										'posts_per_page' => -1,
+										'orderby' => 'title',
+										'order' => 'ASC'
+									);
+									$query = new WP_Query( $args );
+									?>
+
+									<?php if ( $query->have_posts() ) : ?>
+
+										<div class="socis-list__nav">
+
+											<?php
+												$prev_char = '';
+												while ( $query->have_posts() ) {
+													$query->the_post();
+													get_template_part( 
+														'loop-templates/content', 
+														get_post_type() . '-nav',
+														array(
+															'prev_char' => $prev_char,
+														)
+													);
+													$prev_char = mb_strtoupper( mb_substr( get_the_title(), 0, 1 ) );
+												}
+
+												// Rewind the query for future use
+												rewind_posts();
+											?>
+
+											</div> <!-- .socis-nav-item -->
+
+										</div>
+
+										<div class="socis-list">
+
+											<?php 
+												$prev_char = '';
+												while ( $query->have_posts() ) {
+													$query->the_post();
+													get_template_part( 
+														'loop-templates/content', 
+														get_post_type(),
+														array(
+															'prev_char' => $prev_char,
+														)
+													);
+													$prev_char = mb_strtoupper( mb_substr( get_the_title(), 0, 1 ) );
+												}
+												wp_reset_postdata(); 
+											?>
+
+											</ul> <!-- .socis-list-group -->
+
+										</div>
+
+									<?php endif; ?>
+
 								</section>
 
 							</div>

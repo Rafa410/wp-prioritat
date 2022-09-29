@@ -69,6 +69,44 @@
             });
         }
 
+        // Initialize Slick partners carousel
+        if ($('.socis-list').length) {
+            $('.socis-list').slick({
+                arrows: false,
+                infinite: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                fade: true,
+                asNavFor: '.socis-list__nav',
+            });
+        }
+        if ($('.socis-list__nav').length) {
+            $('.socis-list__nav').slick({
+                arrows: true,
+                infinite: false,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                swipeToSlide: true,
+                focusOnSelect: true,
+                mobileFirst: true,
+                asNavFor: '.socis-list',
+                responsive: [
+                    {
+                        breakpoint: lg,
+                        settings: {
+                            slidesToShow: 8,
+                        },
+                    },
+                    {
+                        breakpoint: xl,
+                        settings: {
+                            slidesToShow: 10,
+                        },
+                    },
+                ],
+            });
+        }
+
         // Zoom images animation
         $('.zoom').on('click', function (event) {
             const $this = $(this);

@@ -54,7 +54,7 @@ if ( is_front_page() ) {
 
 									<div class="row justify-content-center">
 
-										<div class="col-lg-11 col-xl-10 lh-sm">
+										<div class="col-12 lh-sm">
 											<?php the_content(); ?>
 										</div>
 
@@ -70,40 +70,22 @@ if ( is_front_page() ) {
 										</h2>
 									</header>
 
-									<div class="reasons-list row lh-sm">
+									<div class="reasons-list lh-sm">
 
-										<div class="col-md-12 col-lg-4">
-											<div class="reason bg-secondary p-4">
-												<h3 class="reason__title h5 fw-bold mb-3">
-													<?= __( 'El paisatge', 'prioritat' ) ?>
-												</h3>
-												<p>
-													<?= __( 'El nostre paisatge representa de manera excepcional aquesta interacció en un espai mediterrani de terra endins. I  té una diversitat, una complexitat, una nitidesa i una dimensió immaterial, mantingudes al llarg de la història i vives encara avui, que el fan mereixedor del reconeixement de la UNESCO.', 'prioritat' ) ?>
-												</p>
-											</div>
-										</div>
+										<?php $reasons = get_field( 'reasons_why' ); ?>
 
-										<div class="col-md-6 col-lg-4">
-											<div class="reason bg-secondary p-4">
-												<h3 class="reason__title h5 fw-bold mb-3">
-													<?= __( 'La posada en valor', 'prioritat' ) ?>
-												</h3>
-												<p>
-													<?= __( 'El paisatge de la comarca és, alhora, un capital i un recurs fràgil que cal posar en valor i gestionar de manera integral i sostenible per contribuir a l\'obtenció de beneficis socials, culturals i econòmics.', 'prioritat' ) ?>
-												</p>
-											</div>
-										</div>
+										<?php foreach ( $reasons as $reason ): ?>
 
-										<div class="col-md-6 col-lg-4">
 											<div class="reason bg-secondary p-4">
-												<h3 class="reason__title h5 fw-bold mb-3">
-													<?= __( 'L\'equilibri', 'prioritat' ) ?>
+												<h3 class="reason__title fs-5 fw-bold mb-2">
+													<?= $reason['reason_title'] ?>
 												</h3>
-												<p>
-													<?= __( 'L\'objectiu és garantir la qualitat de vida dels seus habitants i la preservació de l\'entorn, a partir de l\'equilibri entre la necessària utilització del territori i la salvaguarda de la seva autenticitat. ', 'prioritat' ) ?>
-												</p>
+												<div class="reason__description">
+													<?= $reason['reason_description'] ?>
+												</div>
 											</div>
-										</div>
+										
+										<?php endforeach; ?>
 
 									</div>
 
@@ -117,24 +99,8 @@ if ( is_front_page() ) {
 										</h2>
 									</header>
 
-									<div class="row">
-
-										<div class="col-md-7 lh-sm">
-											<p>
-												<?= __( 'El procés per a preparar la candidatura per a esdevenir Patrimoni Mundial per la UNESCO començà l\'any 2011, quan es constituí l\'equip de redacció del dossier de candidatura. El dossier és el document que ha de contenir tot el que la UNESCO reclama per tal que quedi justificada la seua inscripció a la Llista del Patrimoni Mundial.', 'prioritat' ) ?>
-											</p>
-											<p>
-												<?= __( 'Després de la moció de suport de la DIPTA, al 2012 es feu la declaració del Parlament de suport a la candidatura, rebent també l\'aprovació de la Generalitat. Del 2012 al 2014 es posaren les bases del plantejament del dossier i s\'establiren les relacions institucionals imprescindibles en tot projecte de candidatura, per dur a terme tots els protocols requerits. Des del 2015 fins al 2018 s\'elaboraren els continguts del dossier i es materialitzà, presentant-se a l\'òrgan competent que tramita les candidatures, depenent del Ministerio de Cultura.', 'prioritat' ) ?>
-											</p>
-											<p>
-												<?= __( 'Tot just presentar el dossier, s\'optà per una retirada estratègica al 2019, la qual es faria per tornar amb més força el 2022, una vegada reorganitzada l\'entitat després de l\'aturada causada per la pandèmia de COVID.', 'prioritat' ) ?>
-											</p>
-										</div>
-
-										<div class="col-md-5">
-											<!-- Image -->
-										</div>
-
+									<div class="current-state__content">
+										<?= get_field( 'current_state' ) ?>
 									</div>
 
 								</section>

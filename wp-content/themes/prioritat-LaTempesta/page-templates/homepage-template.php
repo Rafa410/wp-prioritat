@@ -30,6 +30,10 @@ if ( is_front_page() ) {
 		
 					<div class="col-md-12 content-area" id="primary">
 
+						<section id="presentation" class="mb-4 py-3">
+							<?php the_content(); ?>
+						</section>
+
 						<section id="values">
 
 							<header>
@@ -141,7 +145,9 @@ if ( is_front_page() ) {
 						<section id="projects" class="my-5 py-3">
 
 							<header>
-								<h2 class="title-underline fw-extrabold mb-4"><?= __( 'Projectes', 'prioritat' ) ?></h2>
+								<h2 class="title-underline fw-extrabold mb-4">
+									<?= __( 'Què fem?', 'prioritat' ) ?>
+								</h2>
 							</header>
 
 							<?php

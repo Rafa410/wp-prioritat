@@ -96,6 +96,8 @@ function prt_load_libraries() {
 
 	// Association page
 	if ( is_page_template( 'page-templates/association-template.php' ) ) {
+		wp_enqueue_style( 'slick-style', $slick_style );
+        wp_enqueue_script( 'slick-script-async', $slick_script, array( 'jquery' ), null, true );
 		wp_enqueue_script( 'gsap-async', $gsap );
         wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
 	}
