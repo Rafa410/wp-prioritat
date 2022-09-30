@@ -15,7 +15,7 @@ $slug = get_post_field( 'post_name', get_post() );
 
 <div class="accordion-item">
 	<h3 class="accordion-header" id="<?= $slug . '-heading' ?>">
-		<button class="accordion-button fs-4 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $slug ?>" aria-expanded="false" aria-controls="<?= $slug ?>">
+		<button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $slug ?>" aria-expanded="false" aria-controls="<?= $slug ?>">
 			<?= get_the_title() ?>
 		</button>
 	</h3>

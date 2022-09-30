@@ -16011,7 +16011,7 @@ a.read-more:where(:hover, :focus)::after {
 #accordionOrganization h4, #accordionOrganization .h4 {
   display: inline-block;
   position: relative;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
 }
 #accordionOrganization h4::after, #accordionOrganization .h4::after {
