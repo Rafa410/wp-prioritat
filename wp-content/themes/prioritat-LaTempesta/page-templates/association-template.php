@@ -101,9 +101,9 @@ if ( is_front_page() ) {
 										<?php foreach ( $strategic_lines as $index => $strategic_line ): ?>
 											<div class="strategic-line p-4 bg-<?= $strategic_line['color'] ?>">
 												<p class="strategic-line__title h1 mb-3"><?= $index + 1 ?></p>
-												<p>
+												<div>
 													<?= $strategic_line['description'] ?>
-												</p>
+												</div>
 											</div>
 										<?php endforeach; ?>
 
@@ -119,25 +119,29 @@ if ( is_front_page() ) {
 										</h2>
 									</header>
 
-									<div class="row">
+									<?php $antecedents = get_field( 'antecedents' ); ?>
 
-										<div class="col-md-7">
-											<p>
-												<?= __( 'Prioritat neix de la voluntat d\'una part de la societat prioratina de treballar de manera propositiva (en positiu) per la preservació del paisatge i la seua gestió enraonada.', 'prioritat' ) ?>
-											</p>
-											<p>
-												<?= __( 'Els primers anys del s. XXI a la comarca es va generar un debat, que s\'originà a partir dels projectes de centrals eòliques que omplien les nostres serres d\'aerogeneradors. Aquest debat posava al centre la consideració del valor del nostre paisatge i com aquest valor podia ajudar-nos a proposar un model territori de futur.', 'prioritat' ) ?>
-											</p>
-											<p>
-												<?= __( 'El manteniment del debat, més enllà d\'haver aturat aquests projectes i altres també agressius (Tèrmica ENRON), va provocar, en certa manera, que es passés d\'una actitud reactiva, de reacció en front de les agressions, a una proposta d\'actuació més propositiva, en positiu, que es materialitza i s\'articula al voltant de Prioritat.', 'prioritat' ) ?>
-											</p>
+									<?php if ( $antecedents['image'] ) : ?>
+
+										<div class="row">
+	
+											<div class="col-md-7">
+												<?= $antecedents['description'] ?>
+											</div>
+	
+											<div class="col-md-5">
+												<?= wp_get_attachment_image( $antecedents['image'], 'large' ) ?>
+											</div>
+	
 										</div>
 
-										<div class="col-md-5">
-											<img src="https://source.unsplash.com/random/500x500?nature" class="img-fluid" alt="">
+									<?php else : ?>
+
+										<div class="antecedents__description">
+											<?= $antecedents['description'] ?>
 										</div>
 
-									</div>
+									<?php endif; ?>
 
 								</section>
 

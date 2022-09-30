@@ -15530,7 +15530,6 @@ a.read-more:where(:hover, :focus)::after {
   right: 0;
   bottom: 0;
   height: 100%;
-  z-index: -1;
 }
 .dot-pattern svg {
   height: 100%;
@@ -15561,6 +15560,15 @@ a.read-more:where(:hover, :focus)::after {
 :where(#present-page-wrapper, .blog) .page-image img {
   -o-object-position: center 20%;
   object-position: center 20%;
+}
+
+.page-template-participate-form-template .page-header .title-underline::after {
+  width: 4.5rem;
+  margin: 0;
+  transition: width 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
+}
+.page-template-participate-form-template .page-header .title-underline:hover::after, .page-template-participate-form-template .page-header .title-underline:focus::after {
+  width: 100%;
 }
 
 #single-wrapper {
@@ -16009,10 +16017,10 @@ a.read-more:where(:hover, :focus)::after {
   color: #ff7f61;
 }
 #accordionOrganization h4, #accordionOrganization .h4 {
-  display: inline-block;
-  position: relative;
   font-size: 1.125rem;
   font-weight: 600;
+  position: relative;
+  display: inline-block;
 }
 #accordionOrganization h4::after, #accordionOrganization .h4::after {
   content: "";
@@ -16064,18 +16072,21 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 .reasons-list,
-.strategic-lines-list {
+.strategic-lines-list,
+.how-to-support-list {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
 }
 
 .reason,
-.strategic-line {
+.strategic-line,
+.how-to-support-item {
   flex: 1;
   min-width: min(20rem, 100%);
   max-width: 100%;
 }
+
 .reason p:last-child,
 .strategic-line p:last-child {
   margin-bottom: 0;
@@ -16086,10 +16097,31 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 @media (max-width: 1199.98px) {
-  .strategic-line:first-child {
+  .strategic-line:first-child,
+.how-to-support-item:first-child {
     flex-basis: 100%;
   }
 }
+.antecedents-candidacy__content h3, .antecedents-candidacy__content .h3 {
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+.antecedents-candidacy__content h3::after, .antecedents-candidacy__content .h3::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 0.25rem;
+  background-color: #419683;
+  margin: 0.25rem 0;
+}
+
+.how-to-support-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .social-icons li {
   flex: 0 0 auto;
 }
@@ -16210,6 +16242,25 @@ a.read-more:where(:hover, :focus)::after {
 .wpcf7 input[type=submit]:hover {
   background-color: #212529;
   color: #f8f9fa;
+}
+.wpcf7 input[type=submit]:disabled, .wpcf7 input[type=submit].disabled {
+  color: #7e7d7f;
+}
+.wpcf7 .wpcf7-list-item-label {
+  font-weight: 400;
+}
+.wpcf7 .select-arrow .wpcf7-form-control-wrap::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.6rem solid black;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .mosaic-gallery {

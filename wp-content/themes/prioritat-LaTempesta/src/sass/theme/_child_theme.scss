@@ -65,6 +65,20 @@ ul > li {
     font-weight: 800;
 }
 
+@mixin title-underline($width: 4.5rem, $height: 0.25rem, $color: $tertiary, $margin: 0.25rem 0) {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: '';
+        display: block;
+        width: $width;
+        height: $height;
+        background-color: $color;
+        margin: $margin;
+    }
+}
+
 .title-underline {
     display: inline-block;
     position: relative;
@@ -257,7 +271,6 @@ a.read-more {
     right: 0;
     bottom: 0;
     height: 100%;
-    z-index: -1;
 
     svg {
         height: 100%;
@@ -297,6 +310,23 @@ a.read-more {
 :where(#present-page-wrapper, .blog) {
     .page-image img {
         object-position: center 20%;
+    }
+}
+
+.page-template-participate-form-template {
+    .page-header .title-underline {
+        &::after {
+            width: 4.5rem;
+            margin: 0;
+            transition: width 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
+        }
+
+        &:hover,
+        &:focus {
+            &::after {
+                width: 100%;
+            }
+        }
     }
 }
 
@@ -808,19 +838,9 @@ a.read-more {
     }
 
     h4 {
-        display: inline-block;
-        position: relative;
         font-size: 1.125rem;
         font-weight: 600;
-
-        &::after {
-            content: '';
-            display: block;
-            width: 4.5rem;
-            height: 0.25rem;
-            background-color: $tertiary;
-            margin: 0.25rem 0;
-        }
+        @include title-underline();
     }
 
     .accordion-button {
@@ -870,18 +890,23 @@ a.read-more {
 }
 
 .reasons-list,
-.strategic-lines-list {
+.strategic-lines-list,
+.how-to-support-list {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
 }
 
 .reason,
-.strategic-line {
+.strategic-line,
+.how-to-support-item {
     flex: 1;
     min-width: min(20rem, 100%);
     max-width: 100%;
+}
 
+.reason,
+.strategic-line {
     p:last-child {
         margin-bottom: 0;
     }
@@ -892,9 +917,23 @@ a.read-more {
 }
 
 @include media-breakpoint-down(xl) {
-    .strategic-line:first-child {
+    .strategic-line:first-child,
+    .how-to-support-item:first-child {
         flex-basis: 100%;
     }
+}
+
+.antecedents-candidacy__content {
+    h3 {
+        font-weight: 600;
+        @include title-underline();
+    }
+}
+
+.how-to-support-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 // .section-more {
@@ -1078,6 +1117,31 @@ a.read-more {
         &:hover {
             background-color: $dark;
             color: $light;
+        }
+
+        &:disabled,
+        &.disabled {
+            color: $strong-gray;
+        }
+    }
+
+    .wpcf7-list-item-label {
+        font-weight: 400;
+    }
+
+    .select-arrow .wpcf7-form-control-wrap {
+        &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 0.5rem solid transparent;
+            border-right: 0.5rem solid transparent;
+            border-top: 0.6rem solid black;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
         }
     }
 }
