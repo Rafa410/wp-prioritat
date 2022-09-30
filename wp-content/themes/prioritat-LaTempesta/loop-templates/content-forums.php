@@ -34,9 +34,9 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer mt-auto">
 
-		<a href="#" class="read-more btn btn-outline-dark">
+		<!-- <a href="#" class="read-more btn btn-outline-dark">
 			<?= __( 'Més info', 'prioritat' ) ?>
-		</a>
+		</a> -->
 
 	</footer><!-- .entry-footer -->
 
