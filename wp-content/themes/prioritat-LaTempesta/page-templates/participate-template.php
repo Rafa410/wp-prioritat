@@ -80,6 +80,14 @@ if ( is_front_page() ) {
 
 								<section id="activities" class="my-5 py-3">
 
+									<header>
+										<h2 class="title-underline mb-3"><?= __( 'Activitats', 'prioritat' ) ?></h2>
+									</header>
+
+									<div class="my-3">
+										<?= do_shortcode( '[agenda_archive]' ) ?>
+									</div>
+
 								</section>
 
 							</div><!-- .col -->

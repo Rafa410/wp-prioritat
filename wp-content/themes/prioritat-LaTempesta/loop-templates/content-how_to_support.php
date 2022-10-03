@@ -18,7 +18,7 @@ $button = get_field('button');
 	<div class="how-to-support-item__summary lh-sm">
 		<?= get_field('summary') ?>
 	</div>
-	<a href="<?= esc_url( $button['linked_form'] ) ?>" class="how-to-support-item__link read-more btn btn-outline-dark fw-semibold mt-auto mb-3">
+	<a href="<?= esc_url( $button['linked_form'] ) ?>" class="how-to-support-item__link read-more btn btn-outline-dark fw-semibold mt-auto">
 		<?= $button['btn_text'] ?>
 	</a>
 </div>

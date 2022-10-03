@@ -126,7 +126,7 @@ if ( is_front_page() ) {
 									wp_reset_postdata();
 									?>
 
-									<a href="<?= get_post_type_archive_link( 'post' ) ?>" class="read-more btn btn-sm btn-outline-dark fw-semibold my-3">
+									<a href="<?= site_url( '/actualitat/#news' ) ?>" class="read-more btn btn-sm btn-outline-dark fw-semibold my-3">
 										<?= __( 'Veure totes', 'prioritat' ) ?>
 									</a>
 
@@ -165,7 +165,7 @@ if ( is_front_page() ) {
 								
 								<?php $list_type = $projects->found_posts > 3 ? 'projects-carousel' : 'projects-list'; ?>
 
-								<div class="<?= $list_type ?> d-flex flex-wrap gap-2 justify-content-center align-items-center">
+								<div class="<?= $list_type ?> d-flex flex-wrap gap-2 justify-content-center align-items-start">
 									
 									<?php
 									while ( $projects->have_posts() ) {

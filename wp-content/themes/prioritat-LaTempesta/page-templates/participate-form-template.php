@@ -28,7 +28,7 @@ if ( is_front_page() ) {
 
 				<main class="site-main" id="main" role="main">
 
-					<header class="page-header d-flex py-4 bg-<?= get_field( 'color' ) ?> <?php if ( ! has_post_thumbnail() ): ?>no-img<?php endif; ?>">
+					<header class="page-header d-flex py-4 bg-<?= get_field( 'color', $post->ID ) ?> <?php if ( ! has_post_thumbnail() ): ?>no-img<?php endif; ?>">
 
 						<div class="page-image">
 							<?= get_the_post_thumbnail( $post->ID, 'full' ); ?>

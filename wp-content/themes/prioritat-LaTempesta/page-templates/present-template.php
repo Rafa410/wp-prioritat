@@ -81,7 +81,7 @@ if ( is_front_page() ) {
 										<?php
 										$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 										$args = array(
-											'post_type' => 'post',
+											'post_type' => 'noticies',
 											'posts_per_page' => 6,
 											'orderby' => 'date',
 											'order' => 'DESC',
