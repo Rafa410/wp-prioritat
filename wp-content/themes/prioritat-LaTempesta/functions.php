@@ -91,13 +91,13 @@ function prt_load_libraries() {
     // Homepage
     if ( is_front_page() ) {
         wp_enqueue_style( 'slick-style', $slick_style );
-        wp_enqueue_script( 'slick-script-async', $slick_script, array( 'jquery' ), null, true );
+        wp_enqueue_script( 'slick-script', $slick_script, array( 'jquery' ), null, true );
     }
 
 	// Association page
 	if ( is_page_template( 'page-templates/association-template.php' ) ) {
 		wp_enqueue_style( 'slick-style', $slick_style );
-        wp_enqueue_script( 'slick-script-async', $slick_script, array( 'jquery' ), null, true );
+        wp_enqueue_script( 'slick-script', $slick_script, array( 'jquery' ), null, true );
 		wp_enqueue_script( 'gsap-async', $gsap );
         wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
 	}
@@ -194,8 +194,16 @@ add_action('after_setup_theme','prt_remove_admin_bar');
  * @return string
  */
 function understrap_all_excerpts_get_more_link( $post_excerpt ) {
-	return $post_excerpt;
+	// TODO: Only add [...] if the excerpt was automatically generated
+	return $post_excerpt . ' [...]'; 
 }
+
+
+function prt_excerpt_length( $length ) { 
+	return 40; 
+} 
+add_filter( 'excerpt_length', 'prt_excerpt_length');
+
 
 
 
