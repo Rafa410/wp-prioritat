@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Present Page
+ * Template Name: Pàgina Actualitat
  *
  * Template for displaying the present page.
  *
@@ -104,9 +104,52 @@ if ( is_front_page() ) {
 
 									<!-- The pagination component -->
 									<?php understrap_pagination(array(
-										// 'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+										'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
 										'total'        => $query->max_num_pages,
-										// 'format'       => '?paged=%#%',
+										'format'       => '?paged=%#%',
+									)); ?>
+
+									<?php wp_reset_postdata(); ?>
+
+								</section>
+
+								<section id="prioritat-media" class="my-5 py-3">
+
+									<header>
+										<h2 class="title-underline mb-3"><?= __( 'Prioritat als mitjans', 'prioritat' ) ?></h2>
+									</header>
+
+									<div class="mitjans-list py-3">
+
+										<?php
+										$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+										$args = array(
+											'post_type' => 'mitjans',
+											'posts_per_page' => 12,
+											'orderby' => 'date',
+											'order' => 'DESC',
+											'paged' => $paged,
+										);
+										$query = new WP_Query( $args );
+										
+										if ( $query->have_posts() ) {
+											while ( $query->have_posts() ) {
+												$query->the_post();
+												get_template_part( 'loop-templates/content', get_post_type() );
+											}
+										} else {
+											echo '<p class="fw-light text-muted fs-5">' . __( 'No s\'han trobat notícies recents.', 'prioritat' ) . '</p>';
+										}
+										
+										?>
+
+									</div>
+
+									<!-- The pagination component -->
+									<?php understrap_pagination(array(
+										'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+										'total'        => $query->max_num_pages,
+										'format'       => '?paged=%#%',
 									)); ?>
 
 									<?php wp_reset_postdata(); ?>
@@ -122,18 +165,24 @@ if ( is_front_page() ) {
 					<div class="container-fluid p-0">
 						
 						<section id="newsletter" class="bg-secondary my-5 p-5">
-	
-							<header>
-								<h2 class="mb-3">
-									<?= __( 'Subscriu-te al bulletí', 'prioritat' ) ?>
-								</h2>
-							</header>
-	
-							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elits, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, seed diam voluptua.</p>
-	
-							<a href="#subscribe" class="btn btn-outline-dark fw-bold">
-								<?= __( 'Subscriu-te', 'prioritat' ) ?>
-							</a>
+
+							<div class="container">
+								
+								<header>
+									<h2 class="mb-3">
+										<?= __( 'Subscriu-te al bulletí', 'prioritat' ) ?>
+									</h2>
+								</header>
+		
+								<div>
+									<?= get_field( 'newsletter_content' ) ?>
+								</div>
+		
+								<a href="#subscribe" class="btn btn-outline-dark fw-bold">
+									<?= __( 'Subscriu-te', 'prioritat' ) ?>
+								</a>
+								
+							</div>
 	
 						</section>
 
@@ -147,9 +196,13 @@ if ( is_front_page() ) {
 
 								<section id="prioritat-network" class="my-5 py-3">
 			
-										<header>
-											<h2 class="mb-3"><?= __( 'Prioritat a les xarxes', 'prioritat' ) ?></h2>
-										</header>
+									<header>
+										<h2 class="mb-3"><?= __( 'Prioritat a les xarxes', 'prioritat' ) ?></h2>
+									</header>
+
+									<div>
+										<?= get_field( 'prioritat_network' ); ?>
+									</div>
 			
 								</section>
 

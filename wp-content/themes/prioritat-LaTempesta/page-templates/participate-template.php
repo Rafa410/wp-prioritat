@@ -99,40 +99,44 @@ if ( is_front_page() ) {
 					<div class="container-fluid p-0">
 						
 						<section id="forums" class="bg-secondary my-5 p-5">
+
+							<div class="container">
+
+								<header>
+									<h2 class="fw-extrabold mb-3">
+										<?= __( 'Els fòrums', 'prioritat' ) ?>
+									</h2>
+								</header>
+		
+								<div class="col-lg-11 col-xl-10 lh-sm">
+									<div><?= get_field( 'forums_summary' ) ?></div>
+								</div>
+		
+								<div class="forums-list d-flex flex-wrap gap-3 justify-content-center">
 	
-							<header>
-								<h2 class="fw-extrabold mb-3">
-									<?= __( 'Els fòrums', 'prioritat' ) ?>
-								</h2>
-							</header>
+									<?php
+									$args = array(
+										'post_type' => 'forums',
+										'posts_per_page' => -1,
+										'orderby' => 'date',
+										'order' => 'ASC'
+									);
 	
-							<div class="col-lg-11 col-xl-10 lh-sm">
-								<div><?= get_field( 'forums_summary' ) ?></div>
-							</div>
+									$forums = new WP_Query( $args );
 	
-							<div class="forums-list d-flex flex-wrap gap-3 justify-content-center">
-
-								<?php
-								$args = array(
-									'post_type' => 'forums',
-									'posts_per_page' => -1,
-									'orderby' => 'date',
-									'order' => 'ASC'
-								);
-
-								$forums = new WP_Query( $args );
-
-								if ( $forums->have_posts() ) {
-
-									while ( $forums->have_posts() ) {
-										$forums->the_post();
-										get_template_part( 'loop-templates/content', get_post_type() );
+									if ( $forums->have_posts() ) {
+	
+										while ( $forums->have_posts() ) {
+											$forums->the_post();
+											get_template_part( 'loop-templates/content', get_post_type() );
+										}
 									}
-								}
-
-								wp_reset_postdata();
-
-								?>
+	
+									wp_reset_postdata();
+	
+									?>
+	
+								</div>
 
 							</div>
 	

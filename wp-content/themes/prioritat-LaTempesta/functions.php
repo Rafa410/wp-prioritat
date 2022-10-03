@@ -102,6 +102,11 @@ function prt_load_libraries() {
         wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
 	}
 
+	// Present page
+	if ( is_page_template( 'page-templates/present-template.php' ) ) {
+		wp_enqueue_style( 'slick-style', $slick_style );
+		wp_enqueue_script( 'slick-script', $slick_script, array( 'jquery' ), null, true );
+	}
 
 }
 add_action( 'wp_enqueue_scripts', 'prt_load_libraries' );

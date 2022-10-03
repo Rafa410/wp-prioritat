@@ -289,9 +289,21 @@ if ( is_front_page() ) {
 
 									<?php endwhile; ?>
 
-								<?php endif; ?>
+								<?php endif; wp_reset_postdata(); ?>
 
-							</section>
+							</div>
+
+						</section>
+
+						<section id="miradors" class="my-5 py-3">
+
+							<header>
+								<h2 class="title-underline fw-extrabold mb-4"><?= __( 'Miradors', 'prioritat' ) ?></h2>
+							</header>
+
+							<div>
+								<?= get_field( 'lookout_content' ) ?>
+							</div>
 
 						</section>
 

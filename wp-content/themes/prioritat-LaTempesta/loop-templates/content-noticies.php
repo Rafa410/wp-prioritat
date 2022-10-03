@@ -12,7 +12,9 @@ defined( 'ABSPATH' ) || exit;
 
 	<header class="entry-header">
 		
-		<?php echo get_the_post_thumbnail( $post->ID, 'medium' ); ?>
+		<a href="<?= esc_url( get_permalink() ) ?>" class="d-block">
+			<?= get_the_post_thumbnail( $post->ID, 'large' ); ?>
+		</a>
 
 			<div class="entry-meta fw-bold text-tertiary small">
 				<?= prt_post_date(); ?>

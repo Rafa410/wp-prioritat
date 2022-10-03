@@ -7,7 +7,7 @@ header > h2 {
     @include font-size(2.5rem);
 }
 
-ul > li {
+.content-area ul > li {
     margin-bottom: 0.5rem;
 }
 
@@ -68,6 +68,7 @@ ul > li {
 @mixin title-underline($width: 4.5rem, $height: 0.25rem, $color: $tertiary, $margin: 0.25rem 0) {
     position: relative;
     display: inline-block;
+    text-decoration: none;
 
     &::after {
         content: '';
@@ -88,6 +89,7 @@ ul > li {
 .title-underline {
     display: inline-block;
     position: relative;
+    text-decoration: none;
 
     &::after {
         content: '';
@@ -101,6 +103,12 @@ ul > li {
     &-primary {
         &::after {
             background-color: $primary;
+        }
+    }
+
+    &-secondary {
+        &::after {
+            background-color: $secondary;
         }
     }
 
@@ -272,6 +280,14 @@ a.read-more {
     }
 }
 
+.post .page-header {
+    min-height: clamp(300px, 40vh, 400px);
+
+    .entry-title {
+        max-width: 65%;
+    }
+}
+
 .dot-pattern {
     position: absolute;
     right: 0;
@@ -279,6 +295,7 @@ a.read-more {
     height: 100%;
 
     svg {
+        color: white;
         height: 100%;
     }
 }
@@ -971,6 +988,137 @@ a.read-more {
     align-items: flex-start;
 }
 
+.mitjans-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.mitja {
+    max-width: min(100%, 85vw);
+    border: 2px solid $primary;
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
+        padding: 0.75rem;
+        color: $body-color;
+        transition: background-color 0.3s ease-out;
+
+        &:hover,
+        &:focus-visible {
+            color: $body-color;
+            background-color: rgba($primary, 0.2);
+        }
+    }
+
+    &__title {
+        font-size: 1.125rem;
+    }
+
+    &__image {
+        flex: 0 0 25%;
+
+        > img {
+            border-radius: 50%;
+        }
+    }
+
+    &__summary {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
+
+        .mitja__image {
+            flex-grow: 1;
+            --bs-aspect-ratio: 56.25% !important;
+        }
+    }
+}
+
+.pagination {
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.page-item {
+    &.active .page-link {
+        background-color: $dark;
+        border-color: $dark;
+    }
+}
+
+.page-link {
+    color: $dark;
+    padding: 0.375rem 0.85rem;
+    font-variant-numeric: tabular-nums;
+}
+
+#ctf {
+    .ctf-item {
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+    }
+}
+
+#miradors {
+    iframe {
+        width: 100%;
+    }
+}
+
+.agenda_events-nav-links,
+.blog-link {
+    font-weight: bold;
+    color: $dark;
+    text-transform: uppercase;
+
+    &:hover {
+        color: $dark;
+    }
+}
+
+.agenda_events-nav-links {
+    @include title-underline(100%, 0.25rem, $secondary, 0);
+}
+
+.blog-link {
+    @include title-underline(100%, 0.25rem, $primary, 0);
+}
+
+.dot {
+    display: inline-block;
+    width: 0.25rem;
+    height: 0.25rem;
+    background: $dark;
+    border-radius: 50%;
+    margin: 0.125rem;
+
+    &-secondary {
+        background-color: $secondary;
+    }
+}
+
+.activitat__image-wrapper,
+.post__image-wrapper {
+    position: relative;
+
+    > img {
+        width: 100%;
+        max-height: max(40vh, 20rem);
+        object-fit: cover;
+    }
+}
+
 // .section-more {
 //     > a {
 //         &::after {
@@ -1075,9 +1223,7 @@ a.read-more {
 
     .partners-wrapper {
         .partner {
-            flex: 1;
-            min-width: 8rem;
-            max-width: max(50%, 12rem);
+            flex: 0 0 9rem;
 
             > svg {
                 color: $dark;

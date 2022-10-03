@@ -9300,6 +9300,7 @@
 	  const md = 768;
 	  const lg = 992;
 	  const xl = 1200;
+	  const xxl = 1400; // Document ready
 
 	  $(function () {
 	    // Initialize wow.js
@@ -9382,6 +9383,34 @@
 	          breakpoint: xl,
 	          settings: {
 	            slidesToShow: 10
+	          }
+	        }]
+	      });
+	    } // Initialize Twitter feed carousel
+
+
+	    if ($('.ctf-tweets').length) {
+	      $('.ctf-tweets').slick({
+	        dots: true,
+	        arrows: false,
+	        slidesToShow: 4,
+	        slidesToScroll: 1,
+	        adaptiveHeight: true,
+	        infinite: false,
+	        responsive: [{
+	          breakpoint: xxl,
+	          settings: {
+	            slidesToShow: 3
+	          }
+	        }, {
+	          breakpoint: lg,
+	          settings: {
+	            slidesToShow: 2
+	          }
+	        }, {
+	          breakpoint: md,
+	          settings: {
+	            slidesToShow: 1
 	          }
 	        }]
 	      });
