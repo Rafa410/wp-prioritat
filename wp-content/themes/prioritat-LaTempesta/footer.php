@@ -89,7 +89,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
 					</div>
 
-					<div class="col-lg-4 my-3 my-sm-0 partners-wrapper">
+					<div class="col-lg-4 my-3 my-sm-0 partners-wrapper d-flex flex-column justify-content-center">
 						<p class="small"><?= __( 'Amb el suport de: ', 'prioritat' ) ?></p>
 						<div class="row partner-list align-items-center gap-3">
 							<div class="partner">
