@@ -33,7 +33,7 @@ ul > li {
 }
 
 .bg-tertiary {
-    background-color: $tertiary;
+    background-color: $tertiary !important;
 }
 
 .btn-tertiary {
@@ -77,6 +77,12 @@ ul > li {
         background-color: $color;
         margin: $margin;
     }
+}
+
+.ratio > .wp-post-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
 }
 
 .title-underline {
@@ -337,6 +343,7 @@ a.read-more {
 .homepage-hero {
     position: relative;
     padding-top: $menu-height;
+    overflow: hidden;
 
     &__image {
         position: absolute;
@@ -511,6 +518,10 @@ a.read-more {
         @include font-size(1.625rem);
         font-weight: bold;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         &.bg-primary {
             color: rgba(white, 0.87);
@@ -534,6 +545,17 @@ a.read-more {
         }
         .description {
             margin-bottom: 0;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        .calendar-event {
+            flex-wrap: wrap;
+
+            .event-date {
+                flex-direction: row;
+                width: 100%;
+            }
         }
     }
 }
@@ -588,7 +610,7 @@ a.read-more {
 #news {
     .post-list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
         gap: 2rem;
 
         article {
@@ -623,13 +645,15 @@ a.read-more {
         transition: box-shadow 0.3s ease-out;
     }
 
+    /*
     &__link {
-        &:where(:hover, :focus) {
+        &:hover, &:focus {
             .project__image {
                 box-shadow: 3px 5px 10px -5px rgba(0, 0, 0, 0.95);
             }
         }
     }
+    */
 }
 
 .fact {
@@ -658,10 +682,21 @@ a.read-more {
     gap: 2rem;
 
     .goal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 1rem;
         background-color: $gray-200;
         line-height: $line-height-sm;
         font-weight: 500;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            padding: 2rem;
+        }
     }
 }
 
@@ -1046,7 +1081,12 @@ a.read-more {
 
             > svg {
                 color: $dark;
-                transition: color 0.3s ease-out;
+                transition: color 0.15s;
+            }
+
+            > img {
+                filter: grayscale(1);
+                transition: filter 0.15s;
             }
 
             &:hover,
@@ -1059,6 +1099,10 @@ a.read-more {
                     &#gencat-cultura {
                         color: #e40c26;
                     }
+                }
+
+                > img {
+                    filter: grayscale(0);
                 }
             }
         }
@@ -1144,6 +1188,27 @@ a.read-more {
             pointer-events: none;
         }
     }
+
+    .wpcf7-form-control[name='number-of-pages'] {
+        display: inline-block;
+        width: auto;
+    }
+
+    .wpcf7-form-control-wrap[data-name='partner-type'],
+    .wpcf7-form-control-wrap[data-name='mecenes-type'] {
+        display: inline-block;
+        width: auto;
+
+        .wpcf7-select {
+            padding-right: 2.5rem;
+        }
+    }
+}
+
+.mecenes-type-explanation {
+    background-color: $gray-200;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .mosaic-gallery {

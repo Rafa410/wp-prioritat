@@ -15338,7 +15338,7 @@ ul > li {
 }
 
 .bg-tertiary {
-  background-color: #419683;
+  background-color: #419683 !important;
 }
 
 .btn-tertiary {
@@ -15364,6 +15364,13 @@ ul > li {
 
 .fw-extrabold {
   font-weight: 800;
+}
+
+.ratio > .wp-post-image {
+  width: 100% !important;
+  height: 100% !important;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .title-underline {
@@ -15578,6 +15585,7 @@ a.read-more:where(:hover, :focus)::after {
 .homepage-hero {
   position: relative;
   padding-top: 5.125rem;
+  overflow: hidden;
 }
 .homepage-hero__image {
   position: absolute;
@@ -15731,6 +15739,10 @@ a.read-more:where(:hover, :focus)::after {
   font-size: calc(1.2875rem + 0.45vw);
   font-weight: bold;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 @media (min-width: 1200px) {
   .calendar-list-view .event-date {
@@ -15756,6 +15768,15 @@ a.read-more:where(:hover, :focus)::after {
 }
 .calendar-list-view .event-content .description {
   margin-bottom: 0;
+}
+@media (max-width: 575.98px) {
+  .calendar-list-view .calendar-event {
+    flex-wrap: wrap;
+  }
+  .calendar-list-view .calendar-event .event-date {
+    flex-direction: row;
+    width: 100%;
+  }
 }
 
 .post-list article {
@@ -15799,7 +15820,7 @@ a.read-more:where(:hover, :focus)::after {
 
 #news .post-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 2rem;
 }
 #news .post-list article {
@@ -15825,15 +15846,21 @@ a.read-more:where(:hover, :focus)::after {
   flex: 1;
   min-width: 18rem;
   max-width: max(50%, 25rem);
+  /*
+  &__link {
+      &:hover, &:focus {
+          .project__image {
+              box-shadow: 3px 5px 10px -5px rgba(0, 0, 0, 0.95);
+          }
+      }
+  }
+  */
 }
 .project .wp-post-image {
   width: 100%;
 }
 .project__image {
   transition: box-shadow 0.3s ease-out;
-}
-.project__link:where(:hover, :focus) .project__image {
-  box-shadow: 3px 5px 10px -5px rgba(0, 0, 0, 0.95);
 }
 
 .fact__title::after {
@@ -15856,10 +15883,21 @@ a.read-more:where(:hover, :focus)::after {
   gap: 2rem;
 }
 .goals-list .goal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 1rem;
   background-color: #e9ecef;
   line-height: 1.25;
   font-weight: 500;
+}
+.goals-list .goal p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 1400px) {
+  .goals-list .goal {
+    padding: 2rem;
+  }
 }
 
 .container section > .row {
@@ -16190,13 +16228,20 @@ a.read-more:where(:hover, :focus)::after {
 }
 .site-footer .partners-wrapper .partner > svg {
   color: #212529;
-  transition: color 0.3s ease-out;
+  transition: color 0.15s;
+}
+.site-footer .partners-wrapper .partner > img {
+  filter: grayscale(1);
+  transition: filter 0.15s;
 }
 .site-footer .partners-wrapper .partner:hover > svg#diputacio-tarragona, .site-footer .partners-wrapper .partner:focus > svg#diputacio-tarragona {
   color: #17738e;
 }
 .site-footer .partners-wrapper .partner:hover > svg#gencat-cultura, .site-footer .partners-wrapper .partner:focus > svg#gencat-cultura {
   color: #e40c26;
+}
+.site-footer .partners-wrapper .partner:hover > img, .site-footer .partners-wrapper .partner:focus > img {
+  filter: grayscale(0);
 }
 
 .contact-block {
@@ -16261,6 +16306,25 @@ a.read-more:where(:hover, :focus)::after {
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+.wpcf7 .wpcf7-form-control[name=number-of-pages] {
+  display: inline-block;
+  width: auto;
+}
+.wpcf7 .wpcf7-form-control-wrap[data-name=partner-type],
+.wpcf7 .wpcf7-form-control-wrap[data-name=mecenes-type] {
+  display: inline-block;
+  width: auto;
+}
+.wpcf7 .wpcf7-form-control-wrap[data-name=partner-type] .wpcf7-select,
+.wpcf7 .wpcf7-form-control-wrap[data-name=mecenes-type] .wpcf7-select {
+  padding-right: 2.5rem;
+}
+
+.mecenes-type-explanation {
+  background-color: #e9ecef;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mosaic-gallery {
