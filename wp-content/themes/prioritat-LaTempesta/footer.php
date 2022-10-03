@@ -96,13 +96,13 @@ $container = get_theme_mod( 'understrap_container_type' );
 								<img class="inline-svg" id="diputacio-tarragona" src="<?= get_stylesheet_directory_uri() ?>/images/partners/diputacio-tarragona.svg" alt="<?= __( 'Diputació de Tarragona', 'prioritat' ) ?>">
 							</div>
 							<div class="partner small">
-								<img class="inline-svg" id="fundacio-caixa" src="<?= get_stylesheet_directory_uri() ?>/images/partners/fundacio-caixa.svg" alt="<?= __( 'Fundació la caixa', 'prioritat' ) ?>">
+								<img class="inline-svg" id="fundacio-caixa" src="<?= get_stylesheet_directory_uri() ?>/images/partners/fundacio-caixa.png" alt="<?= __( 'Fundació la caixa', 'prioritat' ) ?>">
 							</div>
 							<div class="partner">
 								<img class="inline-svg" id="gencat-cultura" src="<?= get_stylesheet_directory_uri() ?>/images/partners/gencat-cultura.svg" alt="<?= __( 'Generalitat de Catalunya: Departament de Cultura', 'prioritat' ) ?>">
 							</div>
 							<div class="partner small">
-								<img class="inline-svg" id="serra-montsant" src="<?= get_stylesheet_directory_uri() ?>/images/partners/serra-montsant.svg" alt="<?= __( 'Parc Natural de la Serra del Montsant', 'prioritat' ) ?>">
+								<img class="inline-svg" id="serra-montsant" src="<?= get_stylesheet_directory_uri() ?>/images/partners/serra-montsant.png" alt="<?= __( 'Parc Natural de la Serra del Montsant', 'prioritat' ) ?>">
 							</div>
 						</div>
 					</div>
