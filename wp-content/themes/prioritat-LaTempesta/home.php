@@ -51,8 +51,15 @@ $blog_ID = get_option( 'page_for_posts' );
 						<div class="<?php echo esc_attr( $container ); ?>">
 		
 							<div class="row">
+
+								<div class="searchform-wrapper searchform-post my-3">
+									<?php get_search_form( array(
+										'echo' => true,
+										'aria_label' => __( 'Articles', 'prioritat' ),
+									) ); ?>
+								</div>
 		
-								<div class="post-list post-archive d-flex flex-wrap gap-3 justify-content-center">
+								<div class="post-list post-archive">
 				
 									<?php
 									if ( have_posts() ) {
@@ -65,7 +72,7 @@ $blog_ID = get_option( 'page_for_posts' );
 											* If you want to override this in a child theme, then include a file
 											* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 											*/
-											get_template_part( 'loop-templates/content', get_post_format() );
+											get_template_part( 'loop-templates/content', get_post_type() );
 										}
 									} else {
 										get_template_part( 'loop-templates/content', 'none' );

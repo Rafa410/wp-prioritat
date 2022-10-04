@@ -37,6 +37,10 @@ $thumbnail = get_the_post_thumbnail( $ID, 'full' );
                         <?= get_the_post_thumbnail_caption() ?>
                     </figcaption>
                 </figure>
+
+                <div class="small fw-light text-light">
+                    <?php the_content(); ?>
+                </div>
             </div>
 
         </div>

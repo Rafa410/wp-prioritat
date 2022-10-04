@@ -11,7 +11,6 @@ $ID = get_the_ID();
 $slug = $post->post_name . '-' . $ID;
 $thumbnail = get_the_post_thumbnail( $ID, 'medium' );
 $title = get_the_title();
-$excerpt = get_the_excerpt();
 $document = get_field( 'document' );
 $alt = $title;
 
@@ -67,12 +66,6 @@ if ( $document ) {
         
             </header>
         
-            <div class="entry-content">
-        
-                <span><?= $excerpt ?></span>
-        
-            </div>
-
         </div>
 
     </a>

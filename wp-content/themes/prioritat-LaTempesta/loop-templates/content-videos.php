@@ -11,7 +11,6 @@ $ID = get_the_ID();
 $slug = $post->post_name . '-' . $ID;
 $thumbnail = get_the_post_thumbnail( $ID, 'medium' );
 $title = get_the_title();
-$excerpt = get_the_excerpt();
 
 if ( !$thumbnail ) {
     $youtube_iframe = get_field( 'youtube_url' );
@@ -67,12 +66,6 @@ if ( !$thumbnail ) {
                 <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
         
             </header>
-        
-            <div class="entry-content">
-        
-                <span><?= $excerpt ?></span>
-        
-            </div>
 
         </div>
 

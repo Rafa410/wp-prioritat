@@ -9,7 +9,7 @@
             <?= __( 'Persones per al desenvolupament del Paisatge Cultural del Priorat', 'prioritat' ) ?>
         </h2>
         <a 
-            href="<?= site_url( '/fes-te-soci' ) ?>" 
+            href="<?= site_url( '/participa' ) ?>" 
             class="btn btn-lg btn-secondary btn-animated animate__animated animate__fadeInUp animate__delay-2s py-1 px-2 px-sm-3 fw-bold"
             data-delay="1s">
             <span><?= __( 'Vols formar-ne part?', 'prioritat' ) ?></span>

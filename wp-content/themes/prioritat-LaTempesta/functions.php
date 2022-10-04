@@ -117,8 +117,8 @@ add_action( 'wp_enqueue_scripts', 'prt_load_libraries' );
  * Add async or defer attributes to scripts whose $handle contains 'async' or 'defer'
  * when registered via wp_register_script or wp_enqueue_script
  *
- * @param $tag {string} - The <script> tag for the enqueued script.
- * @param $handle {string} - The script's registered handle.
+ * @param string $tag The <script> tag for the enqueued script.
+ * @param string $handle The script's registered handle.
  *
  * @return mixed
  */
@@ -211,7 +211,6 @@ add_filter( 'excerpt_length', 'prt_excerpt_length');
 
 
 
-
 /**
  * Generates HTML with the current post date.
  * 
@@ -225,6 +224,64 @@ function prt_post_date() {
 		esc_html( get_the_date() ),
 	);
 	return $post_date;
+}
+
+
+
+/**
+ * Generates HTML with the current post categories
+ * 
+ * @param string $term The taxonomy term to use.
+ * 
+ * @return string
+ */
+function prt_post_category( $term ) {
+	if ( $term ) {
+		$categories = get_the_terms( get_the_ID(), $term );
+	} else {
+		$categories = get_the_category();
+	}
+	$separator = ', ';
+	$categories_html = '';
+	if ( ! empty( $categories ) ) {
+		$categories_html .= '<div class="entry-categories fw-semibold small">';
+		foreach( $categories as $category ) {
+			$categories_html .= '<a class="category-link link-tertiary text-decoration-none" href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( 'Veure tots els artícles de la categoria %s', 'prioritat' ), $category->name ) ) . '">';
+			$categories_html .= esc_html( $category->name ) . '</a>';
+
+			if ( $category !== end( $categories ) ) {
+				$categories_html .= $separator;
+			}
+		}
+		$categories_html .= '</div>';
+	}
+
+	return $categories_html;
+}
+
+/**
+ * Generates HTML with the current post tags
+ * 
+ * @return string
+ */
+function prt_post_tags() {
+	$post_tags = get_the_tags();
+	$tags_html = '';
+	if ( $post_tags ) {
+		$tags_html .= '<div class="entry-tags fw-semibold small">';
+		$tags_html .= '<span class="me-2">' . __( 'Etiquetes:', 'prioritat' ) . '</span>';
+		foreach ( $post_tags as $tag ) {
+			$tag_link = get_tag_link( $tag->term_id );
+			$tags_html .= "<a href='{$tag_link}' title='{$tag->name}' class='tag link-tertiary text-decoration-none'>";
+			$tags_html .= "{$tag->name}</a>";
+			
+			if ( $tag !== end( $post_tags ) ) {
+				$tags_html .= ', ';
+			}
+		}
+		$tags_html .= '</div>';
+	}
+	return $tags_html;
 }
 
 
@@ -251,3 +308,68 @@ function get_youtube_id_from_url( $url )  {
     );
     return $results[6];
 }
+
+
+
+/**
+ * Add a custom column with the category name to the admin CPT list
+ */
+function prt_set_custom_noticies_columns($columns) {
+	// Add column 'categoria' before 'date'
+	unset( $columns['date'] );
+	$columns['categoria'] = __( 'Categoria', 'prioritat' );
+	$columns['date'] = __( 'Data', 'prioritat' );
+
+	return $columns;
+
+    // $columns['categoria'] = __( 'Categoria', 'prioritat' );
+
+    return $columns;
+}
+add_filter( 'manage_noticies_posts_columns', 'prt_set_custom_noticies_columns' );
+
+
+
+/**
+ * Fill content of 'categoria' column in admin CPT list
+ */
+function prt_custom_noticies_column( $column, $post_id ) {
+    switch ( $column ) {
+        case 'categoria' :
+            $terms = get_the_term_list( $post_id , 'categoria_noticies' , '' , ', ' , '' );
+            if ( is_string( $terms ) ) {
+                echo $terms;
+			}
+            break;
+    }
+}
+add_action( 'manage_noticies_posts_custom_column' , 'prt_custom_noticies_column', 10, 2 );
+
+
+
+/**
+ * Allow filtering by category in admin CPT list
+ */
+function prt_noticies_taxonomy_filter() {
+	global $typenow; // this variable stores the current custom post type
+
+	if ( in_array( $typenow, array( 'noticies' ) ) ) {
+		$taxonomy_names = array( 'categoria_noticies' );
+
+		foreach ( $taxonomy_names as $single_taxonomy ) {
+			$current_taxonomy = isset( $_GET[$single_taxonomy] ) ? $_GET[$single_taxonomy] : '';
+			$taxonomy_object = get_taxonomy( $single_taxonomy );
+			$taxonomy_name = strtolower( $taxonomy_object->labels->name );
+			$taxonomy_terms = get_terms( $single_taxonomy );
+			if ( count($taxonomy_terms) > 0 ) {
+				echo "<select name='{$single_taxonomy}' id='{$single_taxonomy}' class='postform'>";
+				echo "<option value=''>" . __( 'Totes les categories', 'prioritat' ) . "</option>";
+				foreach ($taxonomy_terms as $single_term) {
+					echo '<option value='. $single_term->slug, $current_taxonomy == $single_term->slug ? ' selected="selected"' : '','>' . $single_term->name .' (' . $single_term->count .')</option>'; 
+				}
+				echo "</select>";
+			}
+		}
+	}
+} 
+add_action( 'restrict_manage_posts', 'prt_noticies_taxonomy_filter' );

@@ -61,6 +61,10 @@ $additional_yt_params = http_build_query( $additional_yt_params );
                         <?php the_title(); ?>
                     </h2>
                 </div>
+
+                <div class="small fw-light text-light">
+                    <?php the_content(); ?>
+                </div>
             </div>
 
         </div>

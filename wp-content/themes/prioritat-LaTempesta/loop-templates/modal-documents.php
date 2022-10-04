@@ -70,6 +70,10 @@ if ( $document ) {
                     </h2>
                 </div>
 
+                <div class="small fw-light text-light">
+                    <?php the_content(); ?>
+                </div>
+
                 <div class="d-flex justify-content-center gap-3 my-3">
 
                     <a 

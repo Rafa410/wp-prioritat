@@ -56,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php // understrap_entry_footer(); ?>
 		
-		<!-- Tags -->
+		<?= prt_post_tags(); ?>
 
 	</footer><!-- .entry-footer -->
 

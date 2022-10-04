@@ -26,12 +26,16 @@ $index = $args['index'];
 		</p>
 
 		<?php
-		the_title(
+		/*the_title(
 			sprintf(
 				'<h3 class="entry-title title-underline title-underline-tertiary"><a href="%s" class="text-decoration-none link-dark">',
 				esc_url( get_permalink() )
 			),
 			'</a></h3>'
+		);*/
+		the_title(
+			'<h3 class="entry-title title-underline title-underline-tertiary">',
+			'</h3>'
 		);
 		?>
 
