@@ -295,6 +295,13 @@ a.read-more {
     }
 }
 
+.no-results,
+.not-found {
+    .page-title {
+        color: var(--dark);
+    }
+}
+
 .post,
 .noticies {
     .page-header {
@@ -319,6 +326,29 @@ a.read-more {
 .related-posts {
     background-color: #e6e6e6;
     top: 1rem;
+}
+
+.category-filters {
+    ul {
+        li {
+            padding: 0 0.5rem;
+            box-shadow: 5px 0 0 -4px $light-gray;
+
+            a {
+                color: $strong-gray;
+                text-decoration: none;
+                font-size: $small-font-size;
+            }
+
+            &.current-cat {
+                font-weight: bold;
+            }
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
 }
 
 #archive-wrapper,
@@ -347,6 +377,13 @@ a.read-more {
         transform: translateY(-50%);
         left: 16px;
         z-index: 5;
+    }
+    button.icon {
+        display: inline-flex;
+        padding: 0;
+        border: 0;
+        background: none;
+        appearance: none;
     }
     .search-icon {
         color: $strong-gray;

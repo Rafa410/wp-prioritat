@@ -15547,6 +15547,11 @@ a.read-more:where(:hover, :focus)::after {
   max-width: 65%;
 }
 
+.no-results .page-title,
+.not-found .page-title {
+  color: var(--dark);
+}
+
 .post .page-header,
 .noticies .page-header {
   min-height: clamp(250px, 40vh, 350px);
@@ -15570,6 +15575,22 @@ a.read-more:where(:hover, :focus)::after {
   top: 1rem;
 }
 
+.category-filters ul li {
+  padding: 0 0.5rem;
+  box-shadow: 5px 0 0 -4px #b4b4b4;
+}
+.category-filters ul li a {
+  color: #7e7d7f;
+  text-decoration: none;
+  font-size: 0.875em;
+}
+.category-filters ul li.current-cat {
+  font-weight: bold;
+}
+.category-filters ul li:first-child {
+  padding-left: 0;
+}
+
 #archive-wrapper .page-header,
 #tag-wrapper .page-header,
 #taxonomy-wrapper .page-header,
@@ -15590,6 +15611,15 @@ a.read-more:where(:hover, :focus)::after {
   transform: translateY(-50%);
   left: 16px;
   z-index: 5;
+}
+.input-group-icon button.icon {
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .input-group-icon .search-icon {
   color: #7e7d7f;
