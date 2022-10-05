@@ -302,6 +302,12 @@ a.read-more {
     }
 }
 
+.dropdown-toggle {
+    &::after {
+        vertical-align: middle;
+    }
+}
+
 .post,
 .noticies {
     .page-header {

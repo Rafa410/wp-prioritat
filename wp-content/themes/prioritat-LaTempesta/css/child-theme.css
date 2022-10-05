@@ -15552,6 +15552,10 @@ a.read-more:where(:hover, :focus)::after {
   color: var(--dark);
 }
 
+.dropdown-toggle::after {
+  vertical-align: middle;
+}
+
 .post .page-header,
 .noticies .page-header {
   min-height: clamp(250px, 40vh, 350px);
