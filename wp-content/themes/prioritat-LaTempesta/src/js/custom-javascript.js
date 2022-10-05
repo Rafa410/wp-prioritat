@@ -207,5 +207,94 @@
                 });
             });
         }
+
+        /**
+         * Ajax search for blog posts, news and events
+         */
+        const $searchform = $(
+            '.searchform-post, .searchform-noticies, .searchform-agenda_events'
+        ).children('.search-form');
+        const $postsList = $('.post-list, .post-noticies-list, .post-agenda_events-list');
+
+        $searchform.on('submit', function (event) {
+            event.preventDefault();
+            ajaxSearch($(this).serialize(), $postsList);
+        });
+
+        // Reset search results when empty searchform for more than 1 second
+        let typingTimer;
+        $searchform.on('input', '.search-field', function (event) {
+            clearTimeout(typingTimer);
+            const s = event.currentTarget.value;
+            if (s === '') {
+                typingTimer = setTimeout(() => {
+                    ajaxSearch($searchform.serialize(), $postsList);
+                }, 750);
+            }
+        });
     }); // End document ready
+
+    /**
+     * Ajax Search
+     *
+     * @param {string} data The serialized search form data
+     * @param {object} $postsList The jQuery object of the posts list
+     *
+     */
+    function ajaxSearch(data, $postsList) {
+        const $loadingIcon = $('.loading-icon');
+        const $searchIcon = $('.search-icon');
+
+        $.ajax({
+            method: 'GET',
+            url: ajaxUrl,
+            data: `action=prt_search&${data}`,
+            beforeSend: function () {
+                $searchIcon.fadeOut('fast');
+                $loadingIcon.fadeIn();
+            },
+        })
+            .done(function (data) {
+                // Show results
+                $postsList.html(data);
+
+                // TODO: Pass filters to search query
+                // // Filter results
+                // const filterId = $('.category-filters > button, .resource-filters > button')
+                //     .filter('.active')
+                //     .attr('data-category');
+                // if (filterId) {
+                //     $('article').each(function () {
+                //         filterPosts($(this), filterId);
+                //     });
+                // }
+
+                // TODO: Pass sort by to search query
+                // // Sort results
+                // const sortBy = $('#sortBy').val();
+                // if (sortBy) {
+                //     $postsList
+                //         .children('.post, .resource')
+                //         .sort(compareFn[sortBy])
+                //         .appendTo($postsList);
+                // }
+
+                // Scroll to results
+                window.location.hash = 'resultats-cerca';
+
+                // Remove input focus
+                $('.searchform-post, .searchform-noticies, .searchform-agenda_events')
+                    .find('.search-field')
+                    .blur();
+            })
+            .fail(function () {
+                console.error('Search failed, please try again later');
+            })
+            .always(function () {
+                $searchIcon.fadeIn();
+                $loadingIcon.fadeOut('fast');
+
+                // TODO: Hide pagination when search query is not ''
+            });
+    }
 })(jQuery);

@@ -76,7 +76,7 @@ if ( is_front_page() ) {
 										<h2 class="title-underline mb-3"><?= __( 'Notícies', 'prioritat' ) ?></h2>
 									</header>
 
-									<div class="post-list py-3">
+									<div class="post-list post-<?= get_post_type() ?>-list py-3">
 
 										<?php
 										$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;

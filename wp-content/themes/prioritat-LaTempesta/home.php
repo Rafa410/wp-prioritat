@@ -50,7 +50,7 @@ $blog_ID = get_option( 'page_for_posts' );
 
 						<div class="<?php echo esc_attr( $container ); ?>">
 		
-							<div class="row">
+							<div class="row" id="resultats-cerca">
 
 								<div class="searchform-wrapper searchform-post my-3">
 									<?php get_search_form( array(

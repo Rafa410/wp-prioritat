@@ -56,6 +56,9 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 
 
+/**
+ * Load Google Fonts
+ */
 function prt_load_google_fonts() {
 	?>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,6 +68,16 @@ function prt_load_google_fonts() {
 }
 add_action( 'wp_head', 'prt_load_google_fonts' );
 
+
+
+function prt_ajax_url() {
+	?>
+	<script>
+		var ajaxUrl = '<?= admin_url( 'admin-ajax.php' ) ?>';
+	</script>
+	<?php
+}
+add_action( 'wp_head', 'prt_ajax_url' );
 
 
 /**
@@ -373,3 +386,66 @@ function prt_noticies_taxonomy_filter() {
 	}
 } 
 add_action( 'restrict_manage_posts', 'prt_noticies_taxonomy_filter' );
+
+
+
+/**
+ * Perform ajax search
+ */
+function prt_ajax_search() {
+    $post_type = esc_attr( $_GET['post_type'] ?? '' );
+    $s = esc_attr( $_GET['s'] ?? '' );
+
+    if ( $post_type !== '' ) {
+
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+        $args = array(
+            'post_type'  => $post_type,
+            // 'posts_per_page' => 6,
+			'posts_per_page' => -1,
+			// 'paged' => $paged,
+			'orderby' => 'relevance',
+			'order' => 'DESC',
+        );
+
+        if ( $s === '' ) {
+			$args['orderby'] = 'date';
+		} else {
+            $args['s'] = $s;
+		}
+
+        $query = new WP_Query($args);
+
+        if ( $query->have_posts() ) {
+
+            while ( $query->have_posts() ) : $query->the_post(); 
+
+                global $post;
+                setup_postdata( $post ); 
+
+                get_template_part( 'loop-templates/content', $post_type );
+
+            endwhile;
+			
+			// understrap_pagination( array(
+			// 	'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+			// 	'total'        => $query->max_num_pages,
+			// 	'format'       => '?paged=%#%',
+			// ) );
+
+        } else { ?>
+
+            <small class="d-block text-center fw-light text-muted ">
+				<?= __( 'No s\'han trobat resultats, si us plau, torna a provar amb una altra cerca.', 'prioritat' ); ?>
+			</small>
+
+        <?php } wp_reset_postdata();
+
+    }
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_nopriv_prt_search', 'prt_ajax_search' );
+add_action( 'wp_ajax_prt_search', 'prt_ajax_search' );
