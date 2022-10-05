@@ -36,10 +36,19 @@ if ( isset( $args['aria_label'] ) && ! empty( $args['aria_label'] ) ) {
 	$post_type = null;
 }
 
+if ( is_home() ) {
+	$url = get_permalink( get_option( 'page_for_posts' ) );
+} else {
+	$url = home_url( '/' );
+}
+
+global $wp_query;
+
+$is_query = isset( $_GET['s'] ) || isset( $_GET['post_type'] ) || isset( $_GET['category_name'] );
 
 ?>
 
-<form role="search" class="search-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" <?php echo $aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?>>
+<form role="search" class="search-form" method="get" action="<?php echo esc_url( $url ); ?>" <?php echo $aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?>>
 
 	<label class="screen-reader-text" for="<?php echo $uid; ?>"><?php echo esc_html_x( 'Cercar per:', 'label', 'prioritat' ); ?></label>
 	<div class="input-group">
@@ -50,16 +59,31 @@ if ( isset( $args['aria_label'] ) && ! empty( $args['aria_label'] ) ) {
 					<animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
 				</circle>
 			</svg>
-			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="icon search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-			</svg>
+			<button type="submit" class="icon search-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+					<title><?= __( 'Cerca', 'prioritat' ); ?></title>
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+				</svg>
+			</button>
 		</div>
 
 		<?php if ( isset( $posts_labels_map[$label] ) ) : ?>
 			<input type="hidden" name="post_type" value="<?= $posts_labels_map[$label] ?>">
 		<?php endif; ?>
 		<input type="search" class="field search-field form-control" id="<?php echo $uid; ?>" name="s" value="<?php the_search_query(); ?>" placeholder="<?php echo $placeholder; ?>">
-		<input type="submit" class="submit search-submit screen-reader-text" name="submit" value="<?php echo esc_attr_x( 'Cerca', 'botó de cerca', 'prioritat' ); ?>">
+		<input type="submit" class="submit search-submit screen-reader-text" value="<?php echo esc_attr_x( 'Cerca', 'botó de cerca', 'prioritat' ); ?>">
 	</div>
 </form>
+
+<?php if ( isset( $wp_query->found_posts ) && $wp_query->found_posts > 0 && $is_query ) : ?>
+	<small class="search-results-count ms-3 text-muted">
+		<?php
+			printf( 
+				esc_html( _n( '%s resultat', '%s resultats', $wp_query->found_posts, 'prioritat' ) ), 
+				$wp_query->found_posts
+			);
+		?>
+	</small>
+<?php endif; ?>
+
 <?php
