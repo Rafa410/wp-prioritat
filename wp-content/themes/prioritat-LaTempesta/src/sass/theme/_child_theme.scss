@@ -298,12 +298,27 @@ a.read-more {
 .post,
 .noticies {
     .page-header {
-        min-height: clamp(300px, 40vh, 400px);
+        min-height: clamp(250px, 40vh, 350px);
 
         .entry-title {
             max-width: 65%;
         }
     }
+}
+
+.navigation {
+    margin-top: 3rem;
+    font-size: $small-font-size;
+
+    a {
+        color: $strong-gray;
+        text-decoration: none;
+    }
+}
+
+.related-posts {
+    background-color: #e6e6e6;
+    top: 1rem;
 }
 
 #archive-wrapper,
