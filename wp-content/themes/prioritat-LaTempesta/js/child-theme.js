@@ -9297,14 +9297,14 @@
 	})();
 
 	(function ($) {
-	  const md = 768;
-	  const lg = 992;
-	  const xl = 1200;
-	  const xxl = 1400; // Document ready
+	  var md = 768;
+	  var lg = 992;
+	  var xl = 1200;
+	  var xxl = 1400; // Document ready
 
 	  $(function () {
 	    // Initialize wow.js
-	    const wow = new WOW({
+	    var wow = new WOW({
 	      animateClass: 'animate__animated'
 	    });
 	    wow.init(); // Pause audio/video/iframe when closing modal/accordion
@@ -9418,19 +9418,19 @@
 
 
 	    $('.zoom').on('click', function (event) {
-	      const $this = $(this);
-	      const $img = $this.children('img');
+	      var $this = $(this);
+	      var $img = $this.children('img');
 	      $this.toggleClass('zooming');
 
 	      if ($this.hasClass('zooming')) {
-	        let scale = $this.data('scale') || 2;
+	        var scale = $this.data('scale') || 2;
 	        $img.css({
-	          transform: `scale(${scale})`,
-	          transformOrigin: `${event.offsetX}px ${event.offsetY}px`
+	          transform: "scale(".concat(scale, ")"),
+	          transformOrigin: "".concat(event.offsetX, "px ").concat(event.offsetY, "px")
 	        });
 	        $this.on('mouseover', function () {
 	          $img.css({
-	            transform: `scale(${scale})`
+	            transform: "scale(".concat(scale, ")")
 	          });
 	        }).on('mouseout', function () {
 	          $img.css({
@@ -9438,7 +9438,7 @@
 	          });
 	        }).on('mousemove', function (e) {
 	          $img.css({
-	            transformOrigin: `${e.offsetX}px ${e.offsetY}px`
+	            transformOrigin: "".concat(e.offsetX, "px ").concat(e.offsetY, "px")
 	          });
 	        });
 	      } else {
@@ -9448,7 +9448,7 @@
 	        $this.off('mouseover mouseout mousemove');
 	      }
 	    });
-	    const timelineTracker = document.getElementById('timeline-tracker');
+	    var timelineTracker = document.getElementById('timeline-tracker');
 
 	    if (timelineTracker) {
 	      gsap.registerPlugin(ScrollTrigger); // Track timeline progress
@@ -9457,26 +9457,58 @@
 	        trigger: '#timeline',
 	        start: 'top center',
 	        end: 'bottom center',
-	        onUpdate: self => {
+	        onUpdate: function onUpdate(self) {
 	          gsap.to(timelineTracker, {
-	            height: () => `${self.progress * 100}%`
+	            height: function height() {
+	              return "".concat(self.progress * 100, "%");
+	            }
 	          });
 	        }
 	      });
-	      gsap.utils.toArray('#timeline .event-year').forEach(year => {
+	      gsap.utils.toArray('#timeline .event-year').forEach(function (year) {
 	        ScrollTrigger.create({
 	          trigger: year,
 	          start: 'center center',
-	          onEnter: self => {
+	          onEnter: function onEnter(self) {
 	            year.classList.add('passed');
 	          },
-	          onLeaveBack: self => {
+	          onLeaveBack: function onLeaveBack(self) {
 	            year.classList.remove('passed');
 	          }
 	        });
 	      });
 	    }
+	    /**
+	     * Load more CPT 'mitjans' with ajax button
+	     */
+
+
+	    var currentMitjansPage = 1;
+	    $('#load-more-mitjans').on('click', function () {
+	      currentMitjansPage++; // Do currentPage + 1, because we want to load the next page
+
+	      loadMoreMitjans(currentMitjansPage);
+	    });
 	  }); // End document ready
+
+	  var loadMoreMitjans = function loadMoreMitjans(page) {
+	    $.ajax({
+	      type: 'POST',
+	      url: ajaxUrl,
+	      dataType: 'json',
+	      data: {
+	        action: 'load_more_mitjans',
+	        paged: page
+	      }
+	    }).done(function (res) {
+	      if (page >= res.max) {
+	        $('#load-more-mitjans').fadeOut();
+	      }
+
+	      var $html = $(res.html);
+	      $('.mitjans-list').append($html).masonry('appended', $html);
+	    });
+	  };
 	})(jQuery);
 
 	exports.Alert = alert;

@@ -393,4 +393,44 @@ add_action( 'restrict_manage_posts', 'prt_noticies_taxonomy_filter' );
 
 
 
+/**
+ * Load more CPT 'mitjans' with ajax button
+ */
+function load_more_mitjans() {
+	$args = array(
+		'post_type' => 'mitjans',
+		'posts_per_page' => 12,
+		'orderby' => 'date',
+		'order' => 'DESC',
+		'paged' => $_POST['paged'],
+	);
+	$ajaxMitjans = new WP_Query( $args );
 
+	$max_pages = $ajaxMitjans->max_num_pages;
+
+	if ( $ajaxMitjans->have_posts() ) {
+		ob_start();
+
+		while( $ajaxMitjans->have_posts() ) {
+			$ajaxMitjans->the_post();
+			?>
+			<div class="col-sm-6 col-lg-4">
+				<?php get_template_part( 'loop-templates/content', 'mitjans' ); ?>
+			</div>
+			<?php
+		}
+
+		$output = ob_get_contents();
+    	ob_end_clean();
+	}
+
+	 $result = [
+		'max' => $max_pages,
+		'html' => $output,
+	];
+
+	echo json_encode($result);
+	exit;
+}
+add_action('wp_ajax_load_more_mitjans', 'load_more_mitjans');
+add_action('wp_ajax_nopriv_load_more_mitjans', 'load_more_mitjans');

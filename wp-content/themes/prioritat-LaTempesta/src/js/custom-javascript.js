@@ -207,5 +207,32 @@
                 });
             });
         }
+
+        /**
+         * Load more CPT 'mitjans' with ajax button
+         */
+        let currentMitjansPage = 1;
+        $('#load-more-mitjans').on('click', () => {
+            currentMitjansPage++; // Do currentPage + 1, because we want to load the next page
+            loadMoreMitjans(currentMitjansPage);
+        });
     }); // End document ready
+
+    const loadMoreMitjans = (page) => {
+        $.ajax({
+            type: 'POST',
+            url: ajaxUrl,
+            dataType: 'json',
+            data: {
+                action: 'load_more_mitjans',
+                paged: page,
+            },
+        }).done((res) => {
+            if (page >= res.max) {
+                $('#load-more-mitjans').fadeOut();
+            }
+            const $html = $(res.html);
+            $('.mitjans-list').append($html).masonry('appended', $html);
+        });
+    };
 })(jQuery);

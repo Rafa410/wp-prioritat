@@ -304,13 +304,12 @@ if ( is_front_page() ) {
 									<div class="row mitjans-list py-3" data-masonry='{"percentPosition": true }'>
 
 										<?php
-										$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 										$args = array(
 											'post_type' => 'mitjans',
 											'posts_per_page' => 12,
 											'orderby' => 'date',
 											'order' => 'DESC',
-											'paged' => $paged,
+											'paged' => 1,
 										);
 										$query = new WP_Query( $args );
 										
@@ -330,11 +329,11 @@ if ( is_front_page() ) {
 									</div>
 
 									<!-- The pagination component -->
-									<?php understrap_pagination(array(
-										'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-										'total'        => $query->max_num_pages,
-										'format'       => '?paged=%#%',
-									)); ?>
+									<div class="btn__wrapper text-center mt-3 <?php if ( $query->max_num_pages <= 1 ) : ?>d-none<?php endif; ?>">
+										<a href="#!" class="btn btn-sm btn-outline-dark" id="load-more-mitjans">
+											<?= __( 'Carrega més', 'prioritat' ) ?>
+										</a>
+									</div>
 
 									<?php wp_reset_postdata(); ?>
 
