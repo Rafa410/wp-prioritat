@@ -8,6 +8,10 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+global $wp;
+global $wp_query;
+global $custom_query;
+
 $bootstrap_version = get_theme_mod( 'understrap_bootstrap_version', 'bootstrap4' );
 $uid               = wp_unique_id( 's-' ); // The search form specific unique ID for the input.
 
@@ -23,7 +27,7 @@ foreach ($post_types as $post_type) {
 	$posts_labels_map[ strtolower( $post_type->labels->name )] = $post_type->name;
 }
 // Custom labels
-$posts_labels_map['articles'] = 'post';
+// $posts_labels_map['articles'] = 'post';
 $posts_labels_map['activitats'] = 'agenda_events';
 
 $label = strtolower( $args['aria_label'] );
@@ -38,13 +42,15 @@ if ( isset( $args['aria_label'] ) && ! empty( $args['aria_label'] ) ) {
 
 if ( is_home() ) {
 	$url = get_permalink( get_option( 'page_for_posts' ) );
+} elseif ( is_page_template( 'page-templates/present-template.php' ) ) {
+	$url = get_pagenum_link( 1, false ) . '#noticies';
 } else {
 	$url = home_url( '/' );
 }
 
-global $wp_query;
-
 $is_query = isset( $_GET['s'] ) || isset( $_GET['post_type'] ) || isset( $_GET['category_name'] );
+$is_custom_query = isset( $_GET['search'] ) || isset( $_GET['category_name'] );
+$is_search_page = is_search() || is_home() || $url === home_url( '/' );
 
 ?>
 
@@ -67,20 +73,35 @@ $is_query = isset( $_GET['s'] ) || isset( $_GET['post_type'] ) || isset( $_GET['
 			</button>
 		</div>
 
-		<?php if ( isset( $posts_labels_map[$label] ) ) : ?>
+		<?php if ( isset( $posts_labels_map[$label] ) && $is_search_page ) : ?>
 			<input type="hidden" name="post_type" value="<?= $posts_labels_map[$label] ?>">
 		<?php endif; ?>
-		<input type="search" class="field search-field form-control" id="<?php echo $uid; ?>" name="s" value="<?php the_search_query(); ?>" placeholder="<?php echo $placeholder; ?>">
+
+		<?php if ( $is_search_page ) : ?>
+				<input type="search" class="field search-field form-control" id="<?php echo $uid; ?>" name="s" value="<?php the_search_query(); ?>" placeholder="<?php echo $placeholder; ?>">
+		<?php else : ?>
+			<input type="search" class="field search-field form-control" id="<?php echo $uid; ?>" name="search" value="<?php echo esc_attr( get_query_var( 'search' ) ); ?>" placeholder="<?php echo $placeholder; ?>">
+		<?php endif; ?>
+
 		<input type="submit" class="submit search-submit screen-reader-text" value="<?php echo esc_attr_x( 'Cerca', 'botó de cerca', 'prioritat' ); ?>">
 	</div>
 </form>
 
-<?php if ( isset( $wp_query->found_posts ) && $wp_query->found_posts > 0 && $is_query ) : ?>
+<?php if ( $is_query && $is_search_page && isset( $wp_query->found_posts ) ) : ?>
 	<small class="search-results-count ms-3 text-muted">
 		<?php
 			printf( 
 				esc_html( _n( '%s resultat', '%s resultats', $wp_query->found_posts, 'prioritat' ) ), 
 				$wp_query->found_posts
+			);
+		?>
+	</small>
+<?php elseif ( $is_custom_query && isset( $custom_query->found_posts ) ) : ?>
+	<small class="search-results-count ms-3 text-muted">
+		<?php
+			printf( 
+				esc_html( _n( '%s resultat', '%s resultats', $custom_query->found_posts, 'prioritat' ) ), 
+				$custom_query->found_posts
 			);
 		?>
 	</small>
