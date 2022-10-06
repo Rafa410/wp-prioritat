@@ -52,7 +52,7 @@ global $wp;
 
 						<div class="<?php echo esc_attr( $container ); ?>">
 		
-							<div class="row" id="resultats-cerca">
+							<div class="row">
 
 								<div class="col-12">
 
