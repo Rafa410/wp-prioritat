@@ -85,7 +85,7 @@ global $wp;
 													if ( '' !== get_query_var( 'orderby' ) ) {
 														$current_args['orderby'] = get_query_var( 'orderby' );
 													}
-													if ( '' !== get_query_var( 'order' ) ) {
+													if ( isset( $_GET['order'] ) ) {
 														$current_args['order'] = get_query_var( 'order' );
 													}
 												
@@ -108,7 +108,7 @@ global $wp;
 															);
 															$category_url = add_query_arg( 
 																array_merge( $current_args, $category_args ),
-																home_url( $wp->request ) 
+																get_pagenum_link( 1, false )
 															);
 															$category_link = sprintf( 
 																'<a href="%1$s" title="%2$s">%3$s</a>',
