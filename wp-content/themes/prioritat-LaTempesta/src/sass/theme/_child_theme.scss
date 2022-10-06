@@ -89,7 +89,7 @@ header > h2 {
     }
 }
 
-.ratio > .wp-post-image {
+.ratio > img {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
@@ -358,8 +358,6 @@ a.read-more {
 }
 
 #archive-wrapper,
-#tag-wrapper,
-#taxonomy-wrapper,
 #search-wrapper {
     .page-header {
         min-height: clamp(200px, 35vh, 300px);
@@ -403,7 +401,11 @@ a.read-more {
     position: absolute;
     right: 0;
     bottom: 0;
-    height: 100%;
+    height: 90%;
+
+    @include media-breakpoint-down(md) {
+        height: 50%;
+    }
 
     svg {
         color: white;
@@ -466,9 +468,8 @@ a.read-more {
 
 #single-wrapper,
 #archive-wrapper,
-#tag-wrapper,
-#taxonomy-wrapper,
-#search-wrapper {
+#search-wrapper,
+#error-404-wrapper {
     padding-top: $menu-height;
 }
 
@@ -596,7 +597,7 @@ a.read-more {
     }
 
     &__pattern {
-        max-height: 70%;
+        height: 70%;
 
         @include media-breakpoint-down(md) {
             display: flex;
@@ -1104,14 +1105,14 @@ a.read-more {
 }
 
 .mitjans-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    gap: 2rem;
-    align-items: center;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    // gap: 2rem;
+    // align-items: center;
 }
 
 .mitja {
-    max-width: min(100%, 85vw);
+    // max-width: min(100%, 85vw);
     border: 2px solid $primary;
 
     &__link {
@@ -1123,6 +1124,16 @@ a.read-more {
         padding: 0.75rem;
         color: $body-color;
         transition: background-color 0.3s ease-out;
+
+        @media (max-width: 400px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @include media-breakpoint-between(sm, xl) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
         &:hover,
         &:focus-visible {
@@ -1137,9 +1148,10 @@ a.read-more {
 
     &__image {
         flex: 0 0 25%;
+        max-width: min(45%, 8rem);
 
         > img {
-            border-radius: 50%;
+            object-fit: contain;
         }
     }
 
@@ -1150,11 +1162,9 @@ a.read-more {
     }
 
     @include media-breakpoint-down(sm) {
-        flex-wrap: wrap;
-
         .mitja__image {
             flex-grow: 1;
-            --bs-aspect-ratio: 56.25% !important;
+            --bs-aspect-ratio: 75% !important;
         }
     }
 }

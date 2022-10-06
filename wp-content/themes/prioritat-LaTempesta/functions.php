@@ -86,7 +86,8 @@ add_action( 'wp_head', 'prt_ajax_url' );
  *  - animate.css
  *  - wow.js
  *  - GSAP
- * 		· ScrollTrigger
+ * 		& ScrollTrigger
+ *  - Masonry
  */
 function prt_load_libraries() {
     $slick_style = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css';
@@ -97,6 +98,8 @@ function prt_load_libraries() {
 
 	$gsap = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js';
     $gsap_scrollTrigger = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js';
+
+	$masonry = 'https://unpkg.com/masonry-layout@4.2/dist/masonry.pkgd.min.js';
 
 	wp_enqueue_style( 'animate-css', $animate_css );
 	wp_enqueue_script( 'wow-js', $wow_js, array(), null, true );
@@ -119,6 +122,7 @@ function prt_load_libraries() {
 	if ( is_page_template( 'page-templates/present-template.php' ) ) {
 		wp_enqueue_style( 'slick-style', $slick_style );
 		wp_enqueue_script( 'slick-script', $slick_script, array( 'jquery' ), null, true );
+		wp_enqueue_script( 'masonry-async', $masonry, array(), null, true );
 	}
 
 }

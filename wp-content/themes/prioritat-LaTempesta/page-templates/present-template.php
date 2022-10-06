@@ -76,7 +76,7 @@ if ( is_front_page() ) {
 										<h2 class="title-underline mb-3"><?= __( 'Notícies', 'prioritat' ) ?></h2>
 									</header>
 
-									<div class="post-list post-<?= get_post_type() ?>-list py-3">
+									<div class="post-list post-noticies-list py-3">
 
 										<?php
 										$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -107,6 +107,7 @@ if ( is_front_page() ) {
 										'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
 										'total'        => $query->max_num_pages,
 										'format'       => '?paged=%#%',
+										'add_fragment' => '#noticies',
 									)); ?>
 
 									<?php wp_reset_postdata(); ?>
@@ -119,7 +120,7 @@ if ( is_front_page() ) {
 										<h2 class="title-underline mb-3"><?= __( 'Prioritat als mitjans', 'prioritat' ) ?></h2>
 									</header>
 
-									<div class="mitjans-list py-3">
+									<div class="row mitjans-list py-3" data-masonry='{"percentPosition": true }'>
 
 										<?php
 										$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
@@ -135,7 +136,9 @@ if ( is_front_page() ) {
 										if ( $query->have_posts() ) {
 											while ( $query->have_posts() ) {
 												$query->the_post();
+												echo '<div class="col-sm-6 col-lg-4">';
 												get_template_part( 'loop-templates/content', get_post_type() );
+												echo '</div>';
 											}
 										} else {
 											echo '<p class="fw-light text-muted fs-5">' . __( 'No s\'han trobat notícies recents.', 'prioritat' ) . '</p>';

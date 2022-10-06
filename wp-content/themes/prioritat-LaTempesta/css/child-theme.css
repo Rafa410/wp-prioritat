@@ -15373,7 +15373,7 @@ header > h2, header > .h2 {
   font-weight: 800;
 }
 
-.ratio > .wp-post-image {
+.ratio > img {
   width: 100% !important;
   height: 100% !important;
   -o-object-fit: cover;
@@ -15596,8 +15596,6 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 #archive-wrapper .page-header,
-#tag-wrapper .page-header,
-#taxonomy-wrapper .page-header,
 #search-wrapper .page-header {
   min-height: clamp(200px, 35vh, 300px);
 }
@@ -15636,7 +15634,12 @@ a.read-more:where(:hover, :focus)::after {
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 100%;
+  height: 90%;
+}
+@media (max-width: 767.98px) {
+  .dot-pattern {
+    height: 50%;
+  }
 }
 .dot-pattern svg {
   color: white;
@@ -15681,9 +15684,8 @@ a.read-more:where(:hover, :focus)::after {
 
 #single-wrapper,
 #archive-wrapper,
-#tag-wrapper,
-#taxonomy-wrapper,
-#search-wrapper {
+#search-wrapper,
+#error-404-wrapper {
   padding-top: 5.125rem;
 }
 
@@ -15797,7 +15799,7 @@ a.read-more:where(:hover, :focus)::after {
   max-width: min(750px, 75%);
 }
 .homepage-hero__pattern {
-  max-height: 70%;
+  height: 70%;
 }
 @media (max-width: 767.98px) {
   .homepage-hero__pattern {
@@ -16270,15 +16272,7 @@ a.read-more:where(:hover, :focus)::after {
   align-items: flex-start;
 }
 
-.mitjans-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  gap: 2rem;
-  align-items: center;
-}
-
 .mitja {
-  max-width: min(100%, 85vw);
   border: 2px solid #ff7f61;
 }
 .mitja__link {
@@ -16291,6 +16285,18 @@ a.read-more:where(:hover, :focus)::after {
   color: #212529;
   transition: background-color 0.3s ease-out;
 }
+@media (max-width: 400px) {
+  .mitja__link {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (min-width: 576px) and (max-width: 1199.98px) {
+  .mitja__link {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 .mitja__link:hover, .mitja__link:focus-visible {
   color: #212529;
   background-color: rgba(255, 127, 97, 0.2);
@@ -16300,20 +16306,19 @@ a.read-more:where(:hover, :focus)::after {
 }
 .mitja__image {
   flex: 0 0 25%;
+  max-width: min(45%, 8rem);
 }
 .mitja__image > img {
-  border-radius: 50%;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 .mitja__summary p:last-child {
   margin-bottom: 0;
 }
 @media (max-width: 575.98px) {
-  .mitja {
-    flex-wrap: wrap;
-  }
   .mitja .mitja__image {
     flex-grow: 1;
-    --bs-aspect-ratio: 56.25% !important;
+    --bs-aspect-ratio: 75% !important;
   }
 }
 
