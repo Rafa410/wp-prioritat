@@ -358,9 +358,17 @@ a.read-more {
 }
 
 #archive-wrapper,
-#search-wrapper {
+#search-wrapper,
+#error-404-wrapper {
     .page-header {
         min-height: clamp(200px, 35vh, 300px);
+    }
+}
+
+#error-404-wrapper {
+    a[href] {
+        text-decoration: none;
+        color: $strong-gray;
     }
 }
 
@@ -368,9 +376,17 @@ a.read-more {
     .search-form {
         display: inline-block;
     }
+}
 
+.search-field {
+    padding: 0.375rem 1em 0.375rem 3em;
+}
+
+.error-404,
+.not-found {
     .search-field {
-        padding: 0.375rem 1em 0.375rem 3em;
+        padding: 0.5rem 1rem 0.5rem 3rem;
+        font-size: 1.25rem;
     }
 }
 

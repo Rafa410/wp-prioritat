@@ -15596,15 +15596,28 @@ a.read-more:where(:hover, :focus)::after {
 }
 
 #archive-wrapper .page-header,
-#search-wrapper .page-header {
+#search-wrapper .page-header,
+#error-404-wrapper .page-header {
   min-height: clamp(200px, 35vh, 300px);
+}
+
+#error-404-wrapper a[href] {
+  text-decoration: none;
+  color: #7e7d7f;
 }
 
 .searchform-wrapper .search-form {
   display: inline-block;
 }
-.searchform-wrapper .search-field {
+
+.search-field {
   padding: 0.375rem 1em 0.375rem 3em;
+}
+
+.error-404 .search-field,
+.not-found .search-field {
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  font-size: 1.25rem;
 }
 
 .input-group-icon .icon {
