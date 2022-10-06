@@ -207,13 +207,5 @@
                 });
             });
         }
-
-        /**
-         * Ajax search for blog posts, news and events
-         */
-        const $searchform = $(
-            '.searchform-post, .searchform-noticies, .searchform-agenda_events'
-        ).children('.search-form');
-        const $postsList = $('.post-list, .post-noticies-list, .post-agenda_events-list');
     }); // End document ready
 })(jQuery);

@@ -9476,13 +9476,6 @@
 	        });
 	      });
 	    }
-	    /**
-	     * Ajax search for blog posts, news and events
-	     */
-
-
-	    $('.searchform-post, .searchform-noticies, .searchform-agenda_events').children('.search-form');
-	    $('.post-list, .post-noticies-list, .post-agenda_events-list');
 	  }); // End document ready
 	})(jQuery);
 
