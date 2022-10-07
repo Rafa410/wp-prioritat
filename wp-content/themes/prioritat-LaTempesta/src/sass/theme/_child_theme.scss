@@ -868,9 +868,9 @@ a.read-more {
         flex-direction: column;
         justify-content: center;
         padding: 1rem;
-        background-color: $gray-200;
+        // background-color: $gray-200;
         line-height: $line-height-sm;
-        font-weight: 500;
+        font-weight: bold;
 
         p:last-child {
             margin-bottom: 0;
@@ -1126,6 +1126,12 @@ a.read-more {
 .strategic-line {
     p:last-child {
         margin-bottom: 0;
+    }
+}
+
+.reason {
+    &__description {
+        font-size: 0.9375rem;
     }
 }
 

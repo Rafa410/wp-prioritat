@@ -16037,9 +16037,8 @@ a.read-more:where(:hover, :focus)::after {
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
-  background-color: #e9ecef;
   line-height: 1.25;
-  font-weight: 500;
+  font-weight: bold;
 }
 .goals-list .goal p:last-child {
   margin-bottom: 0;
@@ -16279,6 +16278,10 @@ a.read-more:where(:hover, :focus)::after {
 .reason p:last-child,
 .strategic-line p:last-child {
   margin-bottom: 0;
+}
+
+.reason__description {
+  font-size: 0.9375rem;
 }
 
 .reason:first-child {
