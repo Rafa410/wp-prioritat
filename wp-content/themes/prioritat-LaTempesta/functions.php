@@ -118,6 +118,12 @@ function prt_load_libraries() {
         wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
 	}
 
+	// Candidature page
+	if ( is_page_template( 'page-templates/candidature-template.php' ) ) {
+		wp_enqueue_script( 'gsap-async', $gsap );
+        wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
+	}
+
 	// Present page
 	if ( is_page_template( 'page-templates/present-template.php' ) ) {
 		wp_enqueue_style( 'slick-style', $slick_style );
@@ -390,6 +396,35 @@ function prt_noticies_taxonomy_filter() {
 	}
 } 
 add_action( 'restrict_manage_posts', 'prt_noticies_taxonomy_filter' );
+
+
+
+/**
+ * Allow filtering by Cronology in admin CPT 'timeline_events' list
+ */
+function prt_cronologia_taxonomy_filter() {
+	global $typenow; // this variable stores the current custom post type
+
+	if ( $typenow === 'timeline_events' ) {
+		$taxonomy_names = array( 'cronologia' );
+
+		foreach ( $taxonomy_names as $single_taxonomy ) {
+			$current_taxonomy = isset( $_GET[$single_taxonomy] ) ? $_GET[$single_taxonomy] : '';
+			$taxonomy_object = get_taxonomy( $single_taxonomy );
+			$taxonomy_name = strtolower( $taxonomy_object->labels->name );
+			$taxonomy_terms = get_terms( $single_taxonomy );
+			if ( count($taxonomy_terms) > 0 ) {
+				echo "<select name='{$single_taxonomy}' id='{$single_taxonomy}' class='postform'>";
+				echo "<option value=''>" . __( 'Totes les categories', 'prioritat' ) . "</option>";
+				foreach ($taxonomy_terms as $single_term) {
+					echo '<option value='. $single_term->slug, $current_taxonomy == $single_term->slug ? ' selected="selected"' : '','>' . $single_term->name .' (' . $single_term->count .')</option>'; 
+				}
+				echo "</select>";
+			}
+		}
+	}
+} 
+add_action( 'restrict_manage_posts', 'prt_cronologia_taxonomy_filter' );
 
 
 

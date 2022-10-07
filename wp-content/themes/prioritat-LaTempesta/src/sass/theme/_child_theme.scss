@@ -1140,6 +1140,24 @@ a.read-more {
     }
 }
 
+#antecedents-candidacy {
+    #timeline-tracker {
+        background-color: $tertiary;
+    }
+
+    .event-year {
+        &::before {
+            background-color: $tertiary;
+        }
+
+        &.passed {
+            &::before {
+                box-shadow: 0 0 0 3px $tertiary;
+            }
+        }
+    }
+}
+
 .antecedents-candidacy__content {
     h3 {
         font-weight: 600;
@@ -1242,6 +1260,10 @@ a.read-more {
             margin-right: 2rem;
         }
     }
+}
+
+iframe {
+    max-width: 100%;
 }
 
 #miradors {
@@ -1380,21 +1402,17 @@ a.read-more {
                     font-weight: 800;
                     transition: color 0.3s ease-out;
 
-                    &::before {
+                    &::after {
                         content: '';
                         display: block;
-                        position: absolute;
                         width: 0;
                         height: 1px;
                         background-color: $dark;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
                         transition: width 0.3s ease-out;
                     }
 
                     &:where(:hover, :focus, [aria-current='page']) {
-                        &::before {
+                        &::after {
                             width: 100%;
                         }
                     }

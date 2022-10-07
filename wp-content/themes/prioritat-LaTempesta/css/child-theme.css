@@ -16291,6 +16291,16 @@ a.read-more:where(:hover, :focus)::after {
     flex-basis: 100%;
   }
 }
+#antecedents-candidacy #timeline-tracker {
+  background-color: #419683;
+}
+#antecedents-candidacy .event-year::before {
+  background-color: #419683;
+}
+#antecedents-candidacy .event-year.passed::before {
+  box-shadow: 0 0 0 3px #419683;
+}
+
 .antecedents-candidacy__content h3, .antecedents-candidacy__content .h3 {
   font-weight: 600;
   position: relative;
@@ -16380,6 +16390,10 @@ a.read-more:where(:hover, :focus)::after {
 
 #ctf .ctf-item:not(:last-child) {
   margin-right: 2rem;
+}
+
+iframe {
+  max-width: 100%;
 }
 
 #miradors iframe {
@@ -16513,19 +16527,15 @@ a.read-more:where(:hover, :focus)::after {
   font-weight: 800;
   transition: color 0.3s ease-out;
 }
-.site-footer .menu-wrapper ul .menu-item > a::before {
+.site-footer .menu-wrapper ul .menu-item > a::after {
   content: "";
   display: block;
-  position: absolute;
   width: 0;
   height: 1px;
   background-color: #212529;
-  bottom: 0;
-  left: 0;
-  right: 0;
   transition: width 0.3s ease-out;
 }
-.site-footer .menu-wrapper ul .menu-item > a:where(:hover, :focus, [aria-current="page"])::before {
+.site-footer .menu-wrapper ul .menu-item > a:where(:hover, :focus, [aria-current="page"])::after {
   width: 100%;
 }
 .site-footer .partners-wrapper p {

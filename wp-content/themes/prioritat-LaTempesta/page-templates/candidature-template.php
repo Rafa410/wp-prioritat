@@ -117,6 +117,46 @@ if ( is_front_page() ) {
 										<?= get_field( 'antecedents' ) ?>
 									</div>
 
+									<h3 class="fw-bold title-underline title-underline-tertiary"><?= __( 'Cronologia', 'prioritat' ) ?></h3>
+
+									<div id="timeline">
+
+											<span id="timeline-tracker"></span>
+
+											<?php
+											$cronology_id = get_field( 'cronologia' );
+											$args = array(
+												'post_type' => 'timeline_events',
+												'posts_per_page' => -1,
+												// 'meta_key' => 'event_date',
+												// 'orderby' => 'meta_value',
+												'orderby' => 'date',
+												'order' => 'ASC',
+												'tax_query' => array(
+													array(
+														'taxonomy' => 'cronologia',
+														'field' => 'term_id',
+														'terms' => $cronology_id
+													)
+												),
+											);
+											$query = new WP_Query( $args );
+											?>
+
+											<div class="timeline-events">
+
+												<?php 
+													while ( $query->have_posts() ) {
+														$query->the_post();
+														get_template_part( 'loop-templates/content', get_post_type() );
+													}
+													wp_reset_postdata(); 
+												?>
+
+											</div>
+
+										</div>
+
 								</section>
 
 								<section id="support" class="my-5 py-3">

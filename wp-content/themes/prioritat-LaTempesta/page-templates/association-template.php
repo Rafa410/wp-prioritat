@@ -170,13 +170,21 @@ if ( is_front_page() ) {
 											<span id="timeline-tracker"></span>
 
 											<?php
+											$cronology_id = get_field( 'cronologia' );
 											$args = array(
 												'post_type' => 'timeline_events',
 												'posts_per_page' => -1,
 												// 'meta_key' => 'event_date',
 												// 'orderby' => 'meta_value',
 												'orderby' => 'date',
-												'order' => 'ASC'
+												'order' => 'ASC',
+												'tax_query' => array(
+													array(
+														'taxonomy' => 'cronologia',
+														'field' => 'term_id',
+														'terms' => $cronology_id
+													)
+												),
 											);
 											$query = new WP_Query( $args );
 											?>
