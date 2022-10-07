@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 			<?= get_the_post_thumbnail( $post->ID, 'medium', array( 'class' => 'no-lazy project__image' ) ) ?>
 		</div>
 		
-		<?php the_title('<h3 class="project__title entry-title fw-semibold my-2">', '</h3>' ); ?>
+		<?php the_title('<h3 class="project__title entry-title fw-semibold mt-3 mb-2">', '</h3>' ); ?>
 
 		<span class="project__subtitle"><?= get_field('subtitle') ?></span>
 

@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 			<?= get_the_post_thumbnail( $post->ID, 'large' ); ?>
 		</a>
 
-			<div class="entry-meta fw-bold text-tertiary small">
+			<div class="entry-meta fw-medium text-tertiary small">
 				<?= prt_post_date(); ?>
 			</div><!-- .entry-meta -->
 
@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
 
 	</header><!-- .entry-header -->
 
-	<div class="entry-content lh-sm small">
+	<div class="entry-content lh-sm">
 
 		<?php the_excerpt(); ?>
 

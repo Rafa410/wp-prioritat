@@ -21,7 +21,7 @@ $index = $args['index'];
 			</div>
 		<?php endif; ?>
 
-		<p class="text-muted text-uppercase fw-bold small my-2">
+		<p class="text-muted text-uppercase fw-medium small my-2">
 			<?= sprintf( __( 'Valor %d', 'prioritat' ), $index ) ?>
 		</p>
 
