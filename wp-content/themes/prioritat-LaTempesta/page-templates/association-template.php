@@ -245,6 +245,7 @@ if ( is_front_page() ) {
 														get_post_type(),
 														array(
 															'accordion_id' => 'accordionOrganization',
+															'index' => $query->current_post,
 														)
 													);
 												}
