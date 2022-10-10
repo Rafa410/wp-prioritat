@@ -469,3 +469,40 @@ function load_more_mitjans() {
 }
 add_action('wp_ajax_load_more_mitjans', 'load_more_mitjans');
 add_action('wp_ajax_nopriv_load_more_mitjans', 'load_more_mitjans');
+
+
+
+/**
+ * Create a shortcode to display the site URL in wpcf7 with an optional 'path' parameter
+ */
+function prt_wpcf7_add_form_tag_site_url() {
+	wpcf7_add_form_tag(
+		'site_url', 
+		'prt_wpcf7_site_url_form_tag_handler', 
+		array( 
+			'name-attr' => true 
+		) 
+	);
+}
+add_action( 'wpcf7_init', 'prt_wpcf7_add_form_tag_site_url' );
+
+/**
+ * Generate URL relative to the WordPress site
+ */
+function prt_wpcf7_site_url_form_tag_handler( $tag ) {
+	$path = '';
+
+	if ( is_array( $tag->values ) ) {
+		foreach ( $tag->values as $value ) {
+			$path .= '/' . $value;
+		}
+
+	} elseif ( ! empty( $tag->values ) ) {
+		$path = $tag->values;
+	}
+	
+
+	$url = site_url( $path );
+
+	return $url;	
+}
