@@ -15479,22 +15479,28 @@ a.read-more:where(:hover, :focus)::after {
   color: #1d1d1b;
   color: #212529;
   font-weight: 800;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0;
   position: relative;
 }
-#wrapper-navbar .navbar-light .navbar-nav .nav-link::before {
+#wrapper-navbar .navbar-light .navbar-nav .nav-link::after {
   content: "";
   display: block;
   position: absolute;
   width: 0;
-  height: 1px;
+  height: 2px;
   background-color: #212529;
   bottom: 0;
   left: 0;
   right: 0;
   transition: width 0.3s ease-out;
 }
-#wrapper-navbar .navbar-light .navbar-nav .nav-link:where(:hover, :focus, [aria-current="page"])::before {
+#wrapper-navbar .navbar-light .navbar-nav .nav-link:hover::after, #wrapper-navbar .navbar-light .navbar-nav .nav-link:focus::after {
+  width: 100%;
+}
+#wrapper-navbar .navbar-light .navbar-nav .menu-item {
+  padding: 0.25rem 1rem;
+}
+#wrapper-navbar .navbar-light .navbar-nav .menu-item.current_page_item .nav-link::after, #wrapper-navbar .navbar-light .navbar-nav .menu-item.current-page-ancestor .nav-link::after {
   width: 100%;
 }
 #wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child {
@@ -15506,13 +15512,25 @@ a.read-more:where(:hover, :focus)::after {
   background-color: #212529;
   transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
 }
-#wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link:where(:hover, :focus, [aria-current="page"]) {
+#wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link:hover, #wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link:focus {
   background-color: #419683;
   box-shadow: 0 5px 5px -2px rgba(65, 150, 131, 0.5);
 }
 #wrapper-navbar .navbar-brand img {
   max-height: 3.5rem;
   width: auto;
+}
+
+.single-post .menu-item.menu-item-282 .nav-link::after, .single-post .menu-item.menu-item-283 .nav-link::after {
+  width: 100% !important;
+}
+
+.single-noticies .menu-item.menu-item-39 .nav-link::after, .single-noticies .menu-item.menu-item-121 .nav-link::after {
+  width: 100% !important;
+}
+
+.single-agenda_events .menu-item.menu-item-38 .nav-link::after, .single-agenda_events .menu-item.mnu-iteme-122 .nav-link::after {
+  width: 100% !important;
 }
 
 .page-header {
@@ -15680,7 +15698,7 @@ a.read-more:where(:hover, :focus)::after {
   left: 0;
   right: 0;
   top: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0.2) 75%, transparent);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 35%, rgba(255, 255, 255, 0.2) 75%, transparent);
 }
 
 .page-template-homepage-template .page-image img {
@@ -16008,6 +16026,18 @@ a.read-more:where(:hover, :focus)::after {
 }
 .project__subtitle {
   font-size: 0.9375rem;
+}
+
+.facts-carousel .slick-dots li button::before {
+  color: white;
+  opacity: 0.75;
+}
+.facts-carousel .slick-dots li button:hover::before, .facts-carousel .slick-dots li button:focus::before {
+  color: white;
+}
+.facts-carousel .slick-dots li.slick-active button::before {
+  opacity: 0.95;
+  color: #212529;
 }
 
 .fact__title::after {
@@ -16538,7 +16568,10 @@ iframe {
   background-color: #212529;
   transition: width 0.3s ease-out;
 }
-.site-footer .menu-wrapper ul .menu-item > a:where(:hover, :focus, [aria-current="page"])::after {
+.site-footer .menu-wrapper ul .menu-item > a:hover::after, .site-footer .menu-wrapper ul .menu-item > a:focus::after {
+  width: 100%;
+}
+.site-footer .menu-wrapper ul .menu-item.current_page_item .nav-link::after, .site-footer .menu-wrapper ul .menu-item.current-page-ancestor .nav-link::after {
   width: 100%;
 }
 .site-footer .partners-wrapper p {
@@ -16640,6 +16673,16 @@ iframe {
 .wpcf7 .wpcf7-form-control-wrap[data-name=partner-type] .wpcf7-select,
 .wpcf7 .wpcf7-form-control-wrap[data-name=mecenes-type] .wpcf7-select {
   padding-right: 2.5rem;
+}
+
+.mc4wp-checkbox-contact-form-7 {
+  margin-left: 1rem;
+}
+.mc4wp-checkbox-contact-form-7 label {
+  font-weight: 400;
+}
+.mc4wp-checkbox-contact-form-7 label span::before, .mc4wp-checkbox-contact-form-7 label span::after {
+  content: " ";
 }
 
 .mecenes-type-explanation {
@@ -16795,7 +16838,7 @@ iframe {
   opacity: 1;
   transition: 0.3s opacity;
 }
-.loader:where(.loaded, .lazyloaded)::before {
+.loader.loaded::before, .loader.lazyloaded::before {
   opacity: 0;
 }
 

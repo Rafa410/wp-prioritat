@@ -211,15 +211,15 @@ a.read-more {
                 color: $text-strong;
                 color: $dark;
                 font-weight: 800;
-                padding: 0.5rem 1rem;
+                padding: 0.25rem 0;
                 position: relative;
 
-                &::before {
+                &::after {
                     content: '';
                     display: block;
                     position: absolute;
                     width: 0;
-                    height: 1px;
+                    height: 2px;
                     background-color: $dark;
                     bottom: 0;
                     left: 0;
@@ -227,14 +227,26 @@ a.read-more {
                     transition: width 0.3s ease-out;
                 }
 
-                &:where(:hover, :focus, [aria-current='page']) {
-                    &::before {
+                &:hover,
+                &:focus {
+                    &::after {
                         width: 100%;
                     }
                 }
             }
 
             .menu-item {
+                padding: 0.25rem 1rem;
+
+                &.current_page_item,
+                &.current-page-ancestor {
+                    .nav-link {
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+
                 &:last-child {
                     padding: 0.25rem 0.5rem;
 
@@ -244,7 +256,8 @@ a.read-more {
                         background-color: $dark;
                         transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
 
-                        &:where(:hover, :focus, [aria-current='page']) {
+                        &:hover,
+                        &:focus {
                             background-color: $tertiary;
                             box-shadow: 0 5px 5px -2px rgba($tertiary, 0.5);
                         }
@@ -258,6 +271,39 @@ a.read-more {
         img {
             max-height: 3.5rem;
             width: auto;
+        }
+    }
+}
+
+.single-post {
+    .menu-item {
+        &.menu-item-282,
+        &.menu-item-283 {
+            .nav-link::after {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+.single-noticies {
+    .menu-item {
+        &.menu-item-39,
+        &.menu-item-121 {
+            .nav-link::after {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+.single-agenda_events {
+    .menu-item {
+        &.menu-item-38,
+        &.mnu-iteme-122 {
+            .nav-link::after {
+                width: 100% !important;
+            }
         }
     }
 }
@@ -453,7 +499,7 @@ a.read-more {
         top: 0;
         background: linear-gradient(
             180deg,
-            rgba(white, 0.7) 40%,
+            rgba(white, 0.6) 35%,
             rgba(white, 0.2) 75%,
             transparent
         );
@@ -832,6 +878,35 @@ a.read-more {
         }
     }
     */
+}
+
+.facts-carousel {
+    .slick-dots {
+        li {
+            button {
+                &::before {
+                    color: white;
+                    opacity: 0.75;
+                }
+
+                &:hover,
+                &:focus {
+                    &::before {
+                        color: white;
+                    }
+                }
+            }
+
+            &.slick-active {
+                button {
+                    &::before {
+                        opacity: 0.95;
+                        color: $dark;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .fact {
@@ -1417,7 +1492,17 @@ iframe {
                         transition: width 0.3s ease-out;
                     }
 
-                    &:where(:hover, :focus, [aria-current='page']) {
+                    &:hover,
+                    &:focus {
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                &.current_page_item,
+                &.current-page-ancestor {
+                    .nav-link {
                         &::after {
                             width: 100%;
                         }
@@ -1557,6 +1642,21 @@ iframe {
 
         .wpcf7-select {
             padding-right: 2.5rem;
+        }
+    }
+}
+
+.mc4wp-checkbox-contact-form-7 {
+    margin-left: 1rem;
+
+    label {
+        font-weight: 400;
+
+        span {
+            &::before,
+            &::after {
+                content: ' ';
+            }
         }
     }
 }
@@ -1730,7 +1830,8 @@ iframe {
         transition: 0.3s opacity;
     }
 
-    &:where(.loaded, .lazyloaded) {
+    &.loaded,
+    &.lazyloaded {
         &::before {
             opacity: 0;
         }
