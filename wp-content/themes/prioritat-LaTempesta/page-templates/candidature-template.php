@@ -163,7 +163,7 @@ if ( is_front_page() ) {
 
 									<header>
 										<h2 class="title-underline mb-3">
-											<?= __( 'Com donar-hi suport a la candidatura', 'prioritat' ) ?>
+											<?= __( 'Com donar suport a la candidatura', 'prioritat' ) ?>
 										</h2>
 									</header>
 
