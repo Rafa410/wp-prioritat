@@ -357,13 +357,78 @@ if ( is_front_page() ) {
 									</h2>
 								</header>
 		
-								<div>
+								<div class="newsletter__content">
 									<?= get_field( 'newsletter_content' ) ?>
 								</div>
-		
-								<a href="#subscribe" class="btn btn-outline-dark fw-bold">
-									<?= __( 'Subscriu-te', 'prioritat' ) ?>
-								</a>
+
+								<!-- Begin Mailchimp Signup Form -->
+								<div id="mc_embed_signup">
+									<form action="https://wordpresstemporal.us18.list-manage.com/subscribe/post?u=0ba94b9191a1a10c6b81e2181&amp;id=a7f90c5a1a&amp;f_id=008121e7f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+										<div id="mce-content">
+
+											<div class="mc-field-group input-group mb-3">
+												<label for="mce-EMAIL" class="visually-hidden"><?= __( 'Direcció de correu electrònic', 'prioritat' ) ?></label>
+												<input type="email" value="" name="EMAIL" placeholder="<?= __( 'Direcció de correu electrònic', 'prioritat' ) ?>" class="form-control required email" id="mce-EMAIL" required>
+												<button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-dark fw-bold">
+													<?= __( 'Subscriu-te', 'prioritat' ) ?>
+												</button>
+											</div>
+	
+											<div class="mc-field-group">
+												<input type="checkbox" value="1" name="group[214774][1]" id="mce-group[214774]-214774-0" required>
+												<label for="mce-group[214774]-214774-0">
+													<span class="wpcf7-list-item-label small">
+														<?= sprintf(
+															__( 'He llegit i accepto la %s', 'prioritat' ),
+															'<a href="' . site_url( '/politica-privacitat' ) . '" target="_blank" class="link-dark">' . __( 'Política de privacitat i protecció de dades', 'prioritat' ) . '</a>'
+														)
+														?>
+													</span>
+												</label>
+											</div>
+
+										</div>
+
+										<div id="mce-responses" class="clear foot">
+											<div class="response alert alert-danger mt-3 mb-0" id="mce-error-response" role="alert" style="display:none"></div>
+											<div class="response alert alert-success mt-3 mb-0" id="mce-success-response" role="alert" style="display:none"></div>
+										</div>    
+
+										<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+										<div style="position: absolute; left: -5000px;" aria-hidden="true">
+											<input type="text" name="b_0ba94b9191a1a10c6b81e2181_a7f90c5a1a" tabindex="-1" value="">
+										</div>
+									</form>
+								</div>
+								<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+								<script type='text/javascript'>
+									(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday'; 
+									/*
+									* Translated default messages for the jQuery validation plugin.
+									* Locale: CA
+									*/
+									$.extend($.validator.messages, {
+										required: "Aquest camp és obligatori.",
+										remote: "Si us plau, omple aquest camp.",
+										email: "Si us plau, escriu una adreça de correu electrònic vàlida",
+										url: "Si us plau, escriu una URL vàlida.",
+										date: "Si us plau, escriu una data vàlida.",
+										dateISO: "Si us plau, escriu una data (ISO) vàlida.",
+										number: "Si us plau, escriu un número enter vàlid.",
+										digits: "Si us plau, escriu només dígits.",
+										creditcard: "Si us plau, escriu un número de tarjeta vàlid.",
+										equalTo: "Si us plau, escriu el mateix valor de nou.",
+										accept: "Si us plau, escriu un valor amb una extensió acceptada.",
+										maxlength: $.validator.format("Si us plau, no escriguis més de {0} caracters."),
+										minlength: $.validator.format("Si us plau, no escriguis menys de {0} caracters."),
+										rangelength: $.validator.format("Si us plau, escriu un valor entre {0} i {1} caracters."),
+										range: $.validator.format("Si us plau, escriu un valor entre {0} i {1}."),
+										max: $.validator.format("Si us plau, escriu un valor menor o igual a {0}."),
+										min: $.validator.format("Si us plau, escriu un valor major o igual a {0}.")
+									});}(jQuery));var $mcj = jQuery.noConflict(true);
+								</script>
+								<!--End mc_embed_signup-->
 								
 							</div>
 	

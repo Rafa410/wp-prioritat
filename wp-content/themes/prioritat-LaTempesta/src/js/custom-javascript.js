@@ -216,6 +216,41 @@
             currentMitjansPage++; // Do currentPage + 1, because we want to load the next page
             loadMoreMitjans(currentMitjansPage);
         });
+
+        /**
+         * Track mailchimp embedded signup form submissions
+         */
+        const mce_form = document.getElementById('mc-embedded-subscribe-form');
+        const mce_successElement = document.getElementById('mce-success-response');
+
+        if (mce_form && mce_successElement) {
+            const mce_successEvent = new Event('mceSuccess');
+            const mutationConfig = { attributes: true };
+
+            const callback = function (mutationsList, observer) {
+                for (const mutation of mutationsList) {
+                    if (
+                        mutation.type === 'attributes' &&
+                        mutation.attributeName == 'style' &&
+                        mce_successElement.style.display === ''
+                    ) {
+                        mce_form.dispatchEvent(mce_successEvent);
+                    }
+                }
+            };
+
+            const observer = new MutationObserver(callback);
+            observer.observe(mce_successElement, mutationConfig);
+        }
+
+        /**
+         * Hide mailchimp embedded signup form after successfull submission
+         */
+        if (mce_form) {
+            mce_form.addEventListener('mceSuccess', () => {
+                $('#mce-content').slideUp();
+            });
+        }
     }); // End document ready
 
     const loadMoreMitjans = (page) => {
