@@ -52,7 +52,32 @@ if ( is_front_page() ) {
 
 								<section id="contact-info">
 
-									<div class="row gy-4">
+									<div class="contact-info-list">
+
+										<?php 
+										$contact_items = get_field( 'contact_items' );
+
+										foreach ( $contact_items as $contact_item ) : ?>
+
+											<div class="contact-block bg-<?= $contact_item['color'] ?> p-4 py-lg-5">
+												
+												<?= wp_get_attachment_image( $contact_item['icon_id'], 'medium', true, array( 'class' => 'contact-block__icon' ) ); ?>
+
+												<h2 class="contact-block__title">
+													<?= $contact_item['title'] ?>
+												</h2>
+
+												<div class="contact-block__text">
+													<?= $contact_item['description'] ?>
+												</div>
+
+											</div>
+
+										<?php endforeach; ?>
+
+									</div>
+
+									<!-- <div class="row gy-4">
 
 										<div class="col-sm-4">
 
@@ -109,7 +134,7 @@ if ( is_front_page() ) {
 
 										</div>
 
-									</div>		
+									</div>		 -->
 			
 								</section>
 
