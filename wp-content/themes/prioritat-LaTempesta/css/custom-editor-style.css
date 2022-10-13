@@ -44,36 +44,36 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 }
 
 h1, .h1 {
-  font-size: calc(1.375rem + 1.5vw);
+  font-size: calc(1.375rem + 1.2857142857vw);
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   h1, .h1 {
     font-size: 2.5rem;
   }
 }
 
 h2, .h2 {
-  font-size: calc(1.325rem + 0.9vw);
+  font-size: calc(1.325rem + 0.7714285714vw);
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   h2, .h2 {
     font-size: 2rem;
   }
 }
 
 h3, .h3 {
-  font-size: calc(1.3rem + 0.6vw);
+  font-size: calc(1.3rem + 0.5142857143vw);
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   h3, .h3 {
     font-size: 1.75rem;
   }
 }
 
 h4, .h4 {
-  font-size: calc(1.275rem + 0.3vw);
+  font-size: calc(1.275rem + 0.2571428571vw);
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   h4, .h4 {
     font-size: 1.5rem;
   }
@@ -340,10 +340,10 @@ legend {
   width: 100%;
   padding: 0;
   margin-bottom: 0.5rem;
-  font-size: calc(1.275rem + 0.3vw);
+  font-size: calc(1.275rem + 0.2571428571vw);
   line-height: inherit;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   legend {
     font-size: 1.5rem;
   }
@@ -671,6 +671,12 @@ progress {
     -webkit-overflow-scrolling: touch;
   }
 }
+@media (max-width: 1599.98px) {
+  .table-responsive-xxxl {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 .img-fluid {
   max-width: 100%;
   height: auto;
@@ -704,66 +710,66 @@ progress {
 }
 
 .display-1 {
-  font-size: calc(1.625rem + 4.5vw);
+  font-size: calc(1.625rem + 3.8571428571vw);
   font-weight: 300;
   line-height: 1.2;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .display-1 {
     font-size: 5rem;
   }
 }
 
 .display-2 {
-  font-size: calc(1.575rem + 3.9vw);
+  font-size: calc(1.575rem + 3.3428571429vw);
   font-weight: 300;
   line-height: 1.2;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .display-2 {
     font-size: 4.5rem;
   }
 }
 
 .display-3 {
-  font-size: calc(1.525rem + 3.3vw);
+  font-size: calc(1.525rem + 2.8285714286vw);
   font-weight: 300;
   line-height: 1.2;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .display-3 {
     font-size: 4rem;
   }
 }
 
 .display-4 {
-  font-size: calc(1.475rem + 2.7vw);
+  font-size: calc(1.475rem + 2.3142857143vw);
   font-weight: 300;
   line-height: 1.2;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .display-4 {
     font-size: 3.5rem;
   }
 }
 
 .display-5 {
-  font-size: calc(1.425rem + 2.1vw);
+  font-size: calc(1.425rem + 1.8vw);
   font-weight: 300;
   line-height: 1.2;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .display-5 {
     font-size: 3rem;
   }
 }
 
 .display-6 {
-  font-size: calc(1.375rem + 1.5vw);
+  font-size: calc(1.375rem + 1.2857142857vw);
   font-weight: 300;
   line-height: 1.2;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .display-6 {
     font-size: 2.5rem;
   }
@@ -1083,6 +1089,14 @@ body.understrap-no-sidebar .wp-block-cover.alignfull .wp-block-cover__inner-cont
     max-width: 1320px;
   }
 }
+@media (min-width: 1600px) {
+  body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
+body.understrap-no-sidebar .alignfull .wp-block-cover__inner-container,
+body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container,
+body.understrap-no-sidebar .wp-block-cover.alignfull .wp-block-cover__inner-container {
+    max-width: 1500px;
+  }
+}
 body.understrap-no-sidebar .alignwide,
 body.understrap-no-sidebar .wp-block-cover.alignwide {
   margin: 0px calc(50% - 45vw);
@@ -1125,6 +1139,12 @@ body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-cont
   body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
 body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container {
     max-width: 1320px;
+  }
+}
+@media (min-width: 1600px) {
+  body.understrap-no-sidebar .alignwide .wp-block-cover__inner-container,
+body.understrap-no-sidebar .wp-block-cover.alignwide .wp-block-cover__inner-container {
+    max-width: 1500px;
   }
 }
 @media (max-width: 920px) {

@@ -81,13 +81,13 @@ if ( is_front_page() ) {
 								<h2 class="title-underline fw-extrabold"><?= __( 'Agenda d\'activitats', 'prioritat' ) ?></h2>
 							</header>
 
-							<div class="row g-0 align-items-center">
+							<div class="row g-0 align-items-center justify-content-between">
 
-								<div class="col-md-5 p-lg-3">
+								<div class="col-lg-5 p-lg-3">
 									<?= do_shortcode( '[agenda view="monthly"]' ) ?>
 								</div>
 
-								<div class="col-md-7 ps-0 ps-sm-4">
+								<div class="col-lg-7 col-xxl-6 ps-0 ps-sm-4">
 									<?= do_shortcode( '[agenda view="list" limit="3"]' ) ?>
 								</div>
 
@@ -103,7 +103,7 @@ if ( is_front_page() ) {
 
 							<div class="row g-0">
 
-								<div class="post-list col-lg-8 d-flex flex-wrap align-items-start justify-content-between py-3 pe-2 pe-md-3">
+								<div class="post-list col-lg-8 d-flex flex-wrap gap-4 align-items-start justify-content-between py-3 pe-2 pe-md-4">
 
 									<?php
 									$args = array(
@@ -133,7 +133,7 @@ if ( is_front_page() ) {
 								</div>
 
 
-								<div class="noticeboard col-lg-4 d-flex flex-column ps-3">
+								<div class="noticeboard col-lg-4 d-flex flex-column ps-4">
 									<h3 class="fw-extrabold"><?= __( 'Taulell d\'anuncis', 'prioritat' ) ?></h3>
 									<?= do_shortcode( '[latest_announcements source="wp"]' ) ?>
 								</div>
@@ -165,7 +165,7 @@ if ( is_front_page() ) {
 								
 								<?php $list_type = $projects->found_posts > 3 ? 'projects-carousel' : 'projects-list'; ?>
 
-								<div class="<?= $list_type ?> d-flex flex-wrap gap-2 justify-content-center align-items-start">
+								<div class="<?= $list_type ?> d-flex flex-wrap gap-4 justify-content-center align-items-start">
 									
 									<?php
 									while ( $projects->have_posts() ) {
