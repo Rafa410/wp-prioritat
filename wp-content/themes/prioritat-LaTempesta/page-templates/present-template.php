@@ -368,8 +368,8 @@ if ( is_front_page() ) {
 										<div id="mce-content">
 
 											<div class="mc-field-group input-group mb-3">
-												<label for="mce-EMAIL" class="visually-hidden"><?= __( 'Direcció de correu electrònic', 'prioritat' ) ?></label>
-												<input type="email" value="" name="EMAIL" placeholder="<?= __( 'Direcció de correu electrònic', 'prioritat' ) ?>" class="form-control required email" id="mce-EMAIL" required>
+												<label for="mce-EMAIL" class="visually-hidden"><?= __( 'Adreça de correu electrònic', 'prioritat' ) ?></label>
+												<input type="email" value="" name="EMAIL" placeholder="<?= __( 'Adreça de correu electrònic', 'prioritat' ) ?>" class="form-control required email" id="mce-EMAIL" required>
 												<button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-dark fw-bold">
 													<?= __( 'Subscriu-te', 'prioritat' ) ?>
 												</button>
