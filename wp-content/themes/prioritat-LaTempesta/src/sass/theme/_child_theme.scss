@@ -738,7 +738,6 @@ a.read-more {
 .calendar-list-view {
     .event-date {
         @include font-size(2rem);
-        font-weight: bold;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -760,6 +759,7 @@ a.read-more {
 
         .day {
             font-variant-numeric: tabular-nums;
+            font-weight: 900;
         }
 
         .month {

@@ -16891,7 +16891,6 @@ a.read-more:where(:hover, :focus)::after {
 
 .calendar-list-view .event-date {
   font-size: calc(1.325rem + 0.7714285714vw);
-  font-weight: bold;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -16917,6 +16916,7 @@ a.read-more:where(:hover, :focus)::after {
 }
 .calendar-list-view .event-date .day {
   font-variant-numeric: tabular-nums;
+  font-weight: 900;
 }
 .calendar-list-view .event-date .month {
   display: inline-block;
