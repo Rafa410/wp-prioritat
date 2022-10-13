@@ -78,7 +78,7 @@ if ( is_front_page() ) {
 
 								</section>
 
-								<section id="activities" class="my-5 py-3">
+								<section id="activitats" class="my-5 py-3">
 
 									<header>
 										<h2 class="title-underline mb-3"><?= __( 'Activitats', 'prioritat' ) ?></h2>

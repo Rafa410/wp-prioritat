@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<a href="<?= site_url( '/participa' ) ?>" class="agenda_events-nav-links small mt-4">
+<a href="<?= site_url( '/participa#activitats' ) ?>" class="agenda_events-nav-links small mt-4">
 	<?= __( 'Participa', 'prioritat' ) ?> <span class="dot dot-secondary"></span> <?= __( 'Activitats', 'prioritat' ) ?>
 </a>
 
