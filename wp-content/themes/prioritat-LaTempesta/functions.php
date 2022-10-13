@@ -25,6 +25,15 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
 
 /**
+ * Enqueue jQuery
+ */
+function prt_enqueue_jquery() {
+	wp_enqueue_script( 'jquery' );
+}
+add_action( 'wp_enqueue_scripts', 'prt_enqueue_jquery', 5 );
+
+
+/**
  * Enqueue our stylesheet and javascript file
  */
 function theme_enqueue_styles() {
@@ -37,15 +46,12 @@ function theme_enqueue_styles() {
 	$theme_styles  = "/css/child-theme{$suffix}.css";
 	$theme_scripts = "/js/child-theme{$suffix}.js";
 
-	// Define script dependencies
-	// $deps = array( 'slick-script-async' );
-
 	// Prevent CSS & JS caching when they are modified
 	$timestamp_styles = filemtime( get_stylesheet_directory() . $theme_styles );
 	$timestamp_scripts = filemtime( get_stylesheet_directory() . $theme_scripts );
 
 	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $the_theme->get( 'Version' ) . '-' . $timestamp_styles );
-	wp_enqueue_script( 'jquery' );
+	// wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'child-understrap-scripts-async', get_stylesheet_directory_uri() . $theme_scripts, array(), $the_theme->get( 'Version' ) . '-' . $timestamp_scripts, true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -132,7 +138,7 @@ function prt_load_libraries() {
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'prt_load_libraries' );
+add_action( 'wp_enqueue_scripts', 'prt_load_libraries', 8 );
 
 
 
