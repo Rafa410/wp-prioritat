@@ -492,6 +492,8 @@ function prt_wpcf7_add_form_tag_site_url() {
 }
 add_action( 'wpcf7_init', 'prt_wpcf7_add_form_tag_site_url' );
 
+
+
 /**
  * Generate URL relative to the WordPress site
  */
@@ -511,4 +513,32 @@ function prt_wpcf7_site_url_form_tag_handler( $tag ) {
 	$url = site_url( $path );
 
 	return $url;	
+}
+
+
+
+/**
+ * Generates a custom options page
+ */
+add_action('acf/init', 'my_acf_op_init');
+function my_acf_op_init() {
+
+    if( function_exists('acf_add_options_page') ) {
+
+        // Register options page.
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __( 'Opcions de personalització', 'prioritat' ),
+            'menu_title'    => __( 'Personalització', 'prioritat' ),
+            'menu_slug'     => 'theme-general-settings',
+            'redirect'      => true,
+        ));
+
+		// Add sub page.
+        $social_media_page = acf_add_options_sub_page(array(
+            'page_title'  => __( 'Xarxes socials', 'prioritat' ),
+            'menu_title'  => __( 'Xarxes socials', 'prioritat' ),
+			'menu_slug'   => 'theme-social-settings',
+            'parent_slug' => $option_page['menu_slug'],
+        ));
+    }
 }
