@@ -120,14 +120,14 @@ function prt_load_libraries() {
 	if ( is_page_template( 'page-templates/association-template.php' ) ) {
 		wp_enqueue_style( 'slick-style', $slick_style );
         wp_enqueue_script( 'slick-script', $slick_script, array( 'jquery' ), null, true );
-		wp_enqueue_script( 'gsap-async', $gsap );
-        wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
+		wp_enqueue_script( 'gsap', $gsap );
+        wp_enqueue_script( 'gsap-scrollTrigger', $gsap_scrollTrigger, array(), null, false );
 	}
 
 	// Candidature page
 	if ( is_page_template( 'page-templates/candidature-template.php' ) ) {
-		wp_enqueue_script( 'gsap-async', $gsap );
-        wp_enqueue_script( 'gsap-scrollTrigger-async', $gsap_scrollTrigger, array(), null, false );
+		wp_enqueue_script( 'gsap', $gsap );
+        wp_enqueue_script( 'gsap-scrollTrigger', $gsap_scrollTrigger, array(), null, false );
 	}
 
 	// Present page
