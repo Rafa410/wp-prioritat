@@ -91,6 +91,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			</div><!--col end -->
 
+			<hr>
+
+			<div class="col-md-12">
+				<div class="copyright text-md-center">
+					<span><b>Fotografia /</b> &copy; de les imatges Arxiu PNMontsant / &copy;Jordi Blay / &copy;Rafael Lòpez-Monné / &copy;Susanne Schmelzer / &copy;Xavier Vaqué / &copy;Júlia Viejobueno</span>
+					<br>
+					<span><b>Disseny Identitat /</b> Carol van Waart <b>Desenvolupament web /</b> <a href="https://latempesta.cc/" target="_blank" class="text-decoration-none link-dark">La Tempesta</a></span>
+				</div>
+			</div>
+
 		</div><!-- row end -->
 
 	</div><!-- container end -->

@@ -17679,6 +17679,10 @@ iframe {
   transition: filter 0.15s;
 }
 
+.copyright {
+  font-size: 0.8125rem;
+}
+
 .contact-info-list {
   display: grid;
   gap: 1.5rem;

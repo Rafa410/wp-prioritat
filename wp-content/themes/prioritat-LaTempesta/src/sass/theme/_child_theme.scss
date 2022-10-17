@@ -838,7 +838,7 @@ a.read-more {
     }
 
     .read-more {
-        font-size: 0.8125rem;
+        font-size: $xs-small;
     }
 
     @include media-breakpoint-down(sm) {
@@ -1642,6 +1642,10 @@ iframe {
             */
         }
     }
+}
+
+.copyright {
+    font-size: $xs-small;
 }
 
 .contact-info-list {
