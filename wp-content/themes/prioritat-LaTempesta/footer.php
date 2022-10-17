@@ -72,16 +72,16 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<div class="col-lg-4 my-3 my-sm-0 partners-wrapper d-flex flex-column justify-content-center">
 						<p class="small"><?= __( 'Amb el suport de: ', 'prioritat' ) ?></p>
 						<div class="row partner-list align-items-center gap-3">
-							<div class="partner">
+							<div class="partner diputacio-tarragona me-3">
 								<img class="inline-svg" id="diputacio-tarragona" src="<?= get_stylesheet_directory_uri() ?>/images/partners/diputacio-tarragona.svg" alt="<?= __( 'Diputació de Tarragona', 'prioritat' ) ?>">
 							</div>
-							<div class="partner small">
+							<div class="partner fundacio-caixa">
 								<img class="inline-svg" id="fundacio-caixa" src="<?= get_stylesheet_directory_uri() ?>/images/partners/fundacio-caixa.png" alt="<?= __( 'Fundació la caixa', 'prioritat' ) ?>">
 							</div>
-							<div class="partner">
+							<div class="partner gencat-cultura">
 								<img class="inline-svg" id="gencat-cultura" src="<?= get_stylesheet_directory_uri() ?>/images/partners/gencat-cultura.svg" alt="<?= __( 'Generalitat de Catalunya: Departament de Cultura', 'prioritat' ) ?>">
 							</div>
-							<div class="partner small">
+							<div class="partner serra-montsant">
 								<img class="inline-svg" id="serra-montsant" src="<?= get_stylesheet_directory_uri() ?>/images/partners/serra-montsant.png" alt="<?= __( 'Parc Natural de la Serra del Montsant', 'prioritat' ) ?>">
 							</div>
 						</div>

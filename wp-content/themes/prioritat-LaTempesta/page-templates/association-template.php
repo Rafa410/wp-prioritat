@@ -50,7 +50,7 @@ if ( is_front_page() ) {
 
 							<div class="col-md-12">
 
-								<section id="association-summary" class="my-5 py-3">
+								<section id="association-summary" class="lh-sm mb-5 py-3">
 
 									<div class="row">
 

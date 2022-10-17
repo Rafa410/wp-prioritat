@@ -16419,11 +16419,15 @@ h3 > .title-underline::after,
   width: 5rem;
   transition: width 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
 }
-.entry-title.title-underline:where(:hover, :focus)::after,
-h3.title-underline:where(:hover, :focus)::after,
-.title-underline.h3:where(:hover, :focus)::after,
-h3 > .title-underline:where(:hover, :focus)::after,
-.h3 > .title-underline:where(:hover, :focus)::after {
+.entry-title.title-underline:hover::after, .entry-title.title-underline:focus::after,
+h3.title-underline:hover::after,
+.title-underline.h3:hover::after,
+h3.title-underline:focus::after,
+.title-underline.h3:focus::after,
+h3 > .title-underline:hover::after,
+.h3 > .title-underline:hover::after,
+h3 > .title-underline:focus::after,
+.h3 > .title-underline:focus::after {
   width: 100%;
 }
 
@@ -16491,7 +16495,7 @@ a.read-more:where(:hover, :focus)::after {
   display: block;
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 3px;
   background-color: #212529;
   bottom: 0;
   left: 0;
@@ -16514,15 +16518,33 @@ a.read-more:where(:hover, :focus)::after {
   padding: 0.25rem 0.625rem;
   color: #f8f9fa;
   background-color: #212529;
-  transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+#wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link::after {
+  display: none;
 }
 #wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link:hover, #wrapper-navbar .navbar-light .navbar-nav .menu-item:last-child .nav-link:focus {
-  background-color: #419683;
-  box-shadow: 0 5px 5px -2px rgba(65, 150, 131, 0.5);
+  color: #212529;
+  background-color: #f8f9fa;
+  box-shadow: 0 5px 5px -2px rgba(248, 249, 250, 0.5);
+}
+#wrapper-navbar .navbar-light .navbar-toggler {
+  border-color: transparent;
+}
+#wrapper-navbar .navbar-light .navbar-toggler-icon {
+  width: 1.8em;
+  height: 1.8em;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 #wrapper-navbar .navbar-brand img {
   max-height: 3.5rem;
   width: auto;
+}
+
+.btn-close {
+  opacity: 0.85;
 }
 
 .single-post .menu-item.menu-item-282 .nav-link::after, .single-post .menu-item.menu-item-283 .nav-link::after {
@@ -16539,7 +16561,7 @@ a.read-more:where(:hover, :focus)::after {
 
 .page-header {
   position: relative;
-  min-height: clamp(300px, 55vh, 585px);
+  min-height: clamp(15rem, 55vh, 29rem);
 }
 .page-header.no-img {
   background-color: #b4b4b4;
@@ -16559,7 +16581,7 @@ a.read-more:where(:hover, :focus)::after {
   object-fit: cover;
 }
 .page-header > .container {
-  padding-top: clamp(5.125rem, 15vh, 10.25rem);
+  padding-top: clamp(5.125rem, 12vh, 10.25rem);
 }
 .page-header .page-title {
   color: #f8f9fa;
@@ -16587,7 +16609,7 @@ a.read-more:where(:hover, :focus)::after {
 
 .post .page-header,
 .noticies .page-header {
-  min-height: clamp(250px, 40vh, 350px);
+  min-height: clamp(12.5rem, 20vh, 17.5rem);
 }
 .post .page-header .entry-title,
 .noticies .page-header .entry-title {
@@ -16616,9 +16638,14 @@ a.read-more:where(:hover, :focus)::after {
   color: #7e7d7f;
   text-decoration: none;
   font-size: 0.875em;
+  transition: 0.2s color ease-out;
+}
+.category-filters ul li a:hover, .category-filters ul li a:focus-visible {
+  color: #212529;
 }
 .category-filters ul li.current-cat {
   font-weight: bold;
+  color: #6c757d;
 }
 .category-filters ul li:first-child {
   padding-left: 0;
@@ -16627,7 +16654,14 @@ a.read-more:where(:hover, :focus)::after {
 #archive-wrapper .page-header,
 #search-wrapper .page-header,
 #error-404-wrapper .page-header {
-  min-height: clamp(200px, 35vh, 300px);
+  min-height: clamp(10rem, 20vh, 15rem);
+}
+@media (max-width: 767.98px) {
+  #archive-wrapper .page-header .dot-pattern,
+#search-wrapper .page-header .dot-pattern,
+#error-404-wrapper .page-header .dot-pattern {
+    height: 75%;
+  }
 }
 
 #error-404-wrapper a[href] {
@@ -16839,11 +16873,20 @@ a.read-more:where(:hover, :focus)::after {
 .homepage-hero__content .btn-animated:where(:hover, :focus) span::after {
   transition-delay: 0s;
 }
+.homepage-hero__button:hover, .homepage-hero__button:focus {
+  background-color: #e9ecef;
+}
 .homepage-hero__title {
   max-width: min(42.5rem, 75%);
 }
 .homepage-hero__pattern {
   height: 70%;
+}
+@media (max-width: 450px) {
+  .homepage-hero__pattern {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 @media (max-width: 767.98px) {
   .homepage-hero__pattern {
@@ -16929,6 +16972,12 @@ a.read-more:where(:hover, :focus)::after {
   font-size: 1.125rem;
   font-weight: bold;
 }
+.calendar-list-view .event-content .title a {
+  transition: color 0.2s ease-out;
+}
+.calendar-list-view .event-content .title a:hover, .calendar-list-view .event-content .title a:focus-visible {
+  color: #6c757d;
+}
 .calendar-list-view .event-content .description {
   font-size: 0.875rem;
   margin-bottom: 0;
@@ -16960,10 +17009,10 @@ a.read-more:where(:hover, :focus)::after {
 }
 .post-list .entry-title a {
   color: #212529;
-  transition: color 0.3s ease-out;
+  transition: color 0.2s ease-out;
 }
-.post-list .entry-title a:where(:hover, :focus) {
-  color: #419683;
+.post-list .entry-title a:hover, .post-list .entry-title a:focus {
+  color: #6c757d;
 }
 .post-list .entry-content {
   font-size: 0.875rem;
@@ -17082,13 +17131,10 @@ a.read-more:where(:hover, :focus)::after {
   gap: 2rem;
 }
 .goals-list .goal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 1rem;
   background-color: #e9ecef;
   line-height: 1.25;
-  font-weight: 500;
+  font-weight: bold;
 }
 .goals-list .goal p:last-child {
   margin-bottom: 0;
@@ -17545,15 +17591,14 @@ iframe {
 .social-icons .icon {
   color: #f8f9fa;
   background-color: #212529;
-  transition-property: transform, background-color, color;
+  transition-property: background-color, color, box-shadow;
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
-  transform-origin: bottom;
 }
-.social-icons .icon:where(:hover, :focus) {
+.social-icons .icon:hover, .social-icons .icon:focus {
   color: #212529;
-  background-color: #ff7f61;
-  transform: scale(1.15);
+  background-color: #e9ecef;
+  box-shadow: inset 0 0 0 2px #212529;
 }
 
 .site-footer .logo-wrapper {
@@ -17565,6 +17610,10 @@ iframe {
 .site-footer .actions-wrapper .btn, .site-footer .actions-wrapper .wpcf7 input[type=submit], .wpcf7 .site-footer .actions-wrapper input[type=submit], .site-footer .actions-wrapper .woocommerce-notices-wrapper .woocommerce-message a.button, .woocommerce-notices-wrapper .woocommerce-message .site-footer .actions-wrapper a.button, .site-footer .actions-wrapper .woocommerce-info a.button, .woocommerce-info .site-footer .actions-wrapper a.button {
   width: 100%;
   max-width: min(7rem, 100%);
+}
+.site-footer .actions-wrapper .btn-dark:hover, .site-footer .actions-wrapper .btn-dark:focus-visible {
+  background-color: transparent;
+  color: #212529;
 }
 .site-footer .menu-wrapper ul {
   list-style: none;
@@ -17599,6 +17648,27 @@ iframe {
 }
 .site-footer .partners-wrapper .partner {
   flex: 0 0 9rem;
+  /*
+  &:hover,
+  &:focus {
+      > svg {
+          &#diputacio-tarragona {
+              color: #17738e;
+          }
+
+          &#gencat-cultura {
+              color: #e40c26;
+          }
+      }
+
+      > img {
+          filter: grayscale(0);
+      }
+  }
+  */
+}
+.site-footer .partners-wrapper .partner.gencat-cultura {
+  flex: 0 0 10rem;
 }
 .site-footer .partners-wrapper .partner > svg {
   color: #212529;
@@ -17607,15 +17677,6 @@ iframe {
 .site-footer .partners-wrapper .partner > img {
   filter: grayscale(1);
   transition: filter 0.15s;
-}
-.site-footer .partners-wrapper .partner:hover > svg#diputacio-tarragona, .site-footer .partners-wrapper .partner:focus > svg#diputacio-tarragona {
-  color: #17738e;
-}
-.site-footer .partners-wrapper .partner:hover > svg#gencat-cultura, .site-footer .partners-wrapper .partner:focus > svg#gencat-cultura {
-  color: #e40c26;
-}
-.site-footer .partners-wrapper .partner:hover > img, .site-footer .partners-wrapper .partner:focus > img {
-  filter: grayscale(0);
 }
 
 .contact-info-list {

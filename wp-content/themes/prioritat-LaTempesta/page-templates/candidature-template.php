@@ -50,7 +50,7 @@ if ( is_front_page() ) {
 
 							<div class="col-md-12">
 
-								<section id="candidature-summary" class="my-5 py-3">
+								<section id="candidature-summary" class="mb-5 py-3">
 
 									<div class="row justify-content-center">
 

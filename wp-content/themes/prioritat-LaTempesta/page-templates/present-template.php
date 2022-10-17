@@ -50,7 +50,7 @@ if ( is_front_page() ) {
 
 							<div class="col-md-12">
 
-								<section id="agenda" class="my-5 py-3">
+								<section id="agenda" class="mb-5 py-3">
 
 									<header>
 										<h2 class="title-underline"><?= __( 'Agenda', 'prioritat' ) ?></h2>

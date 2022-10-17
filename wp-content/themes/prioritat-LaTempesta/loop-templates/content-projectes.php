@@ -19,9 +19,13 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 		
 		<?php the_title('<h3 class="project__title entry-title fw-semibold mt-3 mb-2">', '</h3>' ); ?>
-
-		<span class="project__subtitle"><?= get_field('subtitle') ?></span>
-
+	
 	</a>
+
+	<span class="project__subtitle"><?= get_field('subtitle') ?></span>
+
+	<!-- <a href="<?= esc_url( get_permalink() ) ?>" class="read-more btn btn-sm btn-outline-dark fw-semibold my-3">
+		<?= __( 'Més info', 'prioritat' ) ?>
+	</a> -->
 
 </article><!-- #post-## -->
