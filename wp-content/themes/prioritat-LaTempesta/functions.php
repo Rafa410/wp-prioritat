@@ -542,3 +542,36 @@ function my_acf_op_init() {
         ));
     }
 }
+
+
+
+/**
+ * Generates the current year
+ */
+function prt_current_year_shortcode() {
+	$year = date('Y');
+	return $year;
+}
+
+
+
+/**
+ * Register the custom shortcode
+ */
+function prt_add_current_year_shortcode() {
+	add_shortcode( 'current_year', 'prt_current_year_shortcode' );
+}
+add_action( 'init', 'prt_add_current_year_shortcode' );
+
+
+
+/**
+ * Enable current_year shortcode in wpcf7 email template
+ */
+function prt_current_year_mail_tag( $output, $name, $html ) {
+	if ( 'current_year' == $name ) {
+		$output = do_shortcode( "[$name]" );
+	}
+	return $output;
+}
+add_filter( 'wpcf7_special_mail_tags', 'prt_current_year_mail_tag', 10, 3 );
