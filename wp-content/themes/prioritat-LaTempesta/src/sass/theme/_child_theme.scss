@@ -724,11 +724,6 @@ a.read-more {
     &__pattern {
         height: 70%;
 
-        @media (max-width: 450px) {
-            width: 100%;
-            max-width: 100%;
-        }
-
         @include media-breakpoint-down(md) {
             display: flex;
             max-width: 70%;
@@ -738,6 +733,11 @@ a.read-more {
                 height: auto;
                 margin-top: auto;
             }
+        }
+
+        @media (max-width: 450px) {
+            width: 100%;
+            max-width: 100%;
         }
     }
 }
@@ -1547,7 +1547,7 @@ iframe {
         .btn-dark {
             &:hover,
             &:focus-visible {
-                background-color: transparent;
+                background-color: $light-gray;
                 color: $dark;
             }
         }

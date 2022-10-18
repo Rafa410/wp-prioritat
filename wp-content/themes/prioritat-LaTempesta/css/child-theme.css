@@ -16880,12 +16880,6 @@ a.read-more:where(:hover, :focus)::after {
 .homepage-hero__pattern {
   height: 70%;
 }
-@media (max-width: 450px) {
-  .homepage-hero__pattern {
-    width: 100%;
-    max-width: 100%;
-  }
-}
 @media (max-width: 767.98px) {
   .homepage-hero__pattern {
     display: flex;
@@ -16895,6 +16889,12 @@ a.read-more:where(:hover, :focus)::after {
     width: 100%;
     height: auto;
     margin-top: auto;
+  }
+}
+@media (max-width: 450px) {
+  .homepage-hero__pattern {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -17610,7 +17610,7 @@ iframe {
   max-width: min(7rem, 100%);
 }
 .site-footer .actions-wrapper .btn-dark:hover, .site-footer .actions-wrapper .btn-dark:focus-visible {
-  background-color: transparent;
+  background-color: #b4b4b4;
   color: #212529;
 }
 .site-footer .menu-wrapper ul {
