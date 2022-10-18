@@ -349,6 +349,10 @@ a.read-more {
     position: relative;
     min-height: clamp(15rem, 55vh, 29rem);
 
+    @include media-breakpoint-down(sm) {
+        min-height: clamp(10rem, 35vh, 20rem);
+    }
+
     &.no-img {
         background-color: $light-gray;
     }
@@ -459,12 +463,6 @@ a.read-more {
 #error-404-wrapper {
     .page-header {
         min-height: clamp(10rem, 20vh, 15rem);
-
-        @include media-breakpoint-down(md) {
-            .dot-pattern {
-                height: 75%;
-            }
-        }
     }
 }
 
@@ -523,7 +521,7 @@ a.read-more {
     height: 90%;
 
     @include media-breakpoint-down(md) {
-        height: 50%;
+        height: 75%;
     }
 
     svg {
@@ -1525,7 +1523,7 @@ iframe {
         &:focus {
             color: $dark;
             background-color: $gray-200;
-            box-shadow: inset 0 0 0 2px $dark;
+            box-shadow: inset 0 0 0 1px $dark;
             // transform: scale(1.15);
         }
     }

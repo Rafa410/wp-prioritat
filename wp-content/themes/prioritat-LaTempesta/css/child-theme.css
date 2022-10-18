@@ -16563,6 +16563,11 @@ a.read-more:where(:hover, :focus)::after {
   position: relative;
   min-height: clamp(15rem, 55vh, 29rem);
 }
+@media (max-width: 575.98px) {
+  .page-header {
+    min-height: clamp(10rem, 35vh, 20rem);
+  }
+}
 .page-header.no-img {
   background-color: #b4b4b4;
 }
@@ -16656,13 +16661,6 @@ a.read-more:where(:hover, :focus)::after {
 #error-404-wrapper .page-header {
   min-height: clamp(10rem, 20vh, 15rem);
 }
-@media (max-width: 767.98px) {
-  #archive-wrapper .page-header .dot-pattern,
-#search-wrapper .page-header .dot-pattern,
-#error-404-wrapper .page-header .dot-pattern {
-    height: 75%;
-  }
-}
 
 #error-404-wrapper a[href] {
   text-decoration: none;
@@ -16714,7 +16712,7 @@ a.read-more:where(:hover, :focus)::after {
 }
 @media (max-width: 767.98px) {
   .dot-pattern {
-    height: 50%;
+    height: 75%;
   }
 }
 .dot-pattern svg {
@@ -17598,7 +17596,7 @@ iframe {
 .social-icons .icon:hover, .social-icons .icon:focus {
   color: #212529;
   background-color: #e9ecef;
-  box-shadow: inset 0 0 0 2px #212529;
+  box-shadow: inset 0 0 0 1px #212529;
 }
 
 .site-footer .logo-wrapper {
