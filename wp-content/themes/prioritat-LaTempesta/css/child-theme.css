@@ -16974,7 +16974,7 @@ a.read-more:where(:hover, :focus)::after {
   transition: color 0.2s ease-out;
 }
 .calendar-list-view .event-content .title a:hover, .calendar-list-view .event-content .title a:focus-visible {
-  color: #6c757d;
+  color: #767676;
 }
 .calendar-list-view .event-content .description {
   font-size: 0.875rem;
@@ -17010,7 +17010,7 @@ a.read-more:where(:hover, :focus)::after {
   transition: color 0.2s ease-out;
 }
 .post-list .entry-title a:hover, .post-list .entry-title a:focus {
-  color: #6c757d;
+  color: #767676;
 }
 .post-list .entry-content {
   font-size: 0.875rem;
