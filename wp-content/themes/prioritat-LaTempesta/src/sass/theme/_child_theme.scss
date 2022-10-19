@@ -711,6 +711,8 @@ a.read-more {
     }
 
     &__button {
+        border: 0;
+
         &:hover,
         &:focus {
             background-color: $gray-200;
@@ -1542,13 +1544,12 @@ iframe {
         .btn {
             width: 100%;
             max-width: min(7rem, 100%);
-        }
 
-        .btn-dark {
             &:hover,
             &:focus-visible {
                 background-color: $light-gray;
                 color: $dark;
+                border-color: $light-gray;
             }
         }
     }

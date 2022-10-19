@@ -16871,6 +16871,9 @@ a.read-more:where(:hover, :focus)::after {
 .homepage-hero__content .btn-animated:where(:hover, :focus) span::after {
   transition-delay: 0s;
 }
+.homepage-hero__button {
+  border: 0;
+}
 .homepage-hero__button:hover, .homepage-hero__button:focus {
   background-color: #e9ecef;
 }
@@ -17609,9 +17612,10 @@ iframe {
   width: 100%;
   max-width: min(7rem, 100%);
 }
-.site-footer .actions-wrapper .btn-dark:hover, .site-footer .actions-wrapper .btn-dark:focus-visible {
+.site-footer .actions-wrapper .btn:hover, .site-footer .actions-wrapper .wpcf7 input[type=submit]:hover, .wpcf7 .site-footer .actions-wrapper input[type=submit]:hover, .site-footer .actions-wrapper .woocommerce-notices-wrapper .woocommerce-message a.button:hover, .woocommerce-notices-wrapper .woocommerce-message .site-footer .actions-wrapper a.button:hover, .site-footer .actions-wrapper .woocommerce-info a.button:hover, .woocommerce-info .site-footer .actions-wrapper a.button:hover, .site-footer .actions-wrapper .btn:focus-visible, .site-footer .actions-wrapper .wpcf7 input[type=submit]:focus-visible, .wpcf7 .site-footer .actions-wrapper input[type=submit]:focus-visible, .site-footer .actions-wrapper .woocommerce-notices-wrapper .woocommerce-message a.button:focus-visible, .woocommerce-notices-wrapper .woocommerce-message .site-footer .actions-wrapper a.button:focus-visible, .site-footer .actions-wrapper .woocommerce-info a.button:focus-visible, .woocommerce-info .site-footer .actions-wrapper a.button:focus-visible {
   background-color: #b4b4b4;
   color: #212529;
+  border-color: #b4b4b4;
 }
 .site-footer .menu-wrapper ul {
   list-style: none;
