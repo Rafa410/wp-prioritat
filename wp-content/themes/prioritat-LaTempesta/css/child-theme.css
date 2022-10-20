@@ -16875,7 +16875,7 @@ a.read-more:where(:hover, :focus)::after {
   border: 0;
 }
 .homepage-hero__button:hover, .homepage-hero__button:focus {
-  background-color: #e9ecef;
+  background-color: #b4b4b4;
 }
 .homepage-hero__title {
   max-width: min(42.5rem, 75%);
@@ -16896,8 +16896,8 @@ a.read-more:where(:hover, :focus)::after {
 }
 @media (max-width: 450px) {
   .homepage-hero__pattern {
-    width: 100%;
     max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -17069,15 +17069,6 @@ a.read-more:where(:hover, :focus)::after {
   flex: 1;
   min-width: 18rem;
   max-width: max(50%, 25rem);
-  /*
-  &__link {
-      &:hover, &:focus {
-          .project__image {
-              box-shadow: 3px 5px 10px -5px rgba(0, 0, 0, 0.95);
-          }
-      }
-  }
-  */
 }
 .project .wp-post-image {
   width: 100%;
@@ -17086,6 +17077,8 @@ a.read-more:where(:hover, :focus)::after {
   transition: box-shadow 0.3s ease-out;
 }
 .project__title {
+  color: #212529;
+  transition: color 0.2s ease-out;
   font-size: calc(1.3rem + 0.5142857143vw);
 }
 @media (min-width: 1400px) {
@@ -17095,6 +17088,9 @@ a.read-more:where(:hover, :focus)::after {
 }
 .project__subtitle {
   font-size: 0.9375rem;
+}
+.project__link:hover .project__title, .project__link:focus .project__title {
+  color: #767676;
 }
 
 .facts-carousel .slick-dots li button::before {
@@ -17502,23 +17498,27 @@ iframe {
 
 .agenda_events-nav-links,
 .blog-link,
-.noticies-nav-links {
+.noticies-nav-links,
+.projectes-nav-links {
   font-weight: bold;
   color: #212529;
   text-transform: uppercase;
 }
 .agenda_events-nav-links:hover,
 .blog-link:hover,
-.noticies-nav-links:hover {
+.noticies-nav-links:hover,
+.projectes-nav-links:hover {
   color: #212529;
 }
 
-.agenda_events-nav-links {
+.agenda_events-nav-links,
+.projectes-nav-links {
   position: relative;
   display: inline-block;
   text-decoration: none;
 }
-.agenda_events-nav-links::after {
+.agenda_events-nav-links::after,
+.projectes-nav-links::after {
   content: "";
   display: block;
   width: 100%;
@@ -17570,10 +17570,12 @@ iframe {
   background-color: #419683;
 }
 
+.projecte__image-wrapper,
 .activitat__image-wrapper,
 .post__image-wrapper {
   position: relative;
 }
+.projecte__image-wrapper > img,
 .activitat__image-wrapper > img,
 .post__image-wrapper > img {
   width: 100%;
