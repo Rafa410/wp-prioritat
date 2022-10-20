@@ -142,7 +142,7 @@ if ( is_front_page() ) {
 
 						</section>
 
-						<section id="projects" class="my-5 py-3">
+						<section id="projectes" class="my-5 py-3">
 
 							<header>
 								<h2 class="title-underline fw-extrabold mb-4">
