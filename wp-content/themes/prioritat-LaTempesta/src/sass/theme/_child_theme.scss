@@ -1,10 +1,10 @@
 html {
     @include media-breakpoint-up(xxl) {
-        font-size: 18px;
+        font-size: 1.125rem;
     }
 
     @include media-breakpoint-up(xxxl) {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
 }
 
@@ -1609,8 +1609,25 @@ iframe {
             font-size: 0.875rem;
         }
 
+        .eu-disclaimer {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+
         .partner {
             flex: 0 0 9rem;
+
+            &.eu-rural {
+                flex: 0 0 14rem;
+            }
+
+            &.gencat-accioclimatica {
+                flex: 0 0 11rem;
+            }
+
+            &.serra-montsant {
+                flex: 0 0 8rem;
+            }
 
             &.gencat-cultura {
                 flex: 0 0 10rem;

@@ -16287,12 +16287,12 @@ figure.woocommerce-product-gallery__wrapper {
 
 @media (min-width: 1400px) {
   html {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 @media (min-width: 1600px) {
   html {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
@@ -17650,6 +17650,10 @@ iframe {
 .site-footer .partners-wrapper p {
   font-size: 0.875rem;
 }
+.site-footer .partners-wrapper .eu-disclaimer {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
 .site-footer .partners-wrapper .partner {
   flex: 0 0 9rem;
   /*
@@ -17670,6 +17674,15 @@ iframe {
       }
   }
   */
+}
+.site-footer .partners-wrapper .partner.eu-rural {
+  flex: 0 0 14rem;
+}
+.site-footer .partners-wrapper .partner.gencat-accioclimatica {
+  flex: 0 0 11rem;
+}
+.site-footer .partners-wrapper .partner.serra-montsant {
+  flex: 0 0 8rem;
 }
 .site-footer .partners-wrapper .partner.gencat-cultura {
   flex: 0 0 10rem;
