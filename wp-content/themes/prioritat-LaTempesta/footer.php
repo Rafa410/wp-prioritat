@@ -71,18 +71,19 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 					<div class="col-lg-4 my-3 my-sm-0 partners-wrapper d-flex flex-column justify-content-center">
 						<p class="small"><?= __( 'Amb el suport de: ', 'prioritat' ) ?></p>
+						<p class="eu-disclaimer">
+							<?= __( 'Per la realització d\'aquest web, s\'ha rebut un ajut de 15.365,70 € (43% PDR, 57% DACC) a l\'empara de la RESOLUCIÓ ACC/2603/2021, de 4 d\'agost, de convocatòria anticipada per a l\'any 2022 de subvencions als espais naturals de Catalunya, als hàbitats i les espècies, en el marc del Programa de desenvolupament rural de Catalunya 2014-2020 (operació 07.01.01)', 'prioritat' ) ?>
+						</p>
 						<div class="row partner-list align-items-center gap-3">
-							<div class="partner diputacio-tarragona me-3">
-								<img class="inline-svg" id="diputacio-tarragona" src="<?= get_stylesheet_directory_uri() ?>/images/partners/diputacio-tarragona.svg" alt="<?= __( 'Diputació de Tarragona', 'prioritat' ) ?>">
+							<div class="partner eu-rural">
+								<?= wp_get_attachment_image( 3035, 'medium', false, array( 'id' => 'eu-rural' ) ) ?>
 							</div>
-							<div class="partner fundacio-caixa">
-								<img class="inline-svg" id="fundacio-caixa" src="<?= get_stylesheet_directory_uri() ?>/images/partners/fundacio-caixa.png" alt="<?= __( 'Fundació la caixa', 'prioritat' ) ?>">
-							</div>
-							<div class="partner gencat-cultura">
-								<img class="inline-svg" id="gencat-cultura" src="<?= get_stylesheet_directory_uri() ?>/images/partners/gencat-cultura.svg" alt="<?= __( 'Generalitat de Catalunya: Departament de Cultura', 'prioritat' ) ?>">
+							<div class="partner gencat-accioclimatica">
+								<?= wp_get_attachment_image( 3033, 'medium', false, array( 'id' => 'gencat-accioclimatica' ) ) ?>
 							</div>
 							<div class="partner serra-montsant">
-								<img class="inline-svg" id="serra-montsant" src="<?= get_stylesheet_directory_uri() ?>/images/partners/serra-montsant.png" alt="<?= __( 'Parc Natural de la Serra del Montsant', 'prioritat' ) ?>">
+								<!-- <img id="serra-montsant" src="<?= get_stylesheet_directory_uri() ?>/images/partners/serra-montsant.png" alt="<?= __( 'Parc Natural de la Serra del Montsant', 'prioritat' ) ?>"> -->
+								<?= wp_get_attachment_image( 3034, 'medium', false, array( 'id' => 'serra-montsant' ) ) ?>
 							</div>
 						</div>
 					</div>
