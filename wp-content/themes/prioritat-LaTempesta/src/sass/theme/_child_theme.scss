@@ -1605,15 +1605,6 @@ iframe {
     }
 
     .partners-wrapper {
-        p {
-            font-size: 0.875rem;
-        }
-
-        .eu-disclaimer {
-            font-size: 0.75rem;
-            color: #6c757d;
-        }
-
         .partner {
             flex: 0 0 9rem;
 
@@ -1637,32 +1628,14 @@ iframe {
                 color: $dark;
                 transition: color 0.15s;
             }
-
-            > img {
-                filter: grayscale(1);
-                transition: filter 0.15s;
-            }
-
-            /*
-            &:hover,
-            &:focus {
-                > svg {
-                    &#diputacio-tarragona {
-                        color: #17738e;
-                    }
-
-                    &#gencat-cultura {
-                        color: #e40c26;
-                    }
-                }
-
-                > img {
-                    filter: grayscale(0);
-                }
-            }
-            */
         }
     }
+}
+
+.disclaimer {
+    font-size: $xxs-small;
+    color: $text-muted;
+    line-height: $line-height-sm;
 }
 
 .copyright {

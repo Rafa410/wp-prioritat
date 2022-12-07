@@ -65,24 +65,23 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</a>
 					</div>
 
-					<div class="col-sm my-3 my-sm-0 menu-wrapper">
+					<div class="col-sm my-3 my-sm-0 menu-wrapper d-flex align-items-center">
 						<?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
 					</div>
 
 					<div class="col-lg-4 my-3 my-sm-0 partners-wrapper d-flex flex-column justify-content-center">
 						<p class="small"><?= __( 'Amb el suport de: ', 'prioritat' ) ?></p>
-						<p class="eu-disclaimer">
+						<p class="disclaimer">
 							<?= __( 'Per la realització d\'aquest web, s\'ha rebut un ajut de 15.365,70 € (43% PDR, 57% DACC) a l\'empara de la RESOLUCIÓ ACC/2603/2021, de 4 d\'agost, de convocatòria anticipada per a l\'any 2022 de subvencions als espais naturals de Catalunya, als hàbitats i les espècies, en el marc del Programa de desenvolupament rural de Catalunya 2014-2020 (operació 07.01.01)', 'prioritat' ) ?>
 						</p>
 						<div class="row partner-list align-items-center gap-3">
 							<div class="partner eu-rural">
-								<?= wp_get_attachment_image( 3035, 'medium', false, array( 'id' => 'eu-rural' ) ) ?>
+								<img id="eu-rural" src="<?= get_stylesheet_directory_uri() ?>/images/partners/eu-rural.png" class="img-fluid" alt="<?= __( 'Fons Europeu Agrícola de Desenvolupament Rural', 'prioritat' ) ?>">
 							</div>
 							<div class="partner gencat-accioclimatica">
 								<?= wp_get_attachment_image( 3033, 'medium', false, array( 'id' => 'gencat-accioclimatica' ) ) ?>
 							</div>
 							<div class="partner serra-montsant">
-								<!-- <img id="serra-montsant" src="<?= get_stylesheet_directory_uri() ?>/images/partners/serra-montsant.png" alt="<?= __( 'Parc Natural de la Serra del Montsant', 'prioritat' ) ?>"> -->
 								<?= wp_get_attachment_image( 3034, 'medium', false, array( 'id' => 'serra-montsant' ) ) ?>
 							</div>
 						</div>
@@ -91,6 +90,19 @@ $container = get_theme_mod( 'understrap_container_type' );
 				</footer><!-- #colophon -->
 
 			</div><!--col end -->
+
+			<hr class="mt-3">
+
+			<div class="row">
+				<div class="col-lg-6">
+					<p class="disclaimer mb-lg-0">
+						<?= __( 'Aquesta actuació està impulsada i subvencionada pel Servei Públic d\'Ocupació de Catalunya i finançada al 100% pel Fons Social Europeu com a part de la resposta de la Unió Europea a la pandèmia de COVID-19.', 'prioritat' ) ?>
+					</p>
+				</div>
+				<div class="col-lg-6 d-flex align-items-center">
+					<img src="<?= get_stylesheet_directory_uri() ?>/images/partners/logos-UE_SOC_NGC_Gencat-1080px.png" class="img-fluid" alt="">
+				</div>
+			</div>
 
 			<hr class="mt-3">
 
