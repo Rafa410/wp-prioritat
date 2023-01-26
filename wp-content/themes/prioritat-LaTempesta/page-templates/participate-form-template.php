@@ -22,7 +22,7 @@ if ( is_front_page() ) {
 
 	<div class="container-fluid p-0" id="content">
 
-		<div class="row g-0">
+		<div class="row g-3">
 
 			<div class="col-md-12 content-area" id="primary">
 

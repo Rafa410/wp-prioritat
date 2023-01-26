@@ -133,7 +133,7 @@ if ( is_front_page() ) {
 								</div>
 
 
-								<div class="noticeboard col-lg-4 d-flex flex-column ps-4">
+								<div class="noticeboard col-lg-4 d-flex flex-column ps-lg-4">
 									<h3 class="fw-extrabold"><?= __( 'Taulell d\'anuncis', 'prioritat' ) ?></h3>
 									<?= do_shortcode( '[latest_announcements source="wp"]' ) ?>
 								</div>
