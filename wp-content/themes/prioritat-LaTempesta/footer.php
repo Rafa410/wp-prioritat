@@ -110,7 +110,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<div class="copyright text-md-center">
 					<span><b><?= __( 'Fotografia', 'prioritat' ) ?> /</b> &copy; de les imatges Arxiu PNMontsant / &copy;Jordi Blay / &copy;Rafael Lòpez-Monné / &copy;Susanne Schmelzer / &copy;Xavier Vaqué / &copy;Júlia Viejobueno</span>
 					<br>
-					<span><b><?= __( 'Disseny Identitat', 'prioritat' ) ?> /</b> <a href="https://carolvanwaart.com/" target="_blank" class="text-decoration-none link-dark">Carol van Waart</a> <b><?= __( 'Desenvolupament web', 'prioritat' ) ?> /</b> <a href="https://latempesta.cc/" target="_blank" class="text-decoration-none link-dark">La Tempesta</a></span>
+					<span><b><?= __( 'Disseny Identitat', 'prioritat' ) ?> /</b> <a href="https://carolvanwaart.com/" target="_blank" class="text-decoration-none link-dark">Carol van Waart</a> <b><?= __( 'Disseny i desenvolupament web', 'prioritat' ) ?> /</b> <a href="https://latempesta.cc/" target="_blank" class="text-decoration-none link-dark">La Tempesta</a></span>
 				</div>
 			</div>
 
