@@ -1642,6 +1642,13 @@ iframe {
     font-size: $xs-small;
 }
 
+#diputacio-tarragona {
+    .inline-svg {
+        color: #0085af;
+        max-height: 2rem;
+    }
+}
+
 .contact-info-list {
     display: grid;
     gap: 1.5rem;

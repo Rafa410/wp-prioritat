@@ -106,6 +106,19 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<hr class="mt-3">
 
+			<div class="row align-items-center" id="diputacio-tarragona">
+				<div class="col-md-7">
+					<p class="disclaimer mb-md-0">
+						<?= __( 'Els continguts de les càpsules de la informació digital han estat finançats per la Diputació de Tarragona.', 'prioritat' ) ?>
+					</p>
+				</div>
+				<div class="col-md-5 d-flex align-items-center">
+					<img class="inline-svg" src="<?= get_stylesheet_directory_uri() ?>/images/partners/diputacio-tarragona.svg" class="img-fluid" alt="<?= __( 'Diputació de Tarragona', 'prioritat' ) ?>">
+				</div>
+			</div>
+
+			<hr class="mt-3">
+
 			<div class="col-md-12">
 				<div class="copyright text-md-center">
 					<span><b><?= __( 'Fotografia', 'prioritat' ) ?> /</b> &copy; de les imatges Arxiu PNMontsant / &copy;Jordi Blay / &copy;Rafael Lòpez-Monné / &copy;Susanne Schmelzer / &copy;Xavier Vaqué / &copy;Júlia Viejobueno</span>
