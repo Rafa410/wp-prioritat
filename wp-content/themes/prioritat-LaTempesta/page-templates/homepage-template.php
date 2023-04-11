@@ -34,7 +34,27 @@ if ( is_front_page() ) {
 							<?php the_content(); ?>
 						</section>
 
-						<section id="values">
+						<section id="agenda">
+
+							<header>
+								<h2 class="title-underline fw-extrabold"><?= __( 'Agenda d\'activitats', 'prioritat' ) ?></h2>
+							</header>
+
+							<div class="row g-0 align-items-center justify-content-between">
+
+								<div class="col-lg-5 p-lg-3">
+									<?= do_shortcode( '[agenda view="monthly"]' ) ?>
+								</div>
+
+								<div class="col-lg-7 col-xxl-6 ps-0 ps-sm-4">
+									<?= do_shortcode( '[agenda view="list" limit="3"]' ) ?>
+								</div>
+
+							</div>
+
+						</section>
+
+						<section id="values" class="py-3 my-4">
 
 							<header>
 								<h2 class="title-underline fw-extrabold mb-4"><?= __( 'Valors', 'prioritat' ) ?></h2>
@@ -70,26 +90,6 @@ if ( is_front_page() ) {
 								wp_reset_postdata();
 
 								?>
-
-							</div>
-
-						</section>
-
-						<section id="agenda" class="my-5 py-3">
-
-							<header>
-								<h2 class="title-underline fw-extrabold"><?= __( 'Agenda d\'activitats', 'prioritat' ) ?></h2>
-							</header>
-
-							<div class="row g-0 align-items-center justify-content-between">
-
-								<div class="col-lg-5 p-lg-3">
-									<?= do_shortcode( '[agenda view="monthly"]' ) ?>
-								</div>
-
-								<div class="col-lg-7 col-xxl-6 ps-0 ps-sm-4">
-									<?= do_shortcode( '[agenda view="list" limit="3"]' ) ?>
-								</div>
 
 							</div>
 
