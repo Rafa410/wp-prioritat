@@ -34,7 +34,54 @@ if ( is_front_page() ) {
 							<?php the_content(); ?>
 						</section>
 
-						<section id="agenda">
+						<section id="latest-news">
+
+							<header>
+								<h2 class="title-underline fw-extrabold mb-3"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
+							</header>
+
+							<div class="row g-0">
+
+								<div class="post-list col-lg-8 d-flex flex-wrap gap-4 align-items-start justify-content-between py-3 pe-2 pe-md-4">
+
+									<?php
+									$args = array(
+										'post_type' => 'noticies',
+										'posts_per_page' => 4,
+										'orderby' => 'date',
+										'order' => 'DESC',
+									);
+									$query = new WP_Query( $args );
+									
+									if ( $query->have_posts() ) {
+										while ( $query->have_posts() ) {
+											$query->the_post();
+											get_template_part( 'loop-templates/content', get_post_type() );
+										}
+									} else {
+										echo '<p class="fw-light text-muted fs-5">' . __( 'No s\'han trobat notícies recents.', 'prioritat' ) . '</p>';
+									}
+									
+									wp_reset_postdata();
+									?>
+
+									<a href="<?= site_url( '/actualitat/#news' ) ?>" class="read-more btn btn-sm btn-outline-dark fw-semibold my-3">
+										<?= __( 'Veure totes', 'prioritat' ) ?>
+									</a>
+
+								</div>
+
+
+								<div class="noticeboard col-lg-4 d-flex flex-column ps-lg-4">
+									<h3 class="fw-extrabold"><?= __( 'Taulell d\'anuncis', 'prioritat' ) ?></h3>
+									<?= do_shortcode( '[latest_announcements source="wp"]' ) ?>
+								</div>
+
+							</div>
+
+						</section>
+
+						<section id="agenda" class="my-5 py-3">
 
 							<header>
 								<h2 class="title-underline fw-extrabold"><?= __( 'Agenda d\'activitats', 'prioritat' ) ?></h2>
@@ -93,54 +140,7 @@ if ( is_front_page() ) {
 
 							</div>
 
-						</section>
-
-						<section id="latest-news" class="my-5 py-3">
-
-							<header>
-								<h2 class="title-underline fw-extrabold mb-3"><?= __( 'Últimes notícies', 'prioritat' ) ?></h2>
-							</header>
-
-							<div class="row g-0">
-
-								<div class="post-list col-lg-8 d-flex flex-wrap gap-4 align-items-start justify-content-between py-3 pe-2 pe-md-4">
-
-									<?php
-									$args = array(
-										'post_type' => 'noticies',
-										'posts_per_page' => 4,
-										'orderby' => 'date',
-										'order' => 'DESC',
-									);
-									$query = new WP_Query( $args );
-									
-									if ( $query->have_posts() ) {
-										while ( $query->have_posts() ) {
-											$query->the_post();
-											get_template_part( 'loop-templates/content', get_post_type() );
-										}
-									} else {
-										echo '<p class="fw-light text-muted fs-5">' . __( 'No s\'han trobat notícies recents.', 'prioritat' ) . '</p>';
-									}
-									
-									wp_reset_postdata();
-									?>
-
-									<a href="<?= site_url( '/actualitat/#news' ) ?>" class="read-more btn btn-sm btn-outline-dark fw-semibold my-3">
-										<?= __( 'Veure totes', 'prioritat' ) ?>
-									</a>
-
-								</div>
-
-
-								<div class="noticeboard col-lg-4 d-flex flex-column ps-lg-4">
-									<h3 class="fw-extrabold"><?= __( 'Taulell d\'anuncis', 'prioritat' ) ?></h3>
-									<?= do_shortcode( '[latest_announcements source="wp"]' ) ?>
-								</div>
-
-							</div>
-
-						</section>
+						</section>						
 
 						<section id="projectes" class="my-5 py-3">
 
