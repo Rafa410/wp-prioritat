@@ -59,6 +59,9 @@ wp-config.php
 *.sql
 *.sqlite
 
+# Adminer
+/adminer.*
+
 # htaccess
 /.htaccess
 
