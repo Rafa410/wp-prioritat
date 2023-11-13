@@ -60,7 +60,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						<a href="https://cloud.prioritat.local" class="btn btn-dark py-1 fw-bold small">
 							<span><?= __( 'Àrea soci', 'prioritat' ) ?></span>
 						</a>
-						<a href="<?= site_url( '/fes-te-soci' ) ?>" class="btn btn-outline-dark py-1 px-2 fw-bold small">
+						<a href="<?= site_url( '/participa/fes-ten-soci' ) ?>" class="btn btn-outline-dark py-1 px-2 fw-bold small">
 							<span><?= __( 'Fes-te soci', 'prioritat' ) ?></span>
 						</a>
 					</div>
