@@ -556,12 +556,57 @@ function prt_current_year_shortcode() {
 
 
 /**
- * Register the custom shortcode
+ * Generates the contact info section
  */
-function prt_add_current_year_shortcode() {
-	add_shortcode( 'current_year', 'prt_current_year_shortcode' );
+function prt_contact_info_shortcode() {
+	ob_start();
+	?>
+	<section id="contact-info">
+
+		<div class="contact-info-list">
+
+			<?php 
+			$contact_items = get_field( 'contact_items' );
+
+			foreach ( $contact_items as $contact_item ) : ?>
+
+				<div class="contact-block bg-<?= $contact_item['color'] ?> p-4 py-lg-5">
+					
+					<?= wp_get_attachment_image( $contact_item['icon_id'], 'medium', true, array( 'class' => 'contact-block__icon' ) ); ?>
+
+					<h2 class="contact-block__title">
+						<?= $contact_item['title'] ?>
+					</h2>
+
+					<div class="contact-block__text">
+						<?= $contact_item['description'] ?>
+					</div>
+
+				</div>
+
+			<?php endforeach; ?>
+
+		</div>
+
+	</section>
+
+	<?php
+
+	$output = ob_get_clean();
+
+	return $output;
 }
-add_action( 'init', 'prt_add_current_year_shortcode' );
+
+
+
+/**
+ * Register custom shortcodes
+ */
+function prt_add_custom_shortcodes() {
+	add_shortcode( 'current_year', 'prt_current_year_shortcode' );
+	wpcf7_add_shortcode( 'contact_info', 'prt_contact_info_shortcode' );
+}
+add_action( 'init', 'prt_add_custom_shortcodes' );
 
 
 
