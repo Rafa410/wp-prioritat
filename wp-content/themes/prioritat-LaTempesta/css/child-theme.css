@@ -16963,6 +16963,112 @@ a.read-more:where(:hover, :focus)::after {
   background: #e6e6e6;
 }
 
+.announcement--nc h1, .announcement--nc .h1 {
+  font-size: 1rem;
+}
+.announcement--nc h2, .announcement--nc .h2 {
+  font-size: 0.9375rem;
+}
+.announcement--nc h3, .announcement--nc .h3 {
+  font-size: 0.875rem;
+}
+.announcement--nc h4, .announcement--nc .h4,
+.announcement--nc h5,
+.announcement--nc .h5,
+.announcement--nc h6,
+.announcement--nc .h6 {
+  font-size: 0.8125rem;
+}
+.announcement--nc ul,
+.announcement--nc ul > li {
+  margin-bottom: 0;
+}
+.announcement--nc a {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #212529;
+  border-color: #212529;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  display: inline-block;
+  width: auto;
+  font-size: 0.875rem;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
+}
+.announcement--nc a:hover {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+}
+.btn-check:focus + .announcement--nc a, .announcement--nc a:focus {
+  box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
+}
+.btn-check:checked + .announcement--nc a, .btn-check:active + .announcement--nc a, .announcement--nc a:active, .announcement--nc a.active, .announcement--nc a.dropdown-toggle.show {
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+}
+.btn-check:checked + .announcement--nc a:focus, .btn-check:active + .announcement--nc a:focus, .announcement--nc a:active:focus, .announcement--nc a.active:focus, .announcement--nc a.dropdown-toggle.show:focus {
+  box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
+}
+.announcement--nc a:disabled, .announcement--nc a.disabled {
+  color: #212529;
+  background-color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .announcement--nc a {
+    transition: none;
+  }
+}
+.announcement--nc a::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  top: 50%;
+  transform: translateY(-45%) scale(0.5);
+  background-color: currentColor;
+  -webkit-mask-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" clip-rule="evenodd"/></svg>');
+  mask-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" clip-rule="evenodd"/></svg>');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0.04, 0.57, 0.57, 0.95);
+}
+.announcement--nc a:where(:hover, :focus) {
+  padding-right: 1.5rem;
+}
+.announcement--nc a:where(:hover, :focus)::after {
+  right: 0.25rem;
+  opacity: 1;
+  transform: translateY(-45%) scale(1);
+}
+.announcement--nc a:focus, .announcement--nc a.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(255, 127, 97, 0.25);
+}
+.announcement--nc a.disabled, .announcement--nc a:disabled {
+  opacity: 0.65;
+}
+.announcement--nc a:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
 .project {
   flex: 1;
   min-width: 18rem;
@@ -17583,7 +17689,7 @@ iframe {
 .contact-info-list {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 
 .contact-block {

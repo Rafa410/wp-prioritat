@@ -176,7 +176,7 @@ h2 {
     }
 }
 
-a.read-more {
+@mixin read-more {
     display: inline-block;
     width: auto;
     font-size: 0.875rem;
@@ -210,6 +210,10 @@ a.read-more {
             transform: translateY(-45%) scale(1);
         }
     }
+}
+
+a.read-more {
+    @include read-more;
 }
 
 #page-wrapper {
@@ -925,6 +929,76 @@ a.read-more {
 
         &::-webkit-scrollbar-track {
             background: #e6e6e6;
+        }
+    }
+}
+
+.announcement {
+    &--nc {
+        h1 {
+            font-size: 1rem;
+        }
+        h2 {
+            font-size: 0.9375rem;
+        }
+        h3 {
+            font-size: 0.875rem;
+        }
+        h4,
+        h5,
+        h6 {
+            font-size: 0.8125rem;
+        }
+
+        ul,
+        ul > li {
+            margin-bottom: 0;
+        }
+
+        a {
+            display: inline-block;
+            font-weight: bold;
+            text-align: center;
+            white-space: $btn-white-space;
+            vertical-align: middle;
+            user-select: none;
+            background-color: transparent;
+            border: $btn-border-width solid transparent;
+            @include button-outline-variant($dark);
+            @include button-size(
+                $btn-padding-y-sm,
+                $btn-padding-x-sm,
+                $btn-font-size-sm,
+                $btn-border-radius-sm
+            );
+            @include transition($btn-transition);
+            @include read-more;
+
+            &:focus,
+            &.focus {
+                outline: 0;
+                box-shadow: $btn-focus-box-shadow;
+            }
+
+            // Disabled comes first so active can properly restyle
+            &.disabled,
+            &:disabled {
+                opacity: $btn-disabled-opacity;
+                @include box-shadow(none);
+            }
+
+            &:not(:disabled):not(.disabled) {
+                cursor: pointer;
+
+                &:active,
+                &.active {
+                    @include box-shadow($btn-active-box-shadow);
+
+                    &:focus {
+                        @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+                    }
+                }
+            }
         }
     }
 }
@@ -1652,7 +1726,7 @@ iframe {
 .contact-info-list {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 
 .contact-block {
