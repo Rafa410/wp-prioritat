@@ -620,3 +620,60 @@ function prt_current_year_mail_tag( $output, $name, $html ) {
 	return $output;
 }
 add_filter( 'wpcf7_special_mail_tags', 'prt_current_year_mail_tag', 10, 3 );
+
+
+/**
+ * Export extranet tasks via Nextcloud API
+ */
+function export_extranet_tasks() {
+	// Get the username and password
+	$username = sanitize_text_field( $_POST['username'] );
+	$password = sanitize_text_field( $_POST['password'] );
+	$url = sanitize_text_field( $_POST['url'] );
+
+	// Add 'export' query param to the URL field
+	$url = $url . '?export';
+
+	$response = wp_remote_get( $url, array(
+		'headers' => array(
+			'Authorization' => 'Basic ' . base64_encode( $username . ':' . $password ),
+		),
+	) );
+
+	$response = json_encode($response);
+
+	echo $response;
+	exit;
+}
+
+add_action( 'wp_ajax_export_extranet_tasks', 'export_extranet_tasks' );
+add_action( 'wp_ajax_nopriv_export_extranet_tasks', 'export_extranet_tasks' );
+
+
+// Add "Extranet" section to user profile screen
+function add_extranet_section( $user ) {
+?>
+    <h2 class="my-3"><?= __( 'Extranet', 'prioritat' ); ?></h2>
+	<p class="description">
+		<?= __( 'Introdueix aquí les dades del teu usuari de la extranet, per tal de conectar les dues plataformes.', 'prioritat' ) ?>
+	</p>
+    <table class="form-table">
+        <tr>
+            <th><label for="extranet_username"><?= __( 'Nom d\'usuari o email', 'prioritat' ) ?></label></th>
+            <td><input type="text" name="extranet_username" id="extranet_username" value="<?= esc_attr( get_the_author_meta( 'extranet_username', $user->ID ) ); ?>" class="regular-text" /></td>
+        </tr>
+    </table>
+<?php
+}
+add_action( 'show_user_profile', 'add_extranet_section' );
+add_action( 'edit_user_profile', 'add_extranet_section' );
+
+// Save "Extranet" section data
+function save_extranet_section( $user_id ) {
+    if ( ! current_user_can( 'edit_user', $user_id ) ) {
+        return false;
+    }
+    update_user_meta( $user_id, 'extranet_username', sanitize_text_field( $_POST['extranet_username'] ) );
+}
+add_action( 'personal_options_update', 'save_extranet_section' );
+add_action( 'edit_user_profile_update', 'save_extranet_section' );

@@ -1,6 +1,6 @@
 /*!
   * Understrap v1.1.0 (https://understrap.com)
-  * Copyright 2013-2022 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
+  * Copyright 2013-2023 The Understrap Authors (https://github.com/understrap/understrap/graphs/contributors)
   * Licensed under GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
   */
 (function (global, factory) {
@@ -9608,6 +9608,80 @@
 	        $('#mce-content').slideUp();
 	      });
 	    }
+	    /**
+	     * Handle ajax forms
+	     */
+
+
+	    var ajaxForms = document.querySelectorAll('.ajax-form');
+	    ajaxForms.forEach(function (form) {
+	      var formSuccess = form.querySelector('.form-success');
+	      var formError = form.querySelector('.form-error');
+	      form.addEventListener('submit', function (e) {
+	        e.preventDefault();
+	        var formData = new FormData(form);
+	        var formAction = form.getAttribute('action');
+	        var formMethod = form.getAttribute('method'); // Check if all required fields are filled
+
+	        var requiredFields = form.querySelectorAll('[required]');
+	        var allRequiredFieldsFilled = true;
+	        requiredFields.forEach(function (field) {
+	          if (!field.value) {
+	            allRequiredFieldsFilled = false;
+	            field.classList.add('error');
+	            form.querySelector('.form-error').innerHTML = 'Please fill all required fields';
+	          } else {
+	            field.classList.remove('error');
+	          }
+	        });
+
+	        if (!allRequiredFieldsFilled) {
+	          return;
+	        }
+
+	        $.ajax({
+	          type: formMethod,
+	          url: formAction,
+	          data: formData,
+	          processData: false,
+	          contentType: false
+	        }).done(function (response) {
+	          var _response$response;
+
+	          console.debug('RAW response', response);
+	          response = JSON.parse(response);
+	          console.log(response);
+
+	          if (((_response$response = response.response) === null || _response$response === void 0 ? void 0 : _response$response.code) === 200) {
+	            form.reset();
+	            formError.innerHTML = '';
+	            form.classList.add('success');
+	            console.log(response.body);
+	            formSuccess.innerHTML = response.body; // Parse iCal file
+
+	            var cal = ICAL.parse(response.body);
+	            console.log(cal);
+	            var tasksTable = generateTasksTable(cal);
+	            console.log(tasksTable);
+	          } else {
+	            var _response$response$me, _response$response2;
+
+	            formSuccess.innerHTML = '';
+	            form.classList.add('error');
+	            formError.innerHTML = (_response$response$me = (_response$response2 = response.response) === null || _response$response2 === void 0 ? void 0 : _response$response2.message) !== null && _response$response$me !== void 0 ? _response$response$me : 'Something went wrong, please double check the form fields and try again.';
+	          }
+	        }).fail(function (error) {
+	          var _error$error$message, _error$error;
+
+	          console.debug('RAW error', error);
+	          error = JSON.parse(error);
+	          console.log(error);
+	          form.classList.add('error');
+	          formError.innerHTML = (_error$error$message = (_error$error = error.error) === null || _error$error === void 0 ? void 0 : _error$error.message) !== null && _error$error$message !== void 0 ? _error$error$message : 'Something went wrong, please double check the form fields and try again.';
+	          formSuccess.innerHTML = '';
+	        });
+	      });
+	    });
 	  }); // End document ready
 
 	  var loadMoreMitjans = function loadMoreMitjans(page) {
@@ -9627,6 +9701,98 @@
 	      var $html = $(res.html);
 	      $('.mitjans-list').append($html).masonry('appended', $html);
 	    });
+	  };
+
+	  var generateTasksTable = function generateTasksTable(cal) {// // BEGIN:VCALENDAR
+	    // // VERSION:2.0
+	    // // CALSCALE:GREGORIAN
+	    // // PRODID:-//SabreDAV//SabreDAV//EN
+	    // // X-WR-CALNAME:Test
+	    // // X-APPLE-CALENDAR-COLOR:#F1DB50
+	    // // REFRESH-INTERVAL;VALUE=DURATION:PT4H
+	    // // X-PUBLISHED-TTL:PT4H
+	    // // BEGIN:VTODO
+	    // // UID:1ae4b616-42de-44e0-a643-26b447a0db00
+	    // // CREATED:20230504T130326
+	    // // LAST-MODIFIED:20230504T130503
+	    // // DTSTAMP:20230504T130503
+	    // // SUMMARY:Project 1
+	    // // STATUS:NEEDS-ACTION
+	    // // PRIORITY:1
+	    // // CATEGORIES:siurana
+	    // // DESCRIPTION:Lorem ipsum dolor sit amet
+	    // // DTSTART:20220504T140000
+	    // // DUE:20240504T140000
+	    // // END:VTODO
+	    // // BEGIN:VTODO
+	    // // UID:bfe1aaf4-9b5b-4bbc-a31a-843ebb50e465
+	    // // CREATED:20230504T130414
+	    // // LAST-MODIFIED:20230504T130505
+	    // // DTSTAMP:20230504T130505
+	    // // SUMMARY:Tasca 1.1
+	    // // RELATED-TO:1ae4b616-42de-44e0-a643-26b447a0db00
+	    // // STATUS:NEEDS-ACTION
+	    // // CATEGORIES:bug
+	    // // PRIORITY:6
+	    // // DTSTART:20230504T140000
+	    // // DUE:20230704T150000
+	    // // END:VTODO
+	    // // BEGIN:VTODO
+	    // // UID:62460ffa-e3ef-49ee-b22c-1d32e7651f92
+	    // // CREATED:20230504T130508
+	    // // LAST-MODIFIED:20230504T130549
+	    // // DTSTAMP:20230504T130549
+	    // // SUMMARY:Project 2
+	    // // CATEGORIES:montsant
+	    // // PERCENT-COMPLETE:100
+	    // // STATUS:COMPLETED
+	    // // PRIORITY:2
+	    // // COMPLETED:20230504T130537
+	    // // DTSTART:20220504T140000
+	    // // DUE:20230504T100000
+	    // // END:VTODO
+	    // // BEGIN:VTODO
+	    // // UID:45af594c-f3bc-44bc-9276-fbc0dc6f81cd
+	    // // CREATED:20230504T130529
+	    // // LAST-MODIFIED:20230504T130532
+	    // // DTSTAMP:20230504T130532
+	    // // SUMMARY:Tasca 2.1
+	    // // RELATED-TO:62460ffa-e3ef-49ee-b22c-1d32e7651f92
+	    // // STATUS:COMPLETED
+	    // // PERCENT-COMPLETE:100
+	    // // COMPLETED:20230504T130532
+	    // // END:VTODO
+	    // // END:VCALENDAR
+	    // // Example parsed cal:
+	    // 0: Array(3)
+	    // // 0: "vtodo"
+	    // // 1: Array(11)
+	    // // // 0: (4) ['uid', {…}, 'text', '1ae4b616-42de-44e0-a643-26b447a0db00']
+	    // // // 1: (4) ['created', {…}, 'date-time', '2023-05-04T13:03:26']
+	    // // // 2: (4) ['last-modified', {…}, 'date-time', '2023-05-04T13:05:03']
+	    // // // 3: (4) ['dtstamp', {…}, 'date-time', '2023-05-04T13:05:03']
+	    // // // 4: (4) ['summary', {…}, 'text', 'Project 1']
+	    // // // 5: (4) ['status', {…}, 'text', 'NEEDS-ACTION']
+	    // // // 6: (4) ['priority', {…}, 'integer', 1]
+	    // // // 7: (4) ['categories', {…}, 'text', 'siurana']
+	    // // // 8: (4) ['description', {…}, 'text', 'Lorem ipsum dolor sit amet']
+	    // // // 9: (4) ['dtstart', {…}, 'date-time', '2022-05-04T14:00:00']
+	    // // // 10: (4) ['due', {…}, 'date-time', '2024-05-04T14:00:00']
+	    // // 2: Array(0) []
+	    // 1: Array(3)
+	    // // 0: "vtodo"
+	    // // 1: Array(11)
+	    // // // 0: (4) ['uid', {…}, 'text', 'bfe1aaf4-9b5b-4bbc-a31a-843ebb50e465']
+	    // // // 1: (4) ['created', {…}, 'date-time', '2023-05-04T13:04:14']
+	    // // // 2: (4) ['last-modified', {…}, 'date-time', '2023-05-04T13:05:05']
+	    // // // 3: (4) ['dtstamp', {…}, 'date-time', '2023-05-04T13:05:05']
+	    // // // 4: (4) ['summary', {…}, 'text', 'Tasca 1.1']
+	    // // // 5: (4) ['related-to', {…}, 'text', '1ae4b616-42de-44e0-a643-26b447a0db00']
+	    // // // 6: (4) ['status', {…}, 'text', 'NEEDS-ACTION']
+	    // // // 7: (4) ['categories', {…}, 'text', 'bug']
+	    // // // 8: (4) ['priority', {…}, 'integer', 6]
+	    // // // 9: (4) ['dtstart', {…}, 'date-time', '2023-05-04T14:00:00']
+	    // // // 10: (4) ['due', {…}, 'date-time', '2023-07-04T15:00:00']            
 	  };
 	})(jQuery);
 
