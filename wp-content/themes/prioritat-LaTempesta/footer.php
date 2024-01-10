@@ -57,7 +57,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					</div>
 
 					<div class="col-sm my-3 my-sm-0 actions-wrapper d-flex flex-sm-column gap-2 justify-content-center align-items-center">
-						<a href="https://cloud.prioritat.local" class="btn btn-dark py-1 fw-bold small">
+						<a href="https://extranet-prioritat.tempesta.media/" class="btn btn-dark py-1 fw-bold small">
 							<span><?= __( 'Àrea soci', 'prioritat' ) ?></span>
 						</a>
 						<a href="<?= site_url( '/participa/fes-ten-soci' ) ?>" class="btn btn-outline-dark py-1 px-2 fw-bold small">
