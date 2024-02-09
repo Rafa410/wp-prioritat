@@ -11,6 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $container = get_theme_mod( 'understrap_container_type' );
+$mail_address = 'info@prioritat.org';
 ?>
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
@@ -31,7 +32,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 						
 						<?= get_custom_logo() ?>
 						
-						<a href="mailto:xarxa@prioritat.org" class="mailto text-dark link-primary text-decoration-none fw-dark my-2 py-2">xarxa@prioritat.org</a>
+						<a href="<?= esc_url('mailto:' . antispambot( $mail_address ) ) ?>" class="mailto text-dark link-primary text-decoration-none fw-dark my-2 py-2"><?= esc_html( antispambot( $mail_address ) ) ?></a>
 
 						<?php $social_networks = get_field( 'social_networks', 'option' ); ?>
 
